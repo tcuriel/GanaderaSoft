@@ -1,0 +1,137 @@
+@import "../variables";
+
+.b-lefttop-4 {
+    border-top: 4px solid $primaryblue-darck;
+    border-left: 4px solid $primaryblue-darck;
+}
+.ico {
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    line-height: 1;
+}
+.ico_farm {
+    background-image: url('../../../../public/images/inon_farm_w.svg');
+    &:hover {
+        background-image: url('../../../../public/images/inon_farm_w.svg');
+    }
+}
+.ico_idfarm {
+    background-image: url('../../../../public/images/icon_idfarm_w.svg');
+    &:hover {
+        background-image: url('../../../../public/images/icon_idfarm_w.svg');
+    }
+}
+.ico_herd {
+    background-image: url('../../../../public/images/icon_herd_w.svg');
+    &:hover {
+        background-image: url('../../../../public/images/icon_herd_w.svg');
+    }
+}
+.ico_cowlboy {
+    background-image: url('../../../../public/images/icon_cowlboy_w.svg');
+    &:hover {
+        background-image: url('../../../../public/images/icon_cowlboy_w.svg');
+    }
+}
+.ico_animal {
+    background-image: url('../../../../public/images/icon_animal_w.svg');
+    &:hover {
+        background-image: url('../../../../public/images/icon_animal_w.svg');
+    }
+}
+.primary-color-bg {
+    .list-group {
+        --bs-list-group-bg: transparent !important;
+        caret-color: transparent !important;
+        --bs-list-group-border-color: none !important;
+        border: none;
+
+        .list-group-item {
+            font-size: 24px;
+            color: #fff;
+            border: none;
+        }
+        .ico {
+            height: 25px;
+        }
+    }
+}
+.list-farm.list-group {
+    --bs-list-group-bg: transparent !important;
+    caret-color: transparent !important;
+    --bs-list-group-border-color: none !important;
+    border: none;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    max-height: 380px;
+    overflow-y: scroll;
+
+    .list-group-item {
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+
+
+        border-radius: 10px 0 0 0;
+
+        color: #FFF;
+        background-color: $primaryblue;
+
+        &.active, &:hover {
+            background-color: $primaryblue-darck;
+        }
+
+        h5 {
+            font-weight: 600;
+        }
+
+        img {
+            width: 98px;
+            height: 98px;
+        }
+    }
+}
+.form-app {
+    input[type="text"], input[type="email"], input[type="search"], select {
+        border: 1px solid #000;
+        color: #000 !important;
+        font-weight: 400;
+    }
+    input[type="text"], input[type="email"], input[type="search"] {
+        &::placeholder {
+            color: #000 !important;
+        }
+    }
+    .tg-input{
+        border: 1px solid #000;
+        color: #000 !important;
+    }
+}
+#viewfarm {
+    width: 230px;
+    height: 70px;
+    margin-right: 0;
+    margin-left: auto;
+    line-height: 35px;
+}
+#createfarm {
+    float: right;
+}
+#welcomefarms {
+    max-width: 1320px;
+    width: 100%;
+    margin: auto;
+    padding: 21px 40px 0 40px;
+    border-radius: 10px 10px 0 0;
+}

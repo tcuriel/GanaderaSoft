@@ -1,0 +1,77 @@
+@import "../variables";
+
+.content-wrapper {
+    max-height: calc(100vh - 57px) !important;
+    overflow: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.gren-text-color {
+    color: $green-text;
+}
+a.gren-text-color {
+    color: $green-text;
+    &:hover {
+        color: $green-text !important;
+    }
+    &:focus {
+        color: $green-text !important;
+    }
+    &:active {
+        color: $green-text !important;
+    }
+}
+.content-wrapper, .list-group, .list-group-item {
+    background-color: #FFF;
+    overflow-y: hidden;
+}
+.btn-primary.btn-primary-darck {
+    width: 222px;
+    padding: 15 !important;
+}
+
+.form-app {
+    label {
+        font-weight: 700;
+        line-height: 45px;
+    }
+    select {
+        color: $secundarygreen-darck !important;
+
+        border: 1px solid $secundarygreen-darck !important;
+        background-color: $secundarygreen !important;
+
+        font-weight: 600;
+    }
+    #selectView {
+        width: 192px !important;
+    }
+}
+.form-group-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    #selectStatus, #selectStatusRebanoFarm {
+        width: 200px !important;
+        border-radius: 8px 0 0 8px !important;
+        border-color: $secundarygreen !important;
+    }
+    #searchFarm {
+        border-radius: 0 !important;
+        border-color: $primaryblue-darck !important;
+        background-color: $background-grey !important;
+        font-weight: 600;
+    }
+    #selectInventario {
+        width: 205px !important;
+        border-radius: 8px 0 0 8px !important;
+        border-color: $secundarygreen !important;
+    }
+    .tg-input {
+        border-color: $primaryblue-darck !important;
+        background-color: $background-grey !important;
+    }
+}

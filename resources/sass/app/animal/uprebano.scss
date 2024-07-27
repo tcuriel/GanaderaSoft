@@ -1,0 +1,62 @@
+@import "../variables";
+
+.files input {
+    outline: 1px solid $primaryblue;
+    outline-offset: -15px;
+    -webkit-transition: outline-offset .15s ease-in-out,
+    background-color .15s linear;
+    transition: outline-offset .15s ease-in-out,
+    background-color .15s linear;
+    padding: 120px 0px 85px 35%;
+    text-align: center !important;
+    border: 1px solid $primaryblue;
+}
+.files input:focus{  
+    outline: 1px solid $primaryblue; 
+    outline-offset: -15px;
+    -webkit-transition: outline-offset .15s ease-in-out,
+    background-color .15s linear;
+    transition: outline-offset .15s ease-in-out,
+    background-color .15s linear;
+    border:1px solid $primaryblue;
+ }
+.files{
+    position:relative
+}
+.files:after {
+    pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    //background-image: url();
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.files:before {
+    position: absolute;
+    bottom: -5px;
+    left: 0; 
+    pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    content: " Arrastre y suelte el archivo aquí ";
+    display: block;
+    margin: 0 auto;
+    color: $primaryblue;
+    font-weight: 600;
+    text-align: center;
+}
+.g-15 {
+    gap: 15px !important;
+}
+#herd_file_form {
+    max-width: 1216px;
+    margin:  0 auto;
+}

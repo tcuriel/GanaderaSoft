@@ -1,0 +1,36 @@
+@import "variables.scss";
+// Formularios Styles
+@import "form.scss";
+// Botones Styles
+@import "button.scss";
+// Fuentes Styles
+@import "fonts.scss";
+// Sidebar
+@import "_sidebar.scss";
+
+.py-86 {
+    padding: 86px 0;
+}
+.min-vh-100 {
+    min-height: 100vh !important;
+}
+.primary-color-bg{
+    background-color: $primaryblue;
+    color: #FFF;
+}
+.bg-grey {
+    background-color: $background-grey;
+
+}
+
+.fa.fa-info-circle.fa-fw {
+    color: $primaryblue!important;
+    cursor: pointer;
+}
+
+// ------ sweetalert2 
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+    background-color: $primaryblue!important;
+    padding: 17px;
+}
+// ------ sweetalert2

@@ -1,0 +1,41 @@
+@import "../variables";
+@import '../../../css/dataTables/datatables.min.css';
+
+.form-app #herd {
+    width: 192px !important;
+} 
+
+#listAnimal {
+    /*display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;*/
+    gap: 30px;
+
+    /*height: calc(100vh - 320px);
+    max-height: calc(100vh - 320px);
+    overflow-y: auto;*/
+
+    .continer-item-list {
+        border-radius: 8px;
+        background-color: $background-grey-two;
+        width: 405px;
+        height: 131px;
+        padding-left: 17px;
+        padding-right: 27px;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        h4 {
+            font-size: 30px;
+            margin: 0;
+        }
+        p, h4 {
+            font-weight: 600;   
+        }
+    }
+    .iconanimalcow{
+        background-image: url('../../../../public/images/icon_animal_cow.svg');
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: 105px 71px;
+    }
+}

@@ -1,0 +1,172 @@
+@import "../variables";
+
+.title-selector-views {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+.continer-item-list {
+    border-radius: 8px;
+    background-color: $background-grey-two;
+    width: 100%;
+    max-width: 405px;
+    min-height: 131px;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+    .btn.btn-secundary.btn-secundary-darck{
+        line-height: 40px;
+        width: 140px;
+        padding: 0 !important;
+    }
+
+    .iconanimalcow{
+        background-image: url('../../../../public/images/icon_animal_cow.svg');
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: 105px 71px;
+
+        min-width: 161px;
+        height: 131px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h4 {
+            font-size: 30px;
+        }
+        p, h4 {
+            font-weight: 600;   
+        }
+    }
+
+    .iconpersonalfarm{
+        background-image: url('../../../../public/images/icon_persolan_farm.svg');
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: 105px 71px;
+
+        min-width: 161px;
+        height: 131px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h4 {
+            font-size: 30px;
+        }
+        p, h4 {
+            font-weight: 600;   
+        }
+    }
+
+    .iconafiliacionfarm{
+        background-image: url('../../../../public/images/icon-afiliacion.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 105px 71px;
+
+        min-width: 161px;
+        height: 131px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p {
+            font-weight: 600;
+            font-size: 19px; 
+        }
+    }
+    .idafiliacionfarm {
+        p {
+            font-weight: 600;   
+            font-size: 19px; 
+        }
+    }
+    .iconinventariofarm{
+        background-image: url('../../../../public/images/icon_frame.svg');
+        background-position: 220px 25px;
+        background-repeat: no-repeat;
+        background-size: 105px 71px;
+
+        min-width: 161px;
+        height: 131px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h4 {
+            font-size: 30px;
+        }
+        p, h4 {
+            font-weight: 600;   
+        }
+    }
+}
+.list-group-ulcontainer, .container-dashboard-farm {
+    max-height: calc(100vh - 320px);
+    overflow-y: auto;
+}
+.list-group-ulcontainer.afiliacion-list{
+    max-height: calc(100vh - 400px);
+    overflow-y: auto;
+}
+.listItem {
+    cursor: pointer;
+}
+.list-group  .inventario-item {
+    &:hover {
+        background-color: $primaryblue;
+    }
+    &:active {
+        background-color: $primaryblue;
+    }
+    &.active{
+        background-color: $primaryblue;
+        
+    }
+}
+.list-group-inventario {
+    font-weight: 600;
+    line-height: 31px;
+    background-color: transparent !important;
+    .list-group-item {
+        background-color: transparent !important;
+    }
+}
+#inventory-details {
+    max-width: 481px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*
+*
+*AGREGAR REBENO
+*
+*/
+#form_add_renbano_farm {
+    background-color: $background-darck !important;
+    .card-body {
+        height: 530px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    label, h2 {
+        color: #FFF;
+        font-weight: 600;
+    }
+    input {
+        color: initial;
+        &::placeholder {
+            color: initial !important;
+            opacity: 0.4;
+        }
+    }
+}

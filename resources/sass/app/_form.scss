@@ -1,0 +1,174 @@
+.form-label {
+    color: $primaryblack;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400 !important;
+    line-height: 125%;
+    margin: 0 0 6px 0;
+    span {
+        color: red;
+    }
+}
+.form-app {
+    input[type="text"], input[type="email"], input[type="search"], select {
+        border-radius: 10px !important;
+        border: 1px solid #CACCCE;
+        background-color: #FFF !important;
+        margin-bottom: 0;
+        min-height: 57px;
+
+        display: flex;
+        padding: 18px 16px;
+        align-items: center;
+        gap: 10px;
+
+        font-family: "Open Sans", sans-serif;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 125%; 
+    }
+    .input-group {
+        input[type="text"], input[type="email"], input[type="search"] {
+            border-radius: 10px 0 0 10px !important;
+        }
+        .input-group-append > .input-group-text {
+            border-radius: 0 10px 10px 0 !important;
+        }
+    }
+    input[type="text"], input[type="email"], input[type="search"] {
+        &::placeholder {
+            color: $primaryblack !important;
+            opacity: 0.4;
+        }
+    }
+    select {
+        color: $primaryblue !important;
+        font-weight: 400;
+    }
+    .tg-input{
+        border: 1px solid #CACCCE;
+        border-left: 0px !important;
+        border-radius: 0px 10px 10px 0px;
+        padding-right: 16px;
+        background-color: #FFF;
+        color: $primaryblue;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .input-group {
+        input[type="text"], input[type="email"], input[type="search"] {
+            border-right: 0px;
+        }
+    }
+    .p-col-form {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+    /* Extra small devices (portrait phones, less than 576px) */
+    /*@media (max-width: 575.98px) {}*-/
+
+    /* Small devices (landscape phones, 576px and up) */
+    /*@media (min-width: 576px) {}*-/
+
+    /* Medium devices (tablets, 768px and up) */
+    /*@media (min-width: 768px) {}*-/
+
+    /* Large devices (desktops, 992px and up) */
+    @media (min-width: 992px) {
+        .p-col-form {
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+    }
+
+    /* Extra large devices (large desktops, 1200px and up) */
+    @media (min-width: 1200px) {
+        .p-col-form {
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+    }
+}
+.form-dashboard {
+    max-width: 1079px;
+    margin-left: auto;
+    margin-right: auto;
+
+    input[type="text"], input[type="email"], input[type="search"], select {
+        max-width: 280px;
+        width: 100% !important;
+        border-radius: 10px !important;
+        border: 1px solid $primaryblue;
+        background-color: #FFF !important;
+        margin-bottom: 0;
+        min-height: 57px;
+
+        display: flex;
+        padding: 18px 16px;
+        align-items: center;
+        gap: 10px;
+
+        font-family: "Open Sans", sans-serif;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 125%; 
+    }
+    .input-group {
+        input[type="text"], input[type="email"], input[type="search"] {
+            max-width: 225px;
+            border-radius: 10px 0 0 10px !important;
+            border-right: none;
+        }
+        .input-group-append > .input-group-text {
+            border-radius: 0 10px 10px 0 !important;
+        }
+    }
+    input {
+        &::placeholder {
+            color: $primaryblack !important;
+            opacity: 0.4;
+        }
+    }
+    select {
+        color: $primaryblue !important;
+        font-weight: 400;
+    }
+    .tg-input{
+        border: 1px solid $primaryblue;
+        border-left: 0px !important;
+        border-radius: 0px 10px 10px 0px;
+        padding-right: 16px;
+        background-color: #FFF;
+        color: $primaryblue;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 55px !important;
+    }
+
+    .p-col-form {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .form-container-inputs {
+        max-width: 280px;
+        width: 100% !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.card {
+        background-clip: border-box !important;
+        border: 1px solid $primaryblue !important;
+        border-radius: 10px !important;
+      }
+}

@@ -1,0 +1,57 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #666
+}
+
+body {
+    background-color: #E6F4E7; /* #C4E3EE; */
+    background-image: url('/images/fondo_GSx.svg'); /* Replace with actual path */
+    /*opacity: 0.5; /* Adjust opacity as needed */
+    background-size: cover; /* Or adjust as needed */
+    background-repeat: no-repeat;   /* Or adjust as needed */
+    background-position: center;    /* Or adjust as needed */
+    height: 100vh; /* Adjust height as needed */
+}
+
+aside {
+    background-color: #E6F4E7;
+}
+
+.sidebar{
+    background-color: #148FBE;
+}
+
+.tarjeta {
+    /*background-color: #E6F4E7;*/
+    /*border: 0px;*/
+    background-color: #C4D741; /* Slightly lighter shade */
+    opacity: 0.9; /* Adjust opacity as needed */
+}
+
+.bg-transparent{
+    background-color: transparent;
+    border: 0px;
+}
+
+.bg-aside{
+    background-color: #61b5d5; /* Slightly lighter shade */
+    opacity: 0.9; /* Adjust opacity as needed */
+}
+.brand-image {
+    background-color: #fff;
+    /*opacity: 0.5; /* Adjust opacity as needed */
+}
+.brand-link {
+    /*background-color: #fff;*/
+    color: #000;
+    text-decoration: none;
+    opacity: 0.7; /* Adjust opacity as needed */
+}
+.brand-text {
+    background-color: #fff;
+    /*opacity: 0.5; /* Adjust opacity as needed */
+    color: #000;
+}

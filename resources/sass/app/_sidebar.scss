@@ -1,0 +1,148 @@
+.main-header .navbar {
+    background-color: $primaryblue;
+}
+.brand-link {
+    color: #FFF;
+    text-decoration: none;
+        
+    &:hover, &:not(.active) {
+        color: #FFF;
+    }
+}
+.sidebar-blue-primary {
+    background-color: $primaryblue;
+
+    .nav-header  {
+        color: #FFF;
+    }
+    .nav-link {
+        .ico {
+            display: inline-block;
+            width: 50px;
+            height: 40px;
+            
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .ico_farm {
+            background-image: url('../../../public/images/inon_farm_w.svg');
+            &:hover {
+                background-image: url('../../../public/images/inon_farm_b.svg');
+            }
+        }
+        .ico_cow {
+            background-image: url('../../../public/images/icon_cow_w.svg');
+            &:hover {
+                background-image: url('../../../public/images/icon_cow_b.svg');
+            }
+        }
+        .ico_production {
+            background-image: url('../../../public/images/icon_reproduction_w.svg');
+            &:hover {
+                background-image: url('../../../public/images/icon_reproduction_b.svg');
+            }
+        }
+        .ico_health {
+            background-image: url('../../../public/images/icon_health_w.svg');
+            &:hover {
+                background-image: url('../../../public/images/icon_health_b.svg');
+            }
+        }
+        .ico_notes {
+            background-image: url('../../../public/images/icon_notes_w.svg');
+            &:hover {
+                background-image: url('../../../public/images/icon_notes_b.svg');
+            }
+        }
+        &:hover {
+
+            .ico_farm {
+                background-image: url('../../../public/images/inon_farm_b.svg');
+            }
+            .ico_cow {
+                background-image: url('../../../public/images/icon_cow_b.svg');
+            }
+            .ico_production {
+                background-image: url('../../../public/images/icon_reproduction_b.svg');
+            }
+            .ico_health {
+                background-image: url('../../../public/images/icon_health_b.svg');
+            }
+            .ico_notes {
+                background-image: url('../../../public/images/icon_notes_b.svg');
+            }
+        }
+    }
+    .nav-pills .nav-link {
+        
+        color: #FFF;
+        height: 105px;
+        font-size: 24px;
+        font-weight: bold;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        padding-left: 6px;
+
+        &:hover {
+
+            background-color: #FFF;
+            color: $primaryblue;
+
+        }
+        &:active {
+
+            background-color: #FFF;
+            color: $primaryblue;
+
+        }
+    }
+}
+
+/**NAV**/
+.navbar-blue {
+    background-color: $primaryblue;
+    color: #FFF;
+
+    .nav-link {
+        
+        color: #FFF;
+
+        &:hover {
+
+            background-color: #FFF;
+            color: $primaryblue;
+
+        }
+        &:active {
+
+            background-color: #FFF;
+            color: $primaryblue;
+
+        }
+        
+    }
+}
+.nav-pills .nav-link.active {
+    background-color: #FFF;
+    color: $primaryblue;
+    .ico_farm {
+        background-image: url('../../../public/images/inon_farm_b.svg');
+    }
+    .ico_cow {
+        background-image: url('../../../public/images/icon_cow_b.svg');
+    }
+    .ico_production {
+        background-image: url('../../../public/images/icon_reproduction_b.svg');
+    }
+    .ico_health {
+        background-image: url('../../../public/images/icon_health_b.svg');
+    }
+    .ico_notes {
+        background-image: url('../../../public/images/icon_notes_b.svg');
+    }
+}

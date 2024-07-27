@@ -1,0 +1,5 @@
+<?php
+
+return [
+    'animal' => 'Animal',
+];
