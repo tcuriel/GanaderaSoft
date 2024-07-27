@@ -32,13 +32,13 @@
             </div>
             <div class="col-12 col-md-6">
             @if($selectView == "rebano")
-                <a href="{{url('dashboard/finca/rebano/agregar/'.$data->id_Finca)}}" id="addRebano" class="btn btn-primary btn-primary-darck float-right">Agregar Rebaño <i class="fas fa-fw fa-plus"></i> </a>
+                <a href="{{url('dashboard/finca/rebano/agregar/'.$data[0]->id_Finca)}}" id="addRebano" class="btn btn-primary btn-primary-darck float-right">Agregar Rebaño <i class="fas fa-fw fa-plus"></i> </a>
             @elseif($selectView == 'personal')
-                <a href="{{url('dashboard/finca/personal/agregar/'.$data->id_Finca)}}" id="addPersonal" class="btn btn-primary btn-primary-darck float-right">Agregar Personal <i class="fas fa-fw fa-plus"></i> </a>
+                <a href="{{url('dashboard/finca/personal/agregar/'.$data[0]->id_Finca)}}" id="addPersonal" class="btn btn-primary btn-primary-darck float-right">Agregar Personal <i class="fas fa-fw fa-plus"></i> </a>
             @elseif($selectView == 'afiliacion')
-                <a href="{{url('dashboard/finca/afiliacion/'.$data->id_Finca)}}" id="addAfiliacion" class="btn btn-primary btn-primary-darck float-right">Añadir Afiliacion <i class="fas fa-fw fa-plus"></i> </a>
+                <a href="{{url('dashboard/finca/afiliacion/'.$data[0]->id_Finca)}}" id="addAfiliacion" class="btn btn-primary btn-primary-darck float-right">Añadir Afiliacion <i class="fas fa-fw fa-plus"></i> </a>
             @elseif($selectView == 'inventario')
-                <a href="{{url('dashboard/finca/inventario/agregar/'.$data->id_Finca)}}" id="addInventario" class="btn btn-primary btn-primary-darck float-right">Añadir Inventario <i class="fas fa-fw fa-plus"></i> </a>
+                <a href="{{url('dashboard/finca/inventario/agregar/'.$data[0]->id_Finca)}}" id="addInventario" class="btn btn-primary btn-primary-darck float-right">Añadir Inventario <i class="fas fa-fw fa-plus"></i> </a>
             @elseif($selectView == 'finca')
                 <!--a href="{{url('dashboard/finca/rebano/'.$data->id_Finca)}}" id="fincaUp" class="btn btn-primary btn-primary-darck float-right"> </!--a-->
                 <div class="btn-toolbar justify-content-end" role="toolbar" aria-label="Toolbar with button groups">
