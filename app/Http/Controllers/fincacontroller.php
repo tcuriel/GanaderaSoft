@@ -319,7 +319,7 @@ class fincacontroller extends Controller
     {
       try{
         //tipo de listado es 0 para fincas activas y 1 para archivadas
-            $fincas = DB::table('Finca')->where('id_Propietario', $id_P)
+            $fincas = DB::table('finca')->where('id_Propietario', $id_P)
                                         ->where('Archivado', $tipoListado)->get();
         
         if($fincas->isEmpty()){

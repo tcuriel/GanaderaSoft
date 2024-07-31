@@ -15,6 +15,12 @@
             justify-content: center;
         }
 
+        .img-logos-instituciones {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
         .splash-screen {
             text-align: center;
         }
@@ -63,6 +69,11 @@
 @endsection
 
 @section('body')
+
+    <img src="{{ asset('images/logos_instituciones-removebg-preview.png') }}" 
+         alt="Logos instituciones"
+         class="img-logos-instituciones">
+
     <!--div id="splash-screen">
         <div class="splash-container">
             <img src="{{ asset('images/VACA-1_1.png') }}" alt="{{ config('app.name') }} Logo">
@@ -77,7 +88,9 @@
 
     <footer>
         <div class="footer-container">
-            <p>&copy; Copyright GanaderaSoft 2024</p>
+            <img src="{{ asset('images/CC BY-NC.png') }}" 
+                 alt="Logos instituciones"
+                 class="">
         </div>
     </footer>
 

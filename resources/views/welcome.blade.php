@@ -15,9 +15,32 @@
     
     <!-- App style -->
     <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
+
+    <style>
+        .img-logos-instituciones {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 465px;
+            height: 90px;
+        }
+        
+        .modal-body img {
+            display: block;
+            margin: 0 auto;
+        }
+        .modal-dialog {
+            max-width: 80%;
+        }
+
+    </style>
 @stop
 
 @section('body')
+
+    <img src="{{ asset('images/logos_instituciones-removebg-preview.png') }}" 
+         alt="Logos instituciones"
+         class="img-logos-instituciones">
 
     <a class="btn btn-default btn-flat btn-block"
         href="#" onclick="event.preventDefault(); 
@@ -75,9 +98,19 @@
                     </div>
                 </div>
                 <div class="frontpage-wellcome"></div>
+                <img src="{{ asset('images/CC BY-NC.png') }}" 
+                 alt="Creative Commons license: CC BY-NC"
+                 class=""
+                 style="float: left;">
             </div>
         </div>
     </div>
+
+    <!--footer>
+        <div class="footer-container"-->
+
+        <!--/div>
+    </footer-->
 
     <audio id="music">
         <source src="{{ asset('assets/sounds/COW2.mp3') }}" type="audio/mpeg">
@@ -95,7 +128,12 @@
             </div>
             <div class="modal-body text-center">
             
-                <h2>Sistema Web para la Gestión de los Datos Productivos en la Ganadería Vacuna GanaderaSoft</h2>
+                <img src="{{ asset('images/acerca_de.png') }}" 
+                    alt="Creative Commons license: CC BY-NC"
+                    class="img-fluid"
+                    style="float: left;">
+
+                <!--h2>Sistema Web para la Gestión de los Datos Productivos en la Ganadería Vacuna GanaderaSoft</h2>
  
  
                 <h3>Proyecto financiado por el FONACIT</h3>
@@ -109,7 +147,9 @@
                 <h3>Universidad Central de Venezuela</h3>
                 <h3>Facultad de Ciencias</h3>
                 <h3>Coordinación de Extensión</h3>
-            </div>
+
+
+            </div-->
             <div class="modal-footer">
                 <!--button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button-->
                 <!--button type="button" class="btn btn-primary">Understood</button-->
