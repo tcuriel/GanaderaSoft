@@ -9,6 +9,12 @@
     @elseif($section == "animal")
         @vite(['resources/sass/app/animal/homeanimal.scss'])
     @endif
+    <!-- App style -->
+    <link rel="stylesheet" href="{{ asset('assets/fcm/learning-ui-kit.min.css') }}"
+          type="text/css"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('assets/fcm/src/styles.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/fcm/node_modules/frappe-charts/dist/frappe-charts.min.css') }}" />
 
     <style>
         *{
@@ -58,18 +64,18 @@
 
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="row mb-2" style="margin-top: 50px;">
                 <div class="col-sm-6">
-                    <h1 class="m-0 gren-text-color">Bienvenido a {{ 'Propietario1' }}</h1>
+                    <h1 class="m-0 gren-text-color">Bienvenido a (Finca) {{ '' }}</h1>
                 </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                    <li class="breadcrumb-item active">Propietario</li>
-                </ol>
-            </div>
+                <!--div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                        <li class="breadcrumb-item active">Propietario</li>
+                    </ol>
+                </div-->
         </div>
-  </div>
+    </div>
 @stop
 
 @section('content')
@@ -91,7 +97,11 @@
         <p>Reporte</p>
     @endif
 @stop
+
 @section('js')
+    <script src="{{ asset('assets/fcm/src/grid.js') }}"></script>
+    <script type="module" src="{{ asset('assets/fcm/src/index.js') }}"></script>
+    
     <script>
         let navItems = document.querySelectorAll('.nav-pills .nav-link');
         let sectionName = "{{$section}}";

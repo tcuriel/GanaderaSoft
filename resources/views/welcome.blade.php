@@ -8,6 +8,11 @@
 
 @section('adminlte_css')
     @vite(['resources/sass/app.scss', 'resources/sass/app/wellcome/styles.scss'])
+
+    <link href="{{ asset('assets/css/bootstrap.min53c.css') }}"  rel="stylesheet">
+
+    <script src="{{ asset('assets/js/bootstrap53.bundle.min.js') }}"></script>
+    
     <!-- App style -->
     <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
 @stop
@@ -51,14 +56,22 @@
                         <a href="{{ route('login') }}" type="button" class="btn btn-clear2 btn-230">Inicio de Sesión</a>
                     </div-->
                     <div class=" col-md-4 d-flex justify-content-center">
-                        <a href="{{ route('login') }}" onclick="play()" type="button" class="btn btn-clear2 btn-230" style="border: 2px solid #148FBE">Inicio de Sesión</a>
+                        <a href="{{ route('login') }}" onclick="play()" type="button" class="btn btn-clear2 btn-230 btn-lg" style="border: 2px solid #148FBE;font-weight: bold;">Inicio de Sesión</a>
                     </div>
                     <!--div class=" col-md-4  d-flex justify-content-center">
                         <a href="{{ route('login') }}" type="button" class="btn btn-secundary2cls
                          btn-230">Acerca de</a>
                     </div-->
                     <div class=" col-md-4  d-flex justify-content-center">
-                        <a href="{{ route('login') }}" type="button" class="btn btn-secundary2 btn-230">Acerca de</a>
+                        <!--a href="{{ route('login') }}" type="button" class="btn btn-secundary2 btn-230">Acerca de</a-->
+                        <!-- Button trigger modal btn btn-primary -->
+                        <button type="button" 
+                                class="btn btn-secundary2 btn-230 btn-lg" 
+                                style="background-color: #C0D43B;font-weight: bold;"
+                                data-bs-toggle="modal" 
+                                data-bs-target="#staticBackdrop">
+                            Acerca de
+                        </button>                    
                     </div>
                 </div>
                 <div class="frontpage-wellcome"></div>
@@ -71,6 +84,39 @@
         Your browser does not support the audio element.
         Su navegador no soporta el elemento de audio.
     </audio>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Acerca de</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+            
+                <h2>Sistema Web para la Gestión de los Datos Productivos en la Ganadería Vacuna GanaderaSoft</h2>
+ 
+ 
+                <h3>Proyecto financiado por el FONACIT</h3>
+                
+                
+                
+                
+                <h3>Profa. Yosly Hernández Bieluikas</h3>
+                <h3>Coordinadora del Proyecto</h3>
+                
+                <h3>Universidad Central de Venezuela</h3>
+                <h3>Facultad de Ciencias</h3>
+                <h3>Coordinación de Extensión</h3>
+            </div>
+            <div class="modal-footer">
+                <!--button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button-->
+                <!--button type="button" class="btn btn-primary">Understood</button-->
+            </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         var myMusic= document.getElementById("music");

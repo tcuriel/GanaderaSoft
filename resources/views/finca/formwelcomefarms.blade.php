@@ -1,7 +1,8 @@
 <form class="form-app my-2 bg-grey" id="welcomefarms" action="{{config('app.action-get-urls.find_farm')}}" method="get">
     {{ csrf_field() }}
     <!-- Auth::user() -->
-    <div class="container">
+    <div class="container" style="background-color: ;">
+
         <div class="row">
             <div class="col-lg-6 col-md-12 order-lg-1 order-md-2 order-2 pb-3">
                 <div class="input-group">
@@ -16,8 +17,27 @@
                         id="-button"><i class="fas fa-fw fa-search"></i></button>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12 order-lg-2 order-md-1 order-1 pb-3"> <!-- "{{ route('createmyfarmI') }}" {{ route('users.option.list', ['opcion' => 'mixto', 'archivado' => 0]) }}-->
-                <a href="{{ route('createmyfarmI') }}" type="button" id="createfarm" name="createfarm" class="btn btn-secundary btn-secundary-darck"><i class="fas fa-fw fa-plus"></i> Crear Finca</a>
+            <div class="col-lg-6 col-md-12 order-lg-2 order-md-1 order-1 pb-3"> 
+                <!-- "{{ route('createmyfarmI') }}" {{ route('users.option.list', ['opcion' => 'mixto', 'archivado' => 0]) }}-->
+   
+                <a href="{{ route('createmyfarmI') }}" 
+                    type="button" 
+                    id="createfarm" 
+                    name="createfarm" 
+                    class="btn btn-secundary btn-secundary-darck">
+                        <i class="fas fa-fw fa-plus"></i> 
+                        Subir Fincas
+                </a>
+                    
+                <a href="{{ route('createmyfarmI') }}" 
+                    type="button" 
+                    id="createfarm" 
+                    name="createfarm" 
+                    class="btn btn-secundary btn-secundary-darck mx-2">
+                        <i class="fas fa-fw fa-plus"></i> 
+                        Crear Finca
+                </a>
+
             </div>
         </div>
 
@@ -61,7 +81,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-6 col-md-12 order-lg-4 order-md-3 order-3 primary-color-bg b-lefttop-4">
+            <div class="col-lg-6 col-md-12 order-lg-4 order-md-3 order-3 primary-color-bg b-lefttop-4 mb-4">
                 <div class="d-flex flex-column justify-content-center h-100 py-3">
                     <h2 class="pt-3 pb-3 text-center" id="farmName"><i class="ico ico_farm mr-1"></i> {{ $farms[0]->Nombre }} </h2>
                     <ul class="list-group list-group-flush">
@@ -70,7 +90,12 @@
                         <li class="list-group-item"><i class="ico ico_animal"></i> de Animales: 0</li>
                         <li class="list-group-item"><i class="ico ico_cowlboy"></i> de Transcriptores: 0</li>
                     </ul>
-                    <a href="dashboard/finca/rebano/{{ $farms[0]->id_Finca }}" id="viewfarm" name="viewfarm" class="btn btn-primary btn-primary-darck mt-3">Ver Mi Finca</a>
+                    <a href="dashboard/finca/rebano/{{ $farms[0]->id_Finca }}" 
+                       id="viewfarm" 
+                       name="viewfarm" 
+                       class="btn btn-primary btn-primary-darck mt-3">
+                        Ver Mi Finca
+                    </a>
                 </div>
             </div>
         </div>

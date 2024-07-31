@@ -6,6 +6,8 @@
 
         <form action="" class="form-app">
             <div class="form-group-flex">
+                
+                <div style="border: 1px solid black;border-radius: 10px;width: 100px;margin-right: 2px">
                 <select class="form-select w-100"
                     id="selectStatusRebanoFarm"
                     name="selectStatusRebanoFarm"
@@ -15,6 +17,7 @@
                     <option value="{{$statusRebanoFarm}}">{{$statusRebanoFarm}}</option>
                     @endforeach
                 </select>
+                </div>
                 <div class="input-group">
                     <input type="search"
                         class="form-control bg-white"
@@ -33,7 +36,14 @@
     </div>
     <div class="col-12 col-md-8 col-lg-9 container-dashboard-farm">
         <div id="rebanoStatistics">
-            ESTADISTICAS REBANOS
+            <header class="learning-ui">
+                <h1 class="text-primary">ESTADISTICAS REBAÑOS</h1>
+                <p></p>
+            </header>
+            <section class="charts">
+                <div id="totals"></div>
+                <div id="by-school"></div>
+            </section>
         </div>
         <div id="rebanoContenForm" style="display:none;">
             <form action="{{config('app.action-post-urls.rebano_farm').Auth::user()->id}}" id="form_rebano_farm" class="form-dashboard card border-0 shadow-none bg-transparent">
@@ -44,6 +54,7 @@
                             <h2 id="tName" class="title-blue text-bold"> </h2>
                         </div>
                         <div class="col-md-6 p-col-form">
+
                             <div class="form-container-inputs">
                                 <label type="text"
                                     for="name"
@@ -56,6 +67,7 @@
                                 <span id="name-error" class="invalid-feedback font-weight-bold" role="alert"></span>
                             </div>
                         </div>
+
                     </div>
                     <!--div class="row">
                         <div class="col-12">
@@ -94,12 +106,14 @@
         </div>
 
     </div>
+    
     <div class="col-12 col-md-4 col-lg-3 list-group-ulcontainer">
-        
+    <div class="card">    
         <ul id="listRebano" class="list-group list-group-flush">
 
         </ul>
 
+    </div>
     </div>
 </div>
 

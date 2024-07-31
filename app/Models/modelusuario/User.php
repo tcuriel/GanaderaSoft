@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -68,6 +69,28 @@ class User extends Authenticatable
         });
     }
 
+    public static function adminlte_image()
+    {
+        //echo "<pre>[";
+        //print_r(Auth::user()->image);
+        //echo "<pre>[";
+        //exit;
+
+        //return 'https://picsum.photos/300/300';
+        //return asset('storage/'.$this->profile_photo_path);
+
+        return asset('storage/images/'.Auth::user()->image);
+    }
+
+    public function adminlte_desc()
+    {
+        return 'I\'m a nice guy';
+    }
+
+    public function adminlte_profile_url()
+    {
+        return 'profile/username';
+    }
 
     /**
      * The attributes that should be hidden for serialization.

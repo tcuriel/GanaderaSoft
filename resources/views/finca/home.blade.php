@@ -1,15 +1,20 @@
 <div class="row">
     <div class="col-12">
-        <a href="{{ route('home') }}" class="gren-text-color font-weight-bold float-right my-3 d-block"> Listado de fincas</a>
+        <a href="{{ route('home') }}" 
+           class="gren-text-color font-weight-bold float-right my-3 d-block" 
+           style="text-decoration: none;margin-right: 20px;font-size: 1.5em;"> 
+            <--- Listado de fincas
+        </a>
     </div>
     <div class="col-12">
         <div class="row g-3">
             <div class="col-12 col-md-6">
+                
                 <div class="row g-3 align-items-center">
                     <form action="" class="form-app">
                         @csrf
                         <div class="form-group row">
-                            <label for="selectView" class="col-sm-3 col-form-label gren-text-color title-selector-views">¿Qué deseas ver?</label>
+                            <label for="selectView" class="col-sm-4 col-form-label gren-text-color title-selector-views">¿Qué deseas ver?</label>
                             <div class="col-sm-auto">
                                 <select class="form-select"
                                     id="selectView"

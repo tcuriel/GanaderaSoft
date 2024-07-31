@@ -1,0 +1,2515 @@
+{
+  "columnDefs": [
+    {
+      "headerCheckboxSelection": true,
+      "headerCheckboxSelectionFilteredOnly": true,
+      "checkboxSelection": true,
+      "filter": false,
+      "sortable": false,
+      "resizable": false,
+      "width": 52,
+      "lockPosition": true
+    },
+    {
+      "headerName": "School Name",
+      "field": "SchoolName",
+      "flex": 2
+    },
+    {
+      "headerName": "UserId",
+      "field": "UserId",
+      "flex": 2
+    },
+    {
+      "headerName": "UserName",
+      "field": "UserName",
+      "flex": 2
+    },
+    {
+      "headerName": "LastFirstName",
+      "field": "LastFirstName",
+      "flex": 2
+    },
+    {
+      "headerName": "Grade",
+      "field": "Grade",
+      "flex": 1,
+      "filter": "agNumberColumnFilter"
+    },
+    {
+      "headerName": "IsCompliant?",
+      "field": "IsCompliant",
+      "flex": 1,
+      "cellClassRules": {
+        "cell-no-usage": "x == 'no'"
+      }
+    }
+  ],
+  "rowData": [
+    {
+      "SchoolName": "_Cloud",
+      "SchoolId": "ef838037-bd06-4798-994a-ce2444a859ac",
+      "Grade": 0,
+      "UserId": "someempty",
+      "UserName": "some",
+      "LastFirstName": "Empty, Some",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "_Cloud",
+      "SchoolId": "ef838037-bd06-4798-994a-ce2444a859ac",
+      "Grade": 0,
+      "UserId": "41f8749ae855d569683c282c0b368b427d99",
+      "UserName": "david",
+      "LastFirstName": "Hogue, David",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "_Cloud",
+      "SchoolId": "ef838037-bd06-4798-994a-ce2444a859ac",
+      "Grade": 0,
+      "UserId": "alainahstudent",
+      "UserName": "alainah",
+      "LastFirstName": "Student, AlainaH",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "_Cloud",
+      "SchoolId": "ef838037-bd06-4798-994a-ce2444a859ac",
+      "Grade": 0,
+      "UserId": "f29898b05fd5770867bf5aa2dafab3f7cecb",
+      "UserName": "bethb",
+      "LastFirstName": "Student, BethB",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "_Cloud",
+      "SchoolId": "ef838037-bd06-4798-994a-ce2444a859ac",
+      "Grade": 0,
+      "UserId": "jordanhstudent",
+      "UserName": "jordanh",
+      "LastFirstName": "Student, JordanH",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "_Cloud",
+      "SchoolId": "ef838037-bd06-4798-994a-ce2444a859ac",
+      "Grade": 0,
+      "UserId": "katietstudent",
+      "UserName": "katiet",
+      "LastFirstName": "Student, KatieT",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "_Cloud",
+      "SchoolId": "ef838037-bd06-4798-994a-ce2444a859ac",
+      "Grade": 0,
+      "UserId": "454bdfae-7ede-4b89-85fe-0949a15da166",
+      "UserName": "kristin",
+      "LastFirstName": "Test, Kristin",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 4,
+      "UserId": "2390234",
+      "UserName": "35student",
+      "LastFirstName": "35student, 35student",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 7,
+      "UserId": "234872",
+      "UserName": "6tstudent",
+      "LastFirstName": "6tstudent, 6tstudent",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "2094823094",
+      "UserName": "beaver",
+      "LastFirstName": "achiever, beaver",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "932492304",
+      "UserName": "neveragain",
+      "LastFirstName": "again, once",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "68168181",
+      "UserName": "doink",
+      "LastFirstName": "Ahanahue, Doink",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "951951951",
+      "UserName": "kblak",
+      "LastFirstName": "AK, Kristin",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "951951",
+      "UserName": "kblak2",
+      "LastFirstName": "AK2, Kristin",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "645656",
+      "UserName": "prince",
+      "LastFirstName": "Amukamara, Prince",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "hamantha",
+      "UserName": "hamantha",
+      "LastFirstName": "Antha, Ham",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "320498",
+      "UserName": "kbass",
+      "LastFirstName": "assessment, kb",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "753656575",
+      "UserName": "xwing",
+      "LastFirstName": "At Aliciousness, X-Wing",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "0024654654",
+      "UserName": "tjajrj",
+      "LastFirstName": "Backslashinfourth V, T.J. A.J. R.J.",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "923847",
+      "UserName": "freshie",
+      "LastFirstName": "badger, freshie",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "283048923",
+      "UserName": "beaverachiever",
+      "LastFirstName": "beaverachiever, beaverachiever",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6516985650",
+      "UserName": "disiah",
+      "LastFirstName": "Billings-Clyde, D'Isiah T",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "8798465",
+      "UserName": "quiznatodd",
+      "LastFirstName": "Bizness, Quiznatodd",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "1888881",
+      "UserName": "blyrone",
+      "LastFirstName": "Blashington, Blyrone",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "81561565",
+      "UserName": "quackadilly",
+      "LastFirstName": "Blip, Quackadilly",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 6,
+      "UserId": "84848484",
+      "UserName": "binkbonk",
+      "LastFirstName": "Bonk, Bink",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "741741741",
+      "UserName": "goolius",
+      "LastFirstName": "Boozler, Goolius",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "684864",
+      "UserName": "busters",
+      "LastFirstName": "Brownce, Busters",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "61868681618",
+      "UserName": "eqqs",
+      "LastFirstName": "Buble-Schwinslow, Eqqsnuizitine",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "7979797977975",
+      "UserName": "ozmataz",
+      "LastFirstName": "Buckshank, Ozmataz",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "08909898324980234",
+      "UserName": "bumhunger",
+      "LastFirstName": "bumhunger, humble",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 4,
+      "UserId": "2342342234",
+      "UserName": "glumpy",
+      "LastFirstName": "bumps, glumpy",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 6,
+      "UserId": "warmcarl",
+      "UserName": "warm",
+      "LastFirstName": "Carlton, Warm",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6855151",
+      "UserName": "tank",
+      "LastFirstName": "Carradine, Cornelius Tank",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "7832100220",
+      "UserName": "tgif",
+      "LastFirstName": "Carter, Shakiraquan T.G.I.F.",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "234872347",
+      "UserName": "sophie",
+      "LastFirstName": "castro-davis, sophie",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "16861651",
+      "UserName": "king",
+      "LastFirstName": "Chambermaid, King Prince",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "09832423",
+      "UserName": "kchrome",
+      "LastFirstName": "chrome, kindergarten",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "34848232929",
+      "UserName": "kchromeipad",
+      "LastFirstName": "chromeipad, kindergarten",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "934858",
+      "UserName": "pep5",
+      "LastFirstName": "cinco, pep5",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "9087243243",
+      "UserName": "badge",
+      "LastFirstName": "class, badge",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "68513512",
+      "UserName": "haha",
+      "LastFirstName": "Clinton-Dix, Ha Ha",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "30498234098",
+      "UserName": "clr46",
+      "LastFirstName": "clr46, clr46",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "618168681",
+      "UserName": "morse",
+      "LastFirstName": "Code, Morse",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "45903850348",
+      "UserName": "codemonkeyjr",
+      "LastFirstName": "codemonkeyjr, codemonkeyjr",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "023984",
+      "UserName": "multiple",
+      "LastFirstName": "completions, multiple",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "pepcorn",
+      "UserName": "pepcorn",
+      "LastFirstName": "Corn, Pep",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "2384029384",
+      "UserName": "pepcorn1",
+      "LastFirstName": "corn, pep1",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "20348",
+      "UserName": "pepcorn2",
+      "LastFirstName": "Corn, Pep2",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "156165561",
+      "UserName": "elipses",
+      "LastFirstName": "Corter, Elipses",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "032018",
+      "UserName": "jcricket",
+      "LastFirstName": "Cricket, Jiminy",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "68435132",
+      "UserName": "benedict",
+      "LastFirstName": "Cumberbatch, Benedict",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "86778687",
+      "UserName": "turdine",
+      "LastFirstName": "Cupcake, Turdine",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "688686",
+      "UserName": "logjammer",
+      "LastFirstName": "D'Baggagecling, Logjammer",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "618681681",
+      "UserName": "Ladada",
+      "LastFirstName": "Dala-Dadaladaladalada, Ladadadaladadadadada",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6845135",
+      "UserName": "creme",
+      "LastFirstName": "De La Creme, Creme",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "9393393939382728",
+      "UserName": "wangus",
+      "LastFirstName": "DicMonald, Wangus",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "456686",
+      "UserName": "nyquillus",
+      "LastFirstName": "Dillwad, Nyquillus",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6987468",
+      "UserName": "wingdings",
+      "LastFirstName": "Dings, Wing",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "5646848",
+      "UserName": "faux",
+      "LastFirstName": "Doadles, Faux",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "8777897987",
+      "UserName": "lcarpetron",
+      "LastFirstName": "Dookmarriot, L'Carpetron",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "415625",
+      "UserName": "leger",
+      "LastFirstName": "Douzable, Leger",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "315351351",
+      "UserName": "equine",
+      "LastFirstName": "Ducklings, Equine",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6516565",
+      "UserName": "legume",
+      "LastFirstName": "Duprix, Legume",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "230498",
+      "UserName": "akedge",
+      "LastFirstName": "edge, akedge",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "349802398",
+      "UserName": "kedge",
+      "LastFirstName": "edge, kindergarten",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "88794651",
+      "UserName": "eeee",
+      "LastFirstName": "Eeeeeeee, Eeeee",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "68516816",
+      "UserName": "squeeps",
+      "LastFirstName": "Eeeeeps, Squeeee",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "234987234879",
+      "UserName": "iso801",
+      "LastFirstName": "eightohone, iso",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "65651165",
+      "UserName": "student11",
+      "LastFirstName": "eleven, student",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "3458905908",
+      "UserName": "allempty",
+      "LastFirstName": "Empty, All",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "098039485",
+      "UserName": "oneempty",
+      "LastFirstName": "Empty, One",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "87039485034985",
+      "UserName": "someempty",
+      "LastFirstName": "Empty, Some",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "65816351",
+      "UserName": "dbrickashaw",
+      "LastFirstName": "Ferguson, D'Brickashaw",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "982739847928734",
+      "UserName": "kbl5",
+      "LastFirstName": "Fifth, Kristin",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6888866",
+      "UserName": "splendiferous",
+      "LastFirstName": "Finch, Splendiferous",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "30303030308474",
+      "UserName": "akfirefox",
+      "LastFirstName": "firefox, akfirefox",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "23409832",
+      "UserName": "kfirefox",
+      "LastFirstName": "firefox, kindergarten",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "7887984513",
+      "UserName": "xmus",
+      "LastFirstName": "Flaxon-Waxon, Xmus Jaxon",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6541231",
+      "UserName": "strunk",
+      "LastFirstName": "Flugget, Strunk",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 4,
+      "UserId": "f823498273984",
+      "UserName": "kbl4",
+      "LastFirstName": "Fourth, Kristin",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "4372",
+      "UserName": "pp4372",
+      "LastFirstName": "fourthreeseventwo, pp",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "516318681",
+      "UserName": "bismo",
+      "LastFirstName": "Funyuns, Bismo",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "3155353",
+      "UserName": "quisperny",
+      "LastFirstName": "G'Dunzoid Sr., Quisperny",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "2423423049890",
+      "UserName": "kinder",
+      "LastFirstName": "gartener, kinder",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 3,
+      "UserId": "482390827958",
+      "UserName": "3rdgrader",
+      "LastFirstName": "grader, 3rd",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 8,
+      "UserId": "324098230",
+      "UserName": "eighthgrader",
+      "LastFirstName": "grader, eighth",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 11,
+      "UserId": "230948203989238111",
+      "UserName": "eleventhgrader",
+      "LastFirstName": "grader, eleventh",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "482034820398",
+      "UserName": "fifth",
+      "LastFirstName": "grader, fifth",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 1,
+      "UserId": "48203948",
+      "UserName": "first",
+      "LastFirstName": "grader, first",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 4,
+      "UserId": "093482038432098",
+      "UserName": "fourth",
+      "LastFirstName": "grader, fourth",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 9,
+      "UserId": "23942309",
+      "UserName": "ninthgrader",
+      "LastFirstName": "grader, ninth",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 2,
+      "UserId": "349203493294",
+      "UserName": "second",
+      "LastFirstName": "grader, second",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 7,
+      "UserId": "430928340",
+      "UserName": "seventhgrader",
+      "LastFirstName": "grader, seventh",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 6,
+      "UserId": "2487929723874",
+      "UserName": "sixthgrader",
+      "LastFirstName": "grader, sixth",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 10,
+      "UserId": "9393993939320923",
+      "UserName": "tenthgrader",
+      "LastFirstName": "grader, tenth",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 3,
+      "UserId": "4029384203984",
+      "UserName": "third",
+      "LastFirstName": "grader, third",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 12,
+      "UserId": "13023954121212",
+      "UserName": "twelfthgrader",
+      "LastFirstName": "grader, twelfth",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "645165",
+      "UserName": "dsquarius",
+      "LastFirstName": "Green, D'Squarius",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "groot",
+      "UserName": "groot",
+      "LastFirstName": "Groot, Groot",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 7,
+      "UserId": "23423432423",
+      "UserName": "blumpy",
+      "LastFirstName": "grumps, blumpy",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "7832432132",
+      "UserName": "sequester",
+      "LastFirstName": "Grundelplith M.D., Sequester",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "581651515",
+      "UserName": "kblgp",
+      "LastFirstName": "GuidedPractice, Kristin",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "16586816",
+      "UserName": "huka",
+      "LastFirstName": "Hakanakaheekalucka'hukahakafaka, Huka'lakanaka",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "866464464",
+      "UserName": "dglester",
+      "LastFirstName": "Hardunkichud, D'Glester",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserName": "emptyid",
+      "LastFirstName": "ideeeeeee, empty",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "085023323",
+      "UserName": "forcedinquiry",
+      "LastFirstName": "inquiry, forced",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 6,
+      "UserId": "15165151",
+      "UserName": "kblinquiry",
+      "LastFirstName": "Inquiry, Kristin",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "inquiry1",
+      "UserName": "inquiry1",
+      "LastFirstName": "Inquiry, Platform",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "inquiry2",
+      "UserName": "inquiry2",
+      "LastFirstName": "Inquiry, StudentClient",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "234987",
+      "UserName": "akipadchrome",
+      "LastFirstName": "ipadchrome, akipadchrome",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "65456545",
+      "UserName": "fewitems",
+      "LastFirstName": "items, few",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "61656881",
+      "UserName": "ladennifer",
+      "LastFirstName": "Jadaniston, Ladennifer",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "8674515",
+      "UserName": "jammie",
+      "LastFirstName": "Jammie-Jammie, Jammie",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "123648654",
+      "UserName": "saggitariutt",
+      "LastFirstName": "Jefferspin, Saggitariutt",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "016510605",
+      "UserName": "leoz",
+      "LastFirstName": "Jilliumz, Leoz Maxwell",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "928374982734",
+      "UserName": "kbljournal",
+      "LastFirstName": "Journal, Kristin",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "544654846",
+      "UserName": "tjjuckson",
+      "LastFirstName": "Juckson, T.J.",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "32948",
+      "UserName": "cmjunior",
+      "LastFirstName": "junior, codemonkey",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "646644",
+      "UserName": "junior",
+      "LastFirstName": "Juniors Jr., J.R. Junior",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "09458",
+      "UserName": "k2student",
+      "LastFirstName": "k2student, k2student",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "3894203948",
+      "UserName": "hsak",
+      "LastFirstName": "keyboarding, highschool",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "8686886",
+      "UserName": "kitchen",
+      "LastFirstName": "Kitchen, Ishmaa'ily",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "44444666855",
+      "UserName": "swirvithan",
+      "LastFirstName": "L'Goodling-Splatt, Swirvithan",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "9875165",
+      "UserName": "dahistorius",
+      "LastFirstName": "Lamystorius, Dahistorius",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "84684651",
+      "UserName": "username",
+      "LastFirstName": "Lastname, Firstname",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "7989877982",
+      "UserName": "torque",
+      "LastFirstName": "Lewith, Torque",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6878777",
+      "UserName": "limit",
+      "LastFirstName": "Limit, Takittothu'",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "846521",
+      "UserName": "godlives",
+      "LastFirstName": "Lives, God",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "010518",
+      "UserName": "danny",
+      "LastFirstName": "M, Danny",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "78324645654",
+      "UserName": "velociraptor",
+      "LastFirstName": "Maloish, Scoish Velociraptor",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "8651335858151",
+      "UserName": "mango",
+      "LastFirstName": "Mango, Decatholac",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "beans",
+      "UserName": "beans",
+      "LastFirstName": "McBeanson, Beans",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6516515",
+      "UserName": "hingle",
+      "LastFirstName": "McCringleberry, Hingle",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 7,
+      "UserId": "2342342324",
+      "UserName": "sleve",
+      "LastFirstName": "McDichael, Sleve",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 6,
+      "UserId": "agnes",
+      "UserName": "agnes",
+      "LastFirstName": "McDonald, Angus",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 8,
+      "UserId": "aundra",
+      "UserName": "aundra",
+      "LastFirstName": "miller, aundra",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "61688668",
+      "UserName": "swordless",
+      "LastFirstName": "Mimetown, Swordless",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "8684542",
+      "UserName": "snarf",
+      "LastFirstName": "Mintz-Plasse, Snarf",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "78611010",
+      "UserName": "ibrahim",
+      "LastFirstName": "Moizoos, Ibrahim",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "987987987987",
+      "UserName": "jdinkalage",
+      "LastFirstName": "Morgoone, J'Dinkalage",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "7873321312",
+      "UserName": "mousecop",
+      "LastFirstName": "Mousecop, Theplayerformerlyknownas",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "98778978",
+      "UserName": "myth",
+      "LastFirstName": "Myth, Rerutweeds",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 2,
+      "UserId": "onthecipareport",
+      "UserName": "showmyname",
+      "LastFirstName": "NAME, showmy",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 6,
+      "UserId": "342382384",
+      "UserName": "seemenancy",
+      "LastFirstName": "nancy, seeme",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "9874512",
+      "UserName": "newchrome",
+      "LastFirstName": "newuser, chrome",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "56546564",
+      "UserName": "newchromebook",
+      "LastFirstName": "newuser, chromebook",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "123564",
+      "UserName": "newedge",
+      "LastFirstName": "newuser, edge",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6546544465",
+      "UserName": "newfirefox",
+      "LastFirstName": "newuser, firefox",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "987321",
+      "UserName": "newipad",
+      "LastFirstName": "newuser, ipad",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "987984",
+      "UserName": "fudge",
+      "LastFirstName": "Nothing, Fudge",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "87587633",
+      "UserName": "pepcorn4",
+      "LastFirstName": "NumeroQuatro, Pepcorn",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "987349823",
+      "UserName": "excusedonempty",
+      "LastFirstName": "onempty, excused",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "987342",
+      "UserName": "manualonempty",
+      "LastFirstName": "onempty, manual",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "9387492384",
+      "UserName": "excusedonscore",
+      "LastFirstName": "onscore, excused",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "9832743",
+      "UserName": "manualonscore",
+      "LastFirstName": "onscore, manual",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "188188188188",
+      "UserName": "pan188",
+      "LastFirstName": "pan188, pan188",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "39802384320984",
+      "UserName": "pan1882",
+      "LastFirstName": "pan1882, pan1882",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 1,
+      "UserId": "234234234",
+      "UserName": "pan499",
+      "LastFirstName": "pan499, pan499",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 6,
+      "UserId": "30498230948",
+      "UserName": "pan4991",
+      "LastFirstName": "pan4991, pan4991",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "864646",
+      "UserName": "triple",
+      "LastFirstName": "Parakeet-Shoes, Triple",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "315351135",
+      "UserName": "grunky",
+      "LastFirstName": "Peep, Grunky",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "20398t6444354949",
+      "UserName": "chrome1",
+      "LastFirstName": "platform, chrome",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "23409823094",
+      "UserName": "firefox1",
+      "LastFirstName": "platform, firefox",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "69834059",
+      "UserName": "ipadchrome1",
+      "LastFirstName": "platform, ipadchrome",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "23409823049832",
+      "UserName": "ipadsafari1",
+      "LastFirstName": "platform, ipadsafari",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "389423984",
+      "UserName": "prosplatform",
+      "LastFirstName": "platform, pros",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "23094823423432423",
+      "UserName": "safari1",
+      "LastFirstName": "platform, safari",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "5151515115",
+      "UserName": "cartoons",
+      "LastFirstName": "Plural, Cartoons",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 12,
+      "UserId": "ronypony",
+      "UserName": "ronypony",
+      "LastFirstName": "Pony, Rony",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "7576357375",
+      "UserName": "dpezpoopsie",
+      "LastFirstName": "Poopsie, D'Pez",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "011818a",
+      "UserName": "puddin",
+      "LastFirstName": "Pop, Puddin",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 4,
+      "UserId": "846546515",
+      "UserName": "kblpre",
+      "LastFirstName": "Pre-Test, Kristin",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 6,
+      "UserId": "881841818",
+      "UserName": "kblpretest",
+      "LastFirstName": "PreTest, Felicity",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6510854065",
+      "UserName": "djasper",
+      "LastFirstName": "Probincrux III, D'Jasper",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "8648686",
+      "UserName": "myriad",
+      "LastFirstName": "Profiteroles, Myriad",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "654654654657",
+      "UserName": "quatro",
+      "LastFirstName": "Quatro, Quatro",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "351531531",
+      "UserName": "stumptavian",
+      "LastFirstName": "Roboclick, Stumptavian",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "879879674652",
+      "UserName": "aaron",
+      "LastFirstName": "Rodgers, A.A. Ron",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6848888",
+      "UserName": "frostee",
+      "LastFirstName": "Rucker, Frostee",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "34509385",
+      "UserName": "aksafari",
+      "LastFirstName": "safari, aksafari",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "23948230",
+      "UserName": "ksafariipad",
+      "LastFirstName": "safaripad, kindergarten",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 8,
+      "UserId": "987654321123456789",
+      "UserName": "sidb73",
+      "LastFirstName": "seventythree, sidb",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "654321",
+      "UserName": "marmadune",
+      "LastFirstName": "Shazbot, Marmadune",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6851404",
+      "UserName": "davoin",
+      "LastFirstName": "Shower-Handel, Davoin",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "185686",
+      "UserName": "cosgrove",
+      "LastFirstName": "Shumway, Cosgrove",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 6,
+      "UserId": "666666666",
+      "UserName": "sixsixsix",
+      "LastFirstName": "six, six",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "786456456",
+      "UserName": "mergatroid",
+      "LastFirstName": "Skittle, Mergatroid",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "7873514",
+      "UserName": "coznesster",
+      "LastFirstName": "Smiff, Coznesster",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "7878534",
+      "UserName": "dansmith",
+      "LastFirstName": "Smith, Dan",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "486651",
+      "UserName": "tyroil",
+      "LastFirstName": "Smoochie-Wallace, Tyroil",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "344598230598",
+      "UserName": "starboi",
+      "LastFirstName": "starboi, starboi",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "023948203849",
+      "UserName": "staredge",
+      "LastFirstName": "staredge, staredge",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "3943583098",
+      "UserName": "stargurl",
+      "LastFirstName": "stargurl, stargurl",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "2384849823",
+      "UserName": "starsafari",
+      "LastFirstName": "starsafari, starsafari",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "23498",
+      "UserName": "badgeclass",
+      "LastFirstName": "stu, badgeclass",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "09234230984",
+      "UserName": "launch",
+      "LastFirstName": "stu, launchtypes",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 2,
+      "UserId": "0423985",
+      "UserName": "mappy",
+      "LastFirstName": "stu, mappy",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "35208",
+      "UserName": "pretest",
+      "LastFirstName": "stu, pretest",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "12345",
+      "UserName": "student",
+      "LastFirstName": "Student, Alaina",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "32094832048257777",
+      "UserName": "arcade",
+      "LastFirstName": "student, arcade",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "324907239487",
+      "UserName": "dlastudent",
+      "LastFirstName": "student, dla",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "2343234",
+      "UserName": "failure",
+      "LastFirstName": "student, failure",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "23098324",
+      "UserName": "forced",
+      "LastFirstName": "student, forced",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "592052058",
+      "UserName": "forced2",
+      "LastFirstName": "student, forced2",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "987987342",
+      "UserName": "inprogress",
+      "LastFirstName": "student, inprogress",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "234098234",
+      "UserName": "noclass",
+      "LastFirstName": "student, noclass",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "8",
+      "UserName": "student8",
+      "LastFirstName": "student, numbereight",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "5",
+      "UserName": "student5",
+      "LastFirstName": "student, numberfive",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "4",
+      "UserName": "student4",
+      "LastFirstName": "student, numberfour",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "9",
+      "UserName": "student9",
+      "LastFirstName": "student, numbernine",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "1",
+      "UserName": "student1",
+      "LastFirstName": "student, numberone",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "7",
+      "UserName": "student7",
+      "LastFirstName": "student, numberseven",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6",
+      "UserName": "student6",
+      "LastFirstName": "student, numbersix",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "10",
+      "UserName": "student10",
+      "LastFirstName": "student, numberten",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "3",
+      "UserName": "student3",
+      "LastFirstName": "student, numberthree",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "2",
+      "UserName": "student2",
+      "LastFirstName": "student, numbertwo",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "2390847",
+      "UserName": "reopen",
+      "LastFirstName": "student, reopen",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "98729487",
+      "UserName": "success",
+      "LastFirstName": "student, success",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "6545068516",
+      "UserName": "jackmerius",
+      "LastFirstName": "Tacktheritrix, Jackmerius",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "design",
+      "UserName": "design",
+      "LastFirstName": "team, design",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "45668646465",
+      "UserName": "donkey",
+      "LastFirstName": "Teeth, Donkey",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "2304734",
+      "UserName": "platform",
+      "LastFirstName": "tester, platform",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "181181181",
+      "UserName": "pros181",
+      "LastFirstName": "tester, pros181",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "234234242323",
+      "UserName": "txptester",
+      "LastFirstName": "tester, txp",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "230498230948",
+      "UserName": "pep6",
+      "LastFirstName": "thesixth, pepcorn",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "pepcorn3",
+      "UserName": "pepcorn3",
+      "LastFirstName": "TheThird, PepCorn",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "3513583",
+      "UserName": "vagonius",
+      "LastFirstName": "Thicket-Suede, Vagonius",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "87653232",
+      "UserName": "trisket",
+      "LastFirstName": "Trisket, Bisquiteen",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "20394823094",
+      "UserName": "chrome2",
+      "LastFirstName": "txp, chrome",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "42098203498",
+      "UserName": "firefox2",
+      "LastFirstName": "txp, firefox",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "30482304982302398432",
+      "UserName": "ipadchrome2",
+      "LastFirstName": "txp, ipadchrome",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "25823942309",
+      "UserName": "ipadsafari2",
+      "LastFirstName": "txp, ipadsafari",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "3854863049",
+      "UserName": "safari2",
+      "LastFirstName": "txp, safari",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "TXP-289B",
+      "UserName": "txp-289b",
+      "LastFirstName": "TXP-289, TXP-289",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "txp145",
+      "UserName": "txp145",
+      "LastFirstName": "txp145, txp145",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 12,
+      "UserId": "2304703248092",
+      "UserName": "enrollunenroll",
+      "LastFirstName": "unenroll, enroll",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "681681681",
+      "UserName": "harvard",
+      "LastFirstName": "University, Harvard",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "14388747928734",
+      "UserName": "temp",
+      "LastFirstName": "user, secondtemporary",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "78732222",
+      "UserName": "beezer",
+      "LastFirstName": "Washingbeard, Beezer Twelve",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 0,
+      "UserId": "58131835",
+      "UserName": "fozzy",
+      "LastFirstName": "Whittaker, Fozzy",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA Excellence School",
+      "SchoolId": "7e3653f3-eb09-4722-80e4-af867988221a",
+      "Grade": 5,
+      "UserId": "011818",
+      "UserName": "cindy",
+      "LastFirstName": "Who, Cindy Lou",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA-685",
+      "SchoolId": "225d3410-11c4-4705-b974-ca13a986adc7",
+      "Grade": 8,
+      "UserId": "5432100",
+      "UserName": "chuckies",
+      "LastFirstName": "Castros, Chuckies",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "DLA-685",
+      "SchoolId": "225d3410-11c4-4705-b974-ca13a986adc7",
+      "Grade": 5,
+      "UserId": "100517a",
+      "UserName": "smartie",
+      "LastFirstName": "McSmartie, Smartie",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA-685",
+      "SchoolId": "225d3410-11c4-4705-b974-ca13a986adc7",
+      "Grade": 6,
+      "UserId": "10051700",
+      "UserName": "pmulcahys",
+      "LastFirstName": "Mulcahys, Patricks",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "DLA-685",
+      "SchoolId": "225d3410-11c4-4705-b974-ca13a986adc7",
+      "Grade": 5,
+      "UserId": "100517b",
+      "UserName": "test3",
+      "LastFirstName": "test, test3",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 3,
+      "UserId": "98155684",
+      "UserName": "background",
+      "LastFirstName": "Background, Kristin",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 4,
+      "UserId": "95198151",
+      "UserName": "abailey",
+      "LastFirstName": "Bailey, Aden",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 4,
+      "UserId": "984515",
+      "UserName": "jbaldwin",
+      "LastFirstName": "Baldwin, Jaden",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 3,
+      "UserId": "95416515",
+      "UserName": "sbarton",
+      "LastFirstName": "Barton, Sylvia",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 4,
+      "UserId": "5454",
+      "UserName": "jblackburn",
+      "LastFirstName": "Blackburn, Jarom",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 3,
+      "UserId": "9541984954",
+      "UserName": "mbrown",
+      "LastFirstName": "Brown, Mia",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 4,
+      "UserId": "545454",
+      "UserName": "scaldwell",
+      "LastFirstName": "Caldwall, Stacy",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 6,
+      "UserId": "987654151",
+      "UserName": "fartrell",
+      "LastFirstName": "Cluggins, Fartrell",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 4,
+      "UserId": "51988181",
+      "UserName": "rgins",
+      "LastFirstName": "Gins, Ruth",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 0,
+      "UserId": "6516886161",
+      "UserName": "ewokoniad",
+      "LastFirstName": "JuniorStein, Ewokoniad Sigourneth",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 4,
+      "UserId": "9885185181",
+      "UserName": "smartin",
+      "LastFirstName": "Martin, Sam",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 3,
+      "UserId": "65454545",
+      "UserName": "amiller",
+      "LastFirstName": "Miller, Asher",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 4,
+      "UserId": "5454545",
+      "UserName": "fporter",
+      "LastFirstName": "Porter, Felicity",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 4,
+      "UserId": "5484545",
+      "UserName": "ssotomayor",
+      "LastFirstName": "Sotomayor, Sonia",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "East West School",
+      "SchoolId": "ae199162-cf73-421f-b33b-e6ac393b0824",
+      "Grade": 3,
+      "UserId": "95151",
+      "UserName": "azimmerman",
+      "LastFirstName": "Zimmerman, Ab",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "easy tech only",
+      "SchoolId": "2de8268b-fe3e-4194-8908-a93110dbb68f",
+      "Grade": 5,
+      "UserId": "2094823423",
+      "UserName": "etonly",
+      "LastFirstName": "etonly, etonly",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "expired",
+      "SchoolId": "64e88b96-3788-4e72-9b87-e69ef4e1d60f",
+      "Grade": 5,
+      "UserId": "23423498882911919",
+      "UserName": "expired",
+      "LastFirstName": "student, expired",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "Inquiry Only School",
+      "SchoolId": "2b1ca9de-b584-4bcd-b380-2fd60431ef10",
+      "Grade": 8,
+      "UserId": "23497234",
+      "UserName": "beefus",
+      "LastFirstName": "queefus, beefus",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "Sophie School",
+      "SchoolId": "1be402b6-6500-4be4-9c4a-e5fd92d820d6",
+      "Grade": 3,
+      "UserId": "3523525234",
+      "UserName": "sophiestudent",
+      "LastFirstName": "student, sophie",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "wwwschool",
+      "SchoolId": "2c041d0c-cfcf-4505-83dc-1a55e13eeda9",
+      "Grade": 5,
+      "UserId": "240982304982304",
+      "UserName": "wowza",
+      "LastFirstName": "wowza, wowza",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "wwwschool",
+      "SchoolId": "2c041d0c-cfcf-4505-83dc-1a55e13eeda9",
+      "Grade": 6,
+      "UserId": "23094823",
+      "UserName": "wwww",
+      "LastFirstName": "wwww, wwww",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "xxxschool",
+      "SchoolId": "ce9fed89-b0fa-453a-9af8-a34f4a9b88b0",
+      "Grade": 5,
+      "UserId": "3450493534",
+      "UserName": "xxxx",
+      "LastFirstName": "student, xxx",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "yyyschool",
+      "SchoolId": "78ed107f-5067-42c3-a423-6f9694be6e6f",
+      "Grade": 0,
+      "UserId": "3534234234",
+      "UserName": "yyyy",
+      "LastFirstName": "yyy, yyy",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "zzzschool",
+      "SchoolId": "35b42c47-d168-4426-8289-3dd360ca5956",
+      "Grade": 0,
+      "UserId": "2348",
+      "UserName": "molly",
+      "LastFirstName": "Hatfield, Molly",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "zzzschool",
+      "SchoolId": "35b42c47-d168-4426-8289-3dd360ca5956",
+      "Grade": 0,
+      "UserId": "20398432",
+      "UserName": "timothy",
+      "LastFirstName": "Stoker, Timothy",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "zzzschool",
+      "SchoolId": "35b42c47-d168-4426-8289-3dd360ca5956",
+      "Grade": 3,
+      "UserId": "3903905240923",
+      "UserName": "noclasses",
+      "LastFirstName": "student, noclasses",
+      "IsCompliant": "no"
+    },
+    {
+      "SchoolName": "zzzschool",
+      "SchoolId": "35b42c47-d168-4426-8289-3dd360ca5956",
+      "Grade": 0,
+      "UserId": "2349823",
+      "UserName": "zzzstudent",
+      "LastFirstName": "student, zzz",
+      "IsCompliant": "yes"
+    },
+    {
+      "SchoolName": "zzzschool",
+      "SchoolId": "35b42c47-d168-4426-8289-3dd360ca5956",
+      "Grade": 0,
+      "UserId": "234098",
+      "UserName": "benjamin",
+      "LastFirstName": "Wakeley, Benjamin",
+      "IsCompliant": "no"
+    }
+  ]
+}

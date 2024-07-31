@@ -1,0 +1,20 @@
+body {
+  font-family: sans-serif;
+  /*margin: 2em;*/
+}
+
+header {
+  margin-bottom: 2em;
+}
+
+.charts {
+  display: flex;
+}
+
+#totals {
+  width: 200px;
+}
+
+#by-school {
+  flex: 1 1 auto;
+}
