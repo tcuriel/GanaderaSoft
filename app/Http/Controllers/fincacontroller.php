@@ -417,7 +417,7 @@ class fincacontroller extends Controller
         }else{
 
             $archivado = $tipoListado == "Activo" ? 0 : 1;
-            $rebanos = DB::table('Rebano')->where('id_Finca', $idFinca)->where('Archivado', $archivado)->get();
+            $rebanos = DB::table('rebano')->where('id_Finca', $idFinca)->where('Archivado', $archivado)->get();
         
             if ($rebanos->isEmpty()) {
                 return response()->json([
