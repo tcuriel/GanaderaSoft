@@ -16,7 +16,6 @@
     <!-- App style -->
     <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
 
-<<<<<<< HEAD
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">  
 
@@ -125,15 +124,6 @@
 
         .footer img{
             margin-right: 5px;
-=======
-    <style>
-        .img-logos-instituciones {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 465px;
-            height: 90px;
->>>>>>> d063b4ed1712aa7c724456a76d7e5cce17469e65
         }
         
         .modal-body img {
@@ -149,18 +139,12 @@
 
 @section('body')
 
-<<<<<<< HEAD
         <div class="navbarx image-container">
             <img src="{{ asset('images/ucv 1.svg') }}" alt="">
             <img src="{{ asset('images/logonuevopng (1) 1.svg') }}" alt="">
             <img src="{{ asset('images/Agronomía-removebg-preview 1.svg') }}" alt="">
             <img src="{{ asset('images/Fonacit 1.svg') }}" alt="">
         </div>
-=======
-    <img src="{{ asset('images/logos_instituciones-removebg-preview.png') }}" 
-         alt="Logos instituciones"
-         class="img-logos-instituciones">
->>>>>>> d063b4ed1712aa7c724456a76d7e5cce17469e65
 
     <a class="btn btn-default btn-flat btn-block"
         href="#" onclick="event.preventDefault(); 
@@ -213,26 +197,14 @@
                     </div>
                 </div>
                 <div class="frontpage-wellcome"></div>
-                <img src="{{ asset('images/CC BY-NC.png') }}" 
-                 alt="Creative Commons license: CC BY-NC"
-                 class=""
-                 style="float: left;">
             </div>
         </div>
     </div>
 
-<<<<<<< HEAD
     <div class="footer bg-transparent">
         <img src="{{ asset('images/Group 36861.svg') }}" alt="">
         <span>GanaderaSoft 2024</span>
     </div>
-=======
-    <!--footer>
-        <div class="footer-container"-->
-
-        <!--/div>
-    </footer-->
->>>>>>> d063b4ed1712aa7c724456a76d7e5cce17469e65
 
     <audio id="music">
         <source src="{{ asset('assets/sounds/COW2.mp3') }}" type="audio/mpeg">
@@ -254,27 +226,6 @@
                     alt="Creative Commons license: CC BY-NC"
                     class="img-fluid"
                     style="float: left;">
-<<<<<<< HEAD
-=======
-
-                <!--h2>Sistema Web para la Gestión de los Datos Productivos en la Ganadería Vacuna GanaderaSoft</h2>
- 
- 
-                <h3>Proyecto financiado por el FONACIT</h3>
-                
-                
-                
-                
-                <h3>Profa. Yosly Hernández Bieluikas</h3>
-                <h3>Coordinadora del Proyecto</h3>
-                
-                <h3>Universidad Central de Venezuela</h3>
-                <h3>Facultad de Ciencias</h3>
-                <h3>Coordinación de Extensión</h3>
-
-
-            </div-->
->>>>>>> d063b4ed1712aa7c724456a76d7e5cce17469e65
             <div class="modal-footer">
                 <!--button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button-->
                 <!--button type="button" class="btn btn-primary">Understood</button-->
