@@ -9,7 +9,7 @@ class hierro extends Model
 {
     use HasFactory;
 
-    protected $table = "Hierro";
+    protected $table = "hierro";
     protected $primaryKey = "id_Hierro";
     public $timestamps = true;
 

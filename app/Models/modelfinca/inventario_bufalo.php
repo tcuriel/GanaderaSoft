@@ -9,7 +9,7 @@ class inventario_bufalo extends Model
 {
     use HasFactory;
 
-    protected $table = "Inventario_Bufalo";
+    protected $table = "inventario_bufalo";
     protected $primaryKey = "id_Inv_B";
     public $timestamps = true;
 

@@ -9,7 +9,7 @@ class personal_finca extends Model
 {
     use HasFactory;
 
-    protected $table = "Personal_Finca";
+    protected $table = "personal_finca";
     protected $primaryKey = "id_Tecnico";
     public $timestamps = true;
 

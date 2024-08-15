@@ -14,7 +14,7 @@ class finca extends Model
 {
     use HasFactory;
 
-    protected $table = "Finca";
+    protected $table = "finca";
     protected $primaryKey = "id_Finca";
     public $timestamps = true;
   

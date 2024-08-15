@@ -9,7 +9,7 @@ class terreno extends Model
 {
     use HasFactory;
 
-    protected $table = "Terreno";
+    protected $table = "terreno";
     protected $primaryKey = "id_Terreno";
     public $timestamps = true;
 
