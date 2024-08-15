@@ -30,20 +30,25 @@
 .title-black {
     color: $primaryblack;
 
+    font-family: Poppins;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: 'Roboto', sans-serif;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
+    /*font-family: 'Roboto', sans-serif;*/
+    font-size: 50px;
+    /*font-style: normal;*/
+    font-weight: 700;
     line-height: 66px; /* 165% */
+    letter-spacing: 1px;
+    text-align: left;
 }
 .text-wellcome {
     color: $primaryblack;
 
+    font-family: Poppins;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+    /*font-family: 'Roboto', sans-serif;*/
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 30px;
+    text-align: left;
 }

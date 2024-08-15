@@ -21,104 +21,19 @@ class animal extends Model
 
     protected $fillable = [
                         'id_Animal',
-                        'id_Finca',
                         'id_Rebano',
                         'Nombre',
+                        'codigo_animal',
                         'Sexo',
-                        'Edad',
-                        'Tipo',
-                        'Etapa',
-                        'Estado',
+                        'fecha_nacimiento',
                         'Procedencia',
-                        'archivado'
+                        'archivado',
+                        'fk_composicion_raza'
                         ];
-
-    public function finca(): BelongsTo
-    {
-        return $this->BelongsTo(finca::class, 'id_Finca');
-    }
-
-    public function reproduccionAnimales(): HasMany
-    {
-        return $this->HasMany(reproduccion_animal::class, 'id_Animal');
-    }
-
-    public function historicoReproduccionAnimales(): HasMany
-    {
-        return $this->HasMany(historico_repdroduccionA::class, 'id_Animal');
-    }
-
-    public function leches(): HasMany
-    {
-        return $this->HasMany(leche::class, 'id_Animal');
-    }
-
-    public function historicoLeches(): HasMany
-    {
-        return $this->HasMany(historico_leche::class, 'id_Animal');
-    }
-
-    public function lactancias(): HasMany
-    {
-        return $this->HasMany(lactancia::class, 'id_Animal');
-    }
-
-    public function historicoLactancias(): HasMany
-    {
-        return $this->HasMany(historico_lactancia::class, 'id_Animal');
-    }
-
-    public function razas(): HasOne
-    {
-        return $this->HasOne(raza_animal::class, 'id_Animal');
-    }
 
     public function arbolesGeneticos(): HasOne
     {
         return $this->HasOne(arbol_genetica::class, 'id_Animal');
-    }
-
-    public function cambiosAnimales(): HasOne
-    {
-        return $this->HasOne(cambios_animal::class, 'id_Animal');
-    }
-
-    public function historicoCambiosA(): HasMany
-    {
-        return $this->HasMany(historico_cambio::class, 'id_Animal');
-    }
-
-
-    public function medidasCorporales(): HasOne
-    {
-        return $this->HasOne(medidas_corporales::class, 'id_Animal');
-    }
-
-    public function historicoMedidasCor(): HasMany
-    {
-        return $this->HasMany(historico_medidascor::class, 'id_Animal');
-    }
-
-
-    public function indicesCorporales(): HasOne
-    {
-        return $this->HasOne(indices_corporales::class, 'id_Animal');
-    }
-
-    public function historicoIndicesCor(): HasMany
-    {
-        return $this->HasMany(historico_indicescor::class, 'id_Animal');
-    }
-
-
-    public function pesosCorporales(): HasOne
-    {
-        return $this->HasOne(peso_corporal::class, 'id_Animal');
-    }
-
-    public function registroPesoCor(): HasMany
-    {
-        return $this->HasMany(registro_pesocor::class, 'id_Animal');
     }
 
    public function movimientoRebanosAnimales(): HasMany
@@ -132,15 +47,15 @@ class animal extends Model
        return  $this->BelongsTo(rebano::class, 'id_Rebano');
     }
 
-    protected static function booted()
+  /*  protected static function booted()
     {
         static::deleting(function (animal $animal) {
             
             $animal->razas()->delete();
             $animal->arbolesGeneticos()->delete();
-            $animal->historicoCambiosA()->delete();
+          
             $animal->cambiosAnimales()->delete();
-           $animal->historicoMedidasCor()->delete();
+         
             $animal->medidasCorporales()->delete();
             $animal->historicoIndicesCor()->delete();
             $animal->indicesCorporales()->delete();
@@ -150,7 +65,7 @@ class animal extends Model
             $animal->movimientoRebanosAnimales()->delete();
 
         });
-    } 
+    }  */
 
    public function verificarTipo($id)
    {

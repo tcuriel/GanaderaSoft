@@ -23,7 +23,9 @@ class cambios_animal extends Model
                      'Etapa_Cambio',
                      'Peso',
                      'Altura',
-                     'Comentario'
+                     'Comentario',
+                     'cambios_etapa_anid',
+                     'cambios_etapa_etid'
                         ];
 
     public function animales(): BelongsTo

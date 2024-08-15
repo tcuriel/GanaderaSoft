@@ -24,13 +24,9 @@ class composicion_raza extends Model
                     'Origen',
                     'Caracteristica_Especial',
                     'Proporcion_Raza',
-                    'Mixta'
+                    'fk_id_finca',
+                    'fk_tipo_animal_id'
                         ];
-
-    public function composicionRazas(): HasOne
-    {
-        return $this->HasOne(tipo_raza::class,'id_Composicion');
-    }
 
     public function verificarNombre($tipoVerificar,$nombre,$idFinca,$id_Composicion=null)
     {

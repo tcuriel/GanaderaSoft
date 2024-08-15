@@ -3,7 +3,7 @@
 return [
     //Crear finca
     'create_farm' => '/Finca/crear-finca/',
-    'update_farm' => '/Finca/modificar-finca/,/GanaderoSoft/Finca/modificar-hierro/,/GanaderoSoft/Finca/modificar-terreno/',
+    'update_farm' => '/Finca/modificar-finca/,/Finca/modificar-hierro/,/Finca/modificar-terreno/',
     'add_renbano_farm' => '/Finca/crear-rebano/',
     'add_personal_farm' => '/Finca/ingresar-personal/',
     'update_personal_farm' => '/Finca/actualizar-informacion/',

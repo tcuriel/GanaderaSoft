@@ -3,7 +3,8 @@
         <a href="{{ route('home') }}" 
            class="gren-text-color font-weight-bold float-right my-3 d-block" 
            style="text-decoration: none;margin-right: 20px;font-size: 1.5em;"> 
-            <--- Listado de fincas
+            &#8592; Listado de fincas
+            <!-- <--- -->
         </a>
     </div>
     <div class="col-12">
@@ -45,7 +46,7 @@
             @elseif($selectView == 'inventario')
                 <a href="{{url('dashboard/finca/inventario/agregar/'.$data[0]->id_Finca)}}" id="addInventario" class="btn btn-primary btn-primary-darck float-right">Añadir Inventario <i class="fas fa-fw fa-plus"></i> </a>
             @elseif($selectView == 'finca')
-                <!--a href="{{url('dashboard/finca/rebano/'.$data->id_Finca)}}" id="fincaUp" class="btn btn-primary btn-primary-darck float-right"> </!--a-->
+                <a href="{{url('dashboard/finca/rebano/'.$data[0]->id_Finca)}}" id="fincaUp" class="btn btn-primary btn-primary-darck float-right"> </a>
                 <div class="btn-toolbar justify-content-end" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group">
                         <button type="button" id="fincaSave" class="btn btn-primary float-right"><i class="fa fa-file"></i> Archivar</button>

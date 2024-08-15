@@ -321,6 +321,12 @@ return [
             'id'          => 'produccionSection'
         ],
         [
+            'text'        => 'Reproducción',
+            'url'         => 'dashboard/reproduccion/reproduccion',
+            'icon'        => 'ico ico_reproduction',
+            'id'          => 'reproduccionSection'
+        ],
+        [
             'text'        => 'Sanidad',
             'url'         => 'dashboard/sanidad/sanidad',
             'icon'        => 'ico ico_health',

@@ -14,12 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('splash2');
-})->name('splash2');
+    return view('splash3');
+})->name('splash3');
 
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
+
+Route::get('/acerca_de', function () {
+    return view('acerca_de');
+})->name('acerca_de');
 
 Auth::routes();
 
@@ -55,3 +59,26 @@ Route::get('/finca/rebano/{id_finca}/up/{id_rebano}', [App\Http\Controllers\Home
 Route::resource('finca', App\Http\Controllers\FincaController::class);
 Route::get('/homeImage',[App\Http\Controllers\HomeController::class, 'photo'])->name('homeImage');
 Route::post('/upload', [App\Http\Controllers\HomeController::class, 'upload'])->name('upload');
+
+// reproduccion
+route::get('/agregarReproduccion/{id_Animal}',[App\Http\Controllers\HomeController::class,'crearReproduccion']);
+
+Route::get('/auth/google/redirect', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+/*
+Route::get('/auth/google/callback', function () {
+    try {
+        $user = Socialite::driver('google')->user();
+        // Process the authenticated user data
+    } catch (Exception $e) {
+        return redirect('/login');
+    }
+});
+*/
+
+// GoogleLoginController redirect and callback urls
+Route::get('/login/google', [App\Http\Controllers\GoogleLoginController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('/login/google/callback', [App\Http\Controllers\GoogleLoginController::class, 'handleGoogleCallback']);
+//Route::get('/login/google/callback',  'SocialiteAuthController@loginWithGoogle');

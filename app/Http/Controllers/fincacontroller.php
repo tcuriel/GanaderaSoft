@@ -35,7 +35,7 @@ use App\Models\modelusuario\transcriptor;
 use App\Models\modelanimal\animal;
 use App\Models\modelsanidad\palpacion;
 use App\Models\modelreproduccion\servicio_animal;
-use App\Models\modelanimal\registro_pesocor;
+//use App\Models\modelanimal\registro_pesocor;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -319,7 +319,7 @@ class fincacontroller extends Controller
     {
       try{
         //tipo de listado es 0 para fincas activas y 1 para archivadas
-            $fincas = DB::table('Finca')->where('id_Propietario', $id_P)
+            $fincas = DB::table('finca')->where('id_Propietario', $id_P)
                                         ->where('Archivado', $tipoListado)->get();
         
         if($fincas->isEmpty()){
@@ -417,7 +417,7 @@ class fincacontroller extends Controller
         }else{
 
             $archivado = $tipoListado == "Activo" ? 0 : 1;
-            $rebanos = DB::table('Rebano')->where('id_Finca', $idFinca)->where('Archivado', $archivado)->get();
+            $rebanos = DB::table('rebano')->where('id_Finca', $idFinca)->where('Archivado', $archivado)->get();
         
             if ($rebanos->isEmpty()) {
                 return response()->json([

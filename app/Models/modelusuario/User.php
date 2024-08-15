@@ -26,6 +26,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'google_id', // Add 'google_id' to the fillable array.
         'type_user',
     ];
 

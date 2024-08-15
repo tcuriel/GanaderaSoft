@@ -170,9 +170,17 @@
 }
 
 .btn-clear2 {
+    width: Fixed (230px)px;
+    height: Fixed (60px)px;
+    gap: 10px;
+    border-radius: 10px 0px 0px 0px;
+    /*border: 1px 0px 0px 0px;*/
+    /*opacity: 0px;*/
     background-color: transparent;
-    border: 2px solid  $primaryblue;
+    /*border: 1px solid  $primaryblue;*/
     color: $primaryblack;
+    border: 2px solid #148FBE;
+    font-weight: bold;
     &:hover {
         background-color: transparent;
         border: 2px solid  $primaryblue;

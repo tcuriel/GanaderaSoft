@@ -20,14 +20,15 @@ class medidas_corporales extends Model implements interfaceAnimal
 
     protected $fillable = [
                     'id_Medida',
-                    'id_Animal',
                     'Altura_HC',
                     'Altura_HG',
                     'Perimetro_PT',
                     'Perimetro_PCA',
                     'Longitud_LC',
                     'Longitud_LG',
-                    'Anchura_AG'
+                    'Anchura_AG',
+                    'medida_etapa_anid',
+                    'medida_etapa_etid'
                     ];
 
     public function animales(): BelongsTo

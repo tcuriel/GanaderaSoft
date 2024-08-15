@@ -78,8 +78,8 @@
     <div class="row">
         <div class="col-12 col-lg-11 col-md-12 mx-auto">
             <h2 class="title-black page-title d-md-none">Regístrate</h2>
-            <!--form action="{{route('upload')}}" method="POST" enctype="multipart/form-data" "{{ $register_url }}" -->
-            <form class="form-app" action="{{route('storeregister')}}" method="post" enctype="multipart/form-data">
+            <!--form action="{{route('upload')}}" method="POST" enctype="multipart/form-data" "{{ $register_url }}" "{{ route('storeregister') }}" -->
+            <form class="form-app" action="{{ route('storeregister') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-4 order-md-last">

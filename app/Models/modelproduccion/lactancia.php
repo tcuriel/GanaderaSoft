@@ -10,15 +10,12 @@ class lactancia extends Model
     use HasFactory;
 
     protected $table = "lactancia";
-    protected $primaryKey = "id_Lactancia";
+    protected $primaryKey = 'lactancia_id';
 
-    public function animales(): BelongsTo
-    {
-        return $this->BelongsTo(animal::class, 'id_Animal');
-    }
-
-    public function historicolactancias(): HasMany
-    {
-        return $this->HasMany(historico_lactancia::class, 'id_Lactancia');
-    }
+    protected $fillable = [
+                'lactancia_fecha_inicio',
+                'lactancia_fecha_fin',
+                'lactancia_secado',
+                'lactancia_repro_id'
+    ];
 }

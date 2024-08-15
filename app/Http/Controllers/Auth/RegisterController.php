@@ -80,8 +80,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $tipoUser = $data['type_user'];
-        
+        //$tipoUser = $data['type_user'];
+     
         try{
 
             $tipoUser = $this->usuario->contienePalabra($data['type_user']);
@@ -162,7 +162,8 @@ class RegisterController extends Controller
         }
     }
 
-    protected function addUserMasivo(csvRequest $request) {
+    protected function addUserMasivo(csvRequest $request) 
+    {
         try{
             $archivo = fopen($request->file('archivo')->getPathname(), 'r');
       
@@ -269,7 +270,8 @@ class RegisterController extends Controller
             }
     }
 
-    protected function addTipoUserMasivo(array $dataUsers) {
+    protected function addTipoUserMasivo(array $dataUsers) 
+    {
         try{
           
           $chunks = array_chunk($dataUsers, 100);
@@ -320,5 +322,39 @@ class RegisterController extends Controller
                 'status'=>'Error'
             ],500);
         }
-      }
+    }
+
+    public function store(Request $request)
+    {
+        echo "Her, sy yo, soy yo,...";
+        echo "<pre>";
+        //dd($data);
+        //$request = $data['request'];
+        //$name = $request->request->get('name');
+        $file = $request->files->get('image');
+        $originalName = $file->getClientOriginalName();
+        print_r($file->getClientOriginalName());
+        print_r($request->all());
+        //print_r($data['request']->name);
+        //print_r($data['files']->originalName);
+        echo "</pre>";
+        exit;
+
+        $this->create((array) $request);
+
+        $this->validator($request->all())->validate();
+
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);  
+
+        // Aquí puedes agregar campos personalizados a tu modelo de usuario
+
+        $user->save();
+
+        // ... resto del código para enviar correo de bienvenida, etc.
+
+        return redirect($this->redirectPath());
+    }
 }

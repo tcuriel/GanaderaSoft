@@ -10,15 +10,12 @@ class reproduccion_animal extends Model
     use HasFactory;
 
     protected $table = "reproduccion_animal";
-    protected $primaryKey = "id_ReproduccionA";
+    protected $primaryKey = "repro_id";
 
-    public function animales(): BelongsTo
-    {
-        return $this->BelongsTo(animal::class, 'id_Animal');
-    }
-
-    public function historicoReproduccionA(): HasMany
-    {
-        return $this->HasMany(historico_reproduccionA::class, 'id_ReproduccionA');
-    }
+  protected $fillable = [
+            'repro_fecha_reproduccion',
+            'repro_tipo_reproduccion',
+            'repro_observacion',
+            'repro_servicio_id'
+  ];
 }

@@ -25,12 +25,10 @@ class HomeController extends Controller
         fincacontroller $fincaController,
         Repository $config
     ){
-
         $this->middleware('auth');
         $this->middleware('verified.user.finca', ['except' => ['splashFinca','createmyfarm']]);
         $this->fincaController = $fincaController;
         $this->config = $config;
-
     }
 
     /**
@@ -39,11 +37,11 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {  
+    {
         $user = Auth::user();
         $statusFarms = config('app.statusfarm');
         $fincas = $this->fincaController->fincasPropietario($user->id,0)->getData();
-
+        
         if($user->type_user == 'Administrar')
         {
             $aDonde = 'administrar.welcome';
@@ -56,7 +54,7 @@ class HomeController extends Controller
         }
 
         return view($aDonde, [
-            'user' => $user,
+        	'user' => $user,
             'statusFarms' => $statusFarms,
             'farms' => $fincas->data
         ]);
@@ -272,4 +270,12 @@ class HomeController extends Controller
         }
         return redirect()->back();
     }
+
+    public function crearReproduccion($id_Animal){
+        return view('reproduccion.createreproduccion',[
+                    'user'=> Auth::user(),
+                    'data'=> $id_Animal
+        ]);
+    }
+
 }

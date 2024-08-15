@@ -21,7 +21,7 @@ use App\Models\modelanimal\medidas_corporales;
 use App\Models\modelanimal\peso_corporal;
 use App\Models\modelanimal\raza_animal;
 use App\Models\modelanimal\raza_toro;
-use App\Models\modelanimal\registro_pesocor;
+//use App\Models\modelanimal\registro_pesocor;
 use App\Models\modelanimal\tipo_raza;
 use App\Models\modelanimal\Toro;
 use App\Models\modelanimal\semen_toro;
@@ -49,7 +49,7 @@ class animalcontroller extends Controller
   protected medidas_corporales $medidas;
   protected indices_corporales $indices;
   protected peso_corporal $pesos;
-  protected registro_pesocor $registroPeso;
+  //protected registro_pesocor $registroPeso;
 
 
   public function __construct()
@@ -60,7 +60,7 @@ class animalcontroller extends Controller
     $this->medidas = new medidas_corporales;
     $this->indices = new indices_corporales;
     $this->pesos = new peso_corporal;
-    $this->registroPeso = new registro_pesocor;
+    //$this->registroPeso = new registro_pesocor;
   }
     //---------------AREA DE ANIMAL------------------
     // AGREGAR ANIMAL
@@ -1577,7 +1577,7 @@ public function establecerPeso(pesoRequest $request,$tipo,$id_Animal,$id_Tecnico
     return $this->manejarExcepcion($e);
   }
 }
-
+/*
 public function actualizarPesoCorporal(pesoRequest $request,$idPeso,$tipo,$id_Tecnico=null)
 {
   if($this->registroPeso->verificarModificacion($request,$idPeso,$tipo))
@@ -1619,7 +1619,7 @@ public function actualizarPesoCorporal(pesoRequest $request,$idPeso,$tipo,$id_Te
       [],'OK',200);
     }
 }
-
+*/
 
 
 public function listarPesos($idPeso)

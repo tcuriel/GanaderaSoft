@@ -69,11 +69,6 @@ class finca extends Model
         return $this->HasOne(movimiento_rebano::class, 'id_Finca');
     }
 
-    public function animales(): HasMany
-    {
-        return $this->HasMany(animal::class, 'id_Finca');
-    }
-
     public function afiliaciones(): HasMany
     {
         return $this->HasMany(afiliacion::class, "afiliacion", "id_Finca", "id_Finca");
@@ -90,7 +85,6 @@ class finca extends Model
             
             $finca->hierro()->delete();
             $finca->personalfinca()->delete();
-            $finca->animales()->delete();
             $finca->rebanos()->delete();
             $finca->inventarioBufalos()->delete();
             $finca->inventarioBufalos()->delete();

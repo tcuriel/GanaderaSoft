@@ -10,15 +10,11 @@ class leche extends Model
     use HasFactory;
 
     protected $table = "leche";
-    protected $primaryKey = "id_Pesaje";
+    protected $primaryKey = 'leche_id';
 
-    public function animales(): BelongsTo
-    {
-        return $this->BelongsTo(animal::class, 'id_Animal');
-    }
-
-    public function historicoleches(): HasMany
-    {
-        return $this->HasMany(historico_Leche::class, 'id_Pesaje');
-    }
+   protected $fillable = [
+                'leche_fecha_pesaje',
+                'leche_pesaje_total',
+                'leche_lactancia_id'
+   ];
 }

@@ -17,25 +17,16 @@ class indices_corporales extends Model implements interfaceAnimal
 
     protected $fillable = [
                     'id_Indice',
-                    'id_Animal',
                     'Anamorfosis',
                     'Corporal',
                     'pelviano',
                     'Proporcionalidad',
                     'Dactilo_Toracico',
                     'Pelviano_Transversal',
-                    'Pelviano_Longitudinal'
+                    'Pelviano_Longitudinal',
+                    'indice_etapa_anid',
+                    'indice_etapa_etid'
                         ];
-
-    public function animales(): BelongsTo
-    {
-        return $this->BelongsTo(animal::class, 'id_Animal');
-    }
-
-    public function historicoIndicesCor(): HasMany
-    {
-        return $this->HasMany(historico_indicescor::class, 'id_Indice');
-    }
 
      //verifica si ya existe un registro de este animal
      public function verificarRegistro($idAnimal){

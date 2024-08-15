@@ -16,27 +16,12 @@ class peso_corporal extends Model
 
     protected $fillable = [
                     'id_Peso',
-                    'id_Animal',
-                    'id_Tecnico',
                     'Fecha_Peso',
                     'Peso',
-                    'Comentario'
+                    'Comentario',
+                    'peso_etapa_anid',
+                    'peso_etapa_etid'
                         ];
-
-    public function animales(): BelongsTo
-    {
-        return $this->BelongsTo(animal::class, 'id_Animal');
-    }
-
-    public function registroPesoCor(): HasMany
-    {
-        return $this->HasMany(registro_pesocor::class, 'id_Peso');
-    }
-
-    public function personalFinca(): BelongsTo
-    {
-        return $this->BelongsTo(personal_finca::class, 'id_Tecnico');
-    }
 
     //verifica si ya existe un registro de este animal
      public function verificarRegistro($idAnimal){

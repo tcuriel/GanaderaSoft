@@ -53,6 +53,9 @@
             background-color: #61b5d5; /* Slightly lighter shade */
             opacity: 0.8; /* Adjust opacity as needed */
         }
+        .main-header {
+            height: 80px; /* Ajusta el valor deseado */
+        }
     </style>
 
 @stop
@@ -60,37 +63,18 @@
 @section('title', env('APP_NAME', 'GanaderoSoft'))
 
 @section('content_header')
-    <!--h1 class="m-0 gren-text-color">Bienvenido a {{ 'Propietario1' }}</h1-->
-
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2" style="margin-top: 50px;">
-                <div class="col-sm-6">
-                    <h1 class="m-0 gren-text-color">Bienvenido a (Finca) {{ '' }}</h1>
-                </div>
-                <!--div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Propietario</li>
-                    </ol>
-                </div-->
-        </div>
-    </div>
+ 	<h1 class="m-0 gren-text-color">Bienvenido a {{$data[0]->Nombre}}</h1>
 @stop
 
 @section('content')
-    @if($section == "propietario")
-        @include('finca.propietario')
-    @elseif($section == "finca")
+    @if($section == "finca")
         @include('finca.home')
     @elseif($section == 'animal')
         @include('animal.home')
     @elseif($section == 'produccion')
-        <p>Produccion</p>
+        @include('produccion.home')
     @elseif($section == 'reproduccion')
-        <p>Reproduccion</p>
-        @include('finca.home')
-        @include('animal.home')
+		@include('reproduccion.home')
     @elseif($section == 'sanidad')
         <p>Sanidad</p>
     @elseif($section == 'reporte')
@@ -113,7 +97,7 @@
         }
         for (const navItem of navItems) {
             const href = navItem.getAttribute('href');
-            navItem.setAttribute('href', href + "/{{ '275' }}" );
+            navItem.setAttribute('href', href + "/{{ $data[0]->id_Finca }}" );
         }
     </script>
     @yield('js-content-home')

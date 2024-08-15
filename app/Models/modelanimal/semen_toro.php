@@ -10,14 +10,13 @@ class semen_toro extends Model
     use HasFactory;
 
     protected $table = 'semen_toro';
-    protected $primaryKey = 'id_Semen';
+    protected $primaryKey = 'semen_id';
     public $timestamps = true;
 
     protected $fillable = [
-                       'id_Semen',
                        'id_Toro',
-                       'Estado',
-                       'fecha_semen'
+                       'semen_estado',
+                       'semen_fecha'
                         ];
 
     public function toro(): BelongsTo
