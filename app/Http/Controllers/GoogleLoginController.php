@@ -32,9 +32,9 @@ class GoogleLoginController extends Controller
         */
         $existingUser = User::where('google_id', $user->id)->first();
 
-        echo "<pre>[";
-        print_r($user->id);
-        echo "]<pre>";
+        //echo "<pre>[";
+        //print_r($user->id);
+        //echo "]<pre>";
         //exit;
 
         if ($existingUser) {

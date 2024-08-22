@@ -85,18 +85,32 @@ class animalcontroller extends Controller
           DB::transaction(function() use ($request,$idFinca,$idRebano,&$data){
           
           $animalData = $request->validated()['animal'];
+          
           $animalData['id_Finca'] = $idFinca;
           $animalData['id_Rebano'] = $idRebano;
           $animalData['archivado'] = false;
 
-          $animal = animal::create($animalData);
-          $id_Animal = $animal->id_Animal;
+          /* Preparar los datos */
+          $animalDataStore = ['id_Rebano' => $idRebano,
+                              'Nombre' => $animalData['Nombre'],
+                              'Sexo' => $animalData['Sexo'],
+                              'archivado' => false,
+                              'fecha_nacimiento' => date('Y-m-d'),
+                              'fk_composicion_raza' => 43,
+                             ];
 
+          $animal = animal::create($animalDataStore);
+          $id_Animal = $animal->id_Animal;
+          
           //----------------------------------------------------------
           $medida = [];
           $indice = [];
+          $peso = 0;
+          $cambio= "Nada...";
+
+          if(true == false)
+          {
   
-          
             $pesoData = [
               'Fecha_Peso' => $request['peso']['Fecha_Peso'],
               'Peso' => $request['peso']['Peso'],
@@ -175,6 +189,7 @@ class animalcontroller extends Controller
           
           
           DB::table('Raza_Animal')->insert($razaData);
+          }
 
           $data =[
             'animal' => $animal,

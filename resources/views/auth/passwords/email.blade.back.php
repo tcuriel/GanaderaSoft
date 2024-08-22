@@ -12,8 +12,7 @@
 
 @section('adminlte_css')
 
-    @vite('resources/sass/app.scss')
-    @vite('resources/sass/app/login/styles.scss')
+    @vite(['resources/sass/app.scss', 'resources/sass/app/wellcome/styles.scss'])
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">  
@@ -26,10 +25,10 @@
     <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
 
     <link rel="stylesheet" href=" {{ asset('assets/css/style-new.css') }}">
-    
+
 @stop
 
-@section('auth_body')
+@section('body')
 
 <section class="home">
 
@@ -40,11 +39,13 @@
         <img src="{{ asset('images/Fonacit 1.svg') }}" alt="">
     </div>
 
+
     <div class="cover">
+
         <div class="content-mail">
             <div class="content-email-head" >
                 <img src="{{ asset('images/VACA-1 1.svg') }}" class="centrado" alt="">
-                <h1 class="primary-title primary-title-shadow centrado">{{ __('GanaderaSoft') }}</h1>
+                <h1 class="primary-title primary-title-shadow centrado">{{ config('app.name') }}</h1>
             </div>
 
             <p class="content-email-message">
@@ -53,30 +54,28 @@
                 para reestablecer tu contraseña
             </p>
 
-            @if(session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                    <script>
-                        window.location.href = "{{ route('password.emailsent')}}";
-                    </script>
-                </div>
-            @endif
-
-            <form action="{{ $password_email_url }}" method="post">
+            <form class="form-app" action="{{ $password_email_url }}" method="post">
                 @csrf
 
                 {{-- Email field --}}
                 <label for="email"
-                    class="form-label">Correo Electrónico</label>
+                       class="form-label" style="text-align: left;">
+                    Correo Electrónico
+                </label>
                 <div class="input-group mb-3">
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                        value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
 
-                    <div class="input-group-append">
+                    <input type="email" 
+                           name="email" 
+                           class="form-control @error('email') is-invalid @enderror"
+                           value="{{ old('email') }}" 
+                           placeholder="{{ __('adminlte::adminlte.email') }}"
+                           autofocus>
+
+                    <!--div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope {{ config('adminlte.classes_auth_icon', '') }}"></span>
                         </div>
-                    </div>
+                    </div-->
 
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -87,7 +86,7 @@
 
                 {{-- Login field --}}
                 <div class="contenedor-botones">
-                    
+
                     <div class="margin-auto">
                         {{-- Send reset link button --}}
                         <button type="submit" class="boton-email">
@@ -96,7 +95,7 @@
                         </button>
                     </div>
 
-                </div> 
+                </div>
 
             </form>
 
@@ -108,7 +107,7 @@
         <img src="{{ asset('images/Group 36861.svg') }}" alt="">
         <span>GanaderaSoft 2024</span>
     </div>
-    
+
 </section>
 
 <!--script src="{{ asset('js/app.js') }}"></script-->

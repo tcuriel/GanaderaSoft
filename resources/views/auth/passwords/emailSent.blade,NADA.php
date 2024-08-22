@@ -1,7 +1,6 @@
 @extends('adminlte::master')
 
 @section('adminlte_css')
-
     @vite('resources/sass/app.scss')
     @vite('resources/sass/app/login/styles.scss')
 
@@ -16,7 +15,6 @@
     <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
 
     <link rel="stylesheet" href=" {{ asset('assets/css/style-new.css') }}">
-    
 @stop
 
 @section('body')
@@ -56,14 +54,10 @@
                 
                 <div class="margin-auto">
                     {{-- Send reset link button --}}
-                    <!--button type="submit" class="boton-email"-->
+                    <button type="submit" class="boton-email">
                         <!--span class="fas fa-share-square"></span-->
-                    <a href="{{ route('login') }}" 
-                       type="button" 
-                       class="boton-email">
                         {{ __('Iniciar Sesión') }}
-                    </a>
-                    <!--/button-->
+                    </button>
                 </div>
 
             </div>

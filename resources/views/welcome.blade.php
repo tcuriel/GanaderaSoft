@@ -6,8 +6,13 @@
     min-vh-100
 @stop
 
-@section('adminlte_css')
-    @vite(['resources/sass/app.scss', 'resources/sass/app/wellcome/styles.scss'])
+@section('adminlte_css')  
+  
+    @vite('resources/sass/app.scss')
+    @vite('resources/sass/app/wellcome/styles.scss')
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">  
 
     <link href="{{ asset('assets/css/bootstrap.min53c.css') }}"  rel="stylesheet">
 
@@ -16,125 +21,8 @@
     <!-- App style -->
     <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">  
-
-    <style>
-        body{
-            margin: 0px;
-            padding: 0px;
-            font-family: Poppins, Arial, Helvetica, sans-serif;
-        }
-
-        .home{
-            width: 100%;
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .cover{
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0px 30%;
-            box-sizing: border-box;
-        }
-
-        .navbarx{
-            width: 100%;
-            height: 72px;    
-            display: flex;
-            align-items: left;
-            justify-content: left;
-            box-sizing: border-box;
-            position: fixed;
-            color: white;
-        }
-
-        .image-container {
-            top: 21px;
-            left: 17px;    
-            gap: 0px;
-            opacity: 0px;    
-            display: flex;
-            flex-direction: row; /* Cambia a fila para mostrar las imágenes horizontalmente */
-            align-items: flex-start; /* Alinea los elementos por el borde superior */
-        }
-        
-        .image-container img {
-            width: auto;
-            height: 64px; /* Ajusta el alto deseado para todas las imágenes */
-        }
-
-        .content {
-            display: flex; /* Convertimos el contenedor en un flexbox para mejor control de alineación */
-            justify-content: center; /* Centra los elementos horizontalmente */
-            align-items: center; /* Centra los elementos verticalmente */
-            flex-direction: column;
-            gap: 0px; /* Espacio entre elementos */
-        }
-        
-        .content img {
-            width: 483px; /* Ajusta el ancho de la imagen */
-            height: 484px;
-        }
-        
-        .content p {
-            font-size: 60px;
-            font-weight: 500;
-            line-height: 90px;
-            text-align: left;
-            color: #148FBE;
-
-        }
-        
-        @media (max-width: 768px) {
-            .content {
-            /* Ajustes para pantallas pequeñas */
-            }
-        }
-
-        .footer {
-            left: 17px;
-            display: flex;
-            flex-direction: row;
-            justify-content: left;
-            align-items: center;
-            gap: 0px;
-            opacity: 0px;
-            position: fixed; /* Fix the footer to the bottom */
-            bottom: 0; /* Place it at the absolute bottom */
-            width: 100%; /* Span the full width of the viewport */
-            background-color: #f8f9fa; /* Set a background color */
-            padding: 20px; /* Add some padding for spacing */
-
-        }
-
-        .footer span{
-            font-family: Poppins;
-            font-size: 13px;
-            font-weight: 500;
-            line-height: 19.5px;
-            text-align: left;
-            color: black;
-        }
-
-        .footer img{
-            margin-right: 5px;
-        }
-        
-        .modal-body img {
-            display: block;
-            margin: 0 auto;
-        }
-        .modal-dialog {
-            max-width: 80%;
-        }
-
-    </style>
+    <link rel="stylesheet" href=" {{ asset('assets/css/style-new.css') }}">
+    
 @stop
 
 @section('body')
@@ -142,7 +30,7 @@
         <div class="navbarx image-container">
             <img src="{{ asset('images/ucv 1.svg') }}" alt="">
             <img src="{{ asset('images/logonuevopng (1) 1.svg') }}" alt="">
-            <img src="{{ asset('images/Agronomía-removebg-preview 1.svg') }}" alt="">
+            <img src="{{ asset('images/fagro.svg') }}" alt="">
             <img src="{{ asset('images/Fonacit 1.svg') }}" alt="">
         </div>
 

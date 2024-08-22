@@ -3,8 +3,11 @@
 @inject('layoutHelper', 'JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper')
 
 @section('adminlte_css')
+
     @vite(['resources/sass/app.scss', 'resources/sass/app/layouts/styles.scss'])
+    
     @yield('css-content')
+    
     <!-- App style -->
     <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
 

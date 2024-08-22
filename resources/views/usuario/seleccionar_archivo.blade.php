@@ -2,59 +2,67 @@
 
 @section('css-content')
 <style>
+
     .wrapper{
         display: flex;
         flex-direction: column; /* Arrange flex items vertically (button below div) */
         align-items: center; /* Center flex items horizontally */
     }
+
     .upload-img{
-            max-width: 120px;
-            margin-right: auto;
-            margin-left: auto;
-            position: relative;
+        max-width: 120px;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
     }
+
     .upload-img img{
-            width: 100%;
+        width: 100%;
     }
+
     .upload-text{
-            color: rgba(0, 0, 0, 0.2);
-            font-weight: 600;
-            margin-top: 12px;
+        color: rgba(0, 0, 0, 0.2);
+        font-weight: 600;
+        margin-top: 12px;
     }
+
     .upload-container{
-            width: 500px;
-            border: 2px dashed rgba(0, 0, 0, 0.2);
-            border-radius: 6px;
-            padding: 28px;
-            cursor: pointer;
-            transition: all 300ms ease-in-out;
+        width: 500px;
+        border: 2px dashed rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+        padding: 28px;
+        cursor: pointer;
+        transition: all 300ms ease-in-out;
     }
+
     .upload-container:hover{
-            background-color: rgba(253, 59, 132, 0.02);
-            border-color: rgba(254, 132, 138, 1);
+        background-color: rgba(253, 59, 132, 0.02);
+        border-color: rgba(254, 132, 138, 1);
     }
+
     .upload-btn{
-            background: gray;
-            /*background: radial-gradient(circle, rgba(253, 59, 132, 1) 35%, rgba(254, 132, 138, 1) 100%);*/
-            border: none;
-            font-family: inherit;
-            font-size: 17px;
-            color: #fff;
-            padding: 7px 18px;
-            margin-top: 24px;
-            border-radius: 5px;
-            cursor: pointer;
-            /*box-shadow: rgb(200, 41, 102) 0px 8px 10px -11px;*/
-            transition: all 0.3s ease-in-out;
+        background: gray;
+        /*background: radial-gradient(circle, rgba(253, 59, 132, 1) 35%, rgba(254, 132, 138, 1) 100%);*/
+        border: none;
+        font-family: inherit;
+        font-size: 17px;
+        color: #fff;
+        padding: 7px 18px;
+        margin-top: 24px;
+        border-radius: 5px;
+        cursor: pointer;
+        /*box-shadow: rgb(200, 41, 102) 0px 8px 10px -11px;*/
+        transition: all 0.3s ease-in-out;
     }
+
     .upload-btn:hover{
-            box-shadow: gray 0px 8px 10px -9px;
+        box-shadow: gray 0px 8px 10px -9px;
     }
+
     .visually-hidden{
-            display: none;
+        display: none;
     }
-	</style>
-    <style>
+
     .flex-container {
         display: flex;
         flex-direction: column;
@@ -72,6 +80,7 @@
     .left-aligned-item { /* Add this class to the item you want to align left */
         align-self: flex-start;
     }
+
     </style>
 @stop
 
