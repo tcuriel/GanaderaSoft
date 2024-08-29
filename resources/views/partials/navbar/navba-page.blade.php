@@ -3,6 +3,8 @@
     {{ config('adminlte.classes_topnav_nav', 'navbar-expand-md') }}
     {{ config('adminlte.classes_topnav', 'navbar-white navbar-light') }}">
 
+<!--nav-->
+
     <div class="{{ config('adminlte.classes_topnav_container', 'container') }}">
 
         {{-- Navbar brand logo --}}

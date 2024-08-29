@@ -5,18 +5,17 @@
     @vite('resources/sass/app.scss')
     @vite('resources/sass/app/login/styles.scss')
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">  
-
-    <link href="{{ asset('assets/css/bootstrap.min53c.css') }}"  rel="stylesheet">
-
-    <script src="{{ asset('assets/js/bootstrap53.bundle.min.js') }}"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 
     <!-- App style -->
-    <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+	<link rel="stylesheet" href=" {{ asset('assets/css/style-new2.css') }}">
 
-    <link rel="stylesheet" href=" {{ asset('assets/css/style-new.css') }}">
-    
+    <link rel="stylesheet" href="{{ asset('assets/css/style-tabs.css') }}">
+    <!--link rel="stylesheet" href="{{ asset('assets/css/Styles.css') }}"-->
+
 @stop
 
 @php( $login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login') )
@@ -44,7 +43,7 @@
 
     <div class="logo-app"></div>
     <h1 class="primary-title primary-title-shadow">{{ __('GanaderaSoft') }}</h1>
-    
+
     <form class="form-app" action="{{ $login_url }}" method="post">
         @csrf
 
@@ -90,7 +89,7 @@
 
         {{-- Login field --}}
         <div class="contenedor-botones">
-            <div class=""> 
+            <div class="">
                 {{-- Password reset link --}}   <!-- class="btn btn-clear w-100" class="btn btn-clear2"-->
                 <a href="{{ route('password.request') }}" type="button" class="boton-reset">
                 {{ __('adminlte::adminlte.reset_password') }}
@@ -108,5 +107,5 @@
         <img src="{{ asset('images/Group 36861.svg') }}" alt="">
         <span>GanaderaSoft 2024</span>
     </div>
-    
+
 @stop

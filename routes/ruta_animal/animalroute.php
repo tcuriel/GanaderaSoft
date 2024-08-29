@@ -5,7 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\animalcontroller;
 
 //Animal
-Route::post('/agregar-animal/{idFinca}/{idRebano}',[animalcontroller::class,'agregarAnimal']);
+Route::get('/animales/{id_rebano}',[animalcontroller::class,'getAnimals']);
+Route::get('/tipos',[animalcontroller::class,'getTipoAnimal']);
+Route::get('/etapas/{etapa_id}',[animalcontroller::class,'getEtapaAnimal']);
+Route::get('/salud',[animalcontroller::class,'getSalud']);
+Route::get('/rebano/{id_finca}',[animalcontroller::class,'getRebanos']);
+Route::get('/razas/{id_finca}',[animalcontroller::class,'getRazas']);
+
+Route::post('/agregar-animal',[animalcontroller::class,'agregarAnimal']);
 
 Route::put('/modificar-animal/{idAnimal}',[animalcontroller::class,'modificarAnimal']);
 
@@ -13,7 +20,7 @@ Route::delete('/eliminar-animal/{idAnimal}',[animalcontroller::class,'eliminarAn
 
 Route::put('/archivar-animal/{idAnimal}',[animalcontroller::class,'archivarAnimal']);
 
-Route::get('/listar-animales/{idFinca}/{idRebano}/{tipo}',[animalcontroller::class,'listarAnimales']);
+Route::get('/listar-animales/{idRebano}',[animalcontroller::class,'listarAnimales']);
 
 Route::get('filtrar-animal/{tipo}/{idAnimal}/{idRebano}/{texto}',[animalcontroller::class,'filtrarAnimal']);
 

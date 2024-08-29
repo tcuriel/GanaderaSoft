@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Config\Repository;
 use App\Http\Controllers\fincacontroller;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -44,7 +45,7 @@ class HomeController extends Controller
         
         if($user->type_user == 'Administrar')
         {
-            $aDonde = 'administrar.welcome';
+            $aDonde = 'administrar.welcome2';
         }else if($user->type_user == 'Propietario')
         {
             $aDonde = 'finca.welcome';
@@ -276,6 +277,25 @@ class HomeController extends Controller
                     'user'=> Auth::user(),
                     'data'=> $id_Animal
         ]);
+    }
+
+    public function crearCelo($id_Animal){
+        return view('reproduccion.createcelo',[
+            'user'=> Auth::user(),
+            'data'=> $id_Animal
+        ]);
+    }
+
+    public function verSanidad($id_Animal){
+        return view('sanidad.getsanidad',[
+                    'user'=> Auth::user(),
+                    'data'=> $id_Animal
+        ]);
+    }
+
+    public function detalleAnimal(int $id_Animal){
+        $animal = DB::table('animal')->where('id_Animal',$id_Animal)->first();
+        return response()->json($animal);
     }
 
 }

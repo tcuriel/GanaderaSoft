@@ -64,11 +64,11 @@ return [
     */
 
     'logo' => env('APP_NAME', 'GanaderSoft'),
-    'logo_img' => "/images/VACA-1_1.png",
+    'logo_img' => "",
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Gsoft Logo',
+    'logo_img_alt' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -194,7 +194,7 @@ return [
     'classes_content' => 'bg-transparent',
     'classes_sidebar' => 'sidebar-blue-primary bg-aside',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-blue',
+    'classes_topnav' => 'bg-transparent',
     'classes_topnav_nav' => 'navbar-expand bg-aside',
     'classes_topnav_container' => 'container',
 //'classes_topnav' => 'navbar-white navbar-light',

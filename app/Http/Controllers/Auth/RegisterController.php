@@ -81,7 +81,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         //$tipoUser = $data['type_user'];
-     
+
         try{
 
             $tipoUser = $this->usuario->contienePalabra($data['type_user']);
@@ -91,7 +91,7 @@ class RegisterController extends Controller
             $user->email = $data['email'];
             $user->password = Hash::make($data['password']);
             $user->type_user = $tipoUser;
-    
+
             if ($user->save()) {
 
                 $id = $user->id;
@@ -104,7 +104,7 @@ class RegisterController extends Controller
                         'Archivado' => false
                     ];
                     $propietario = propietario::create($propietarioData);
-                    
+
                     $data = [
                         'Propietario' => $propietario
                     ];
@@ -162,11 +162,11 @@ class RegisterController extends Controller
         }
     }
 
-    protected function addUserMasivo(csvRequest $request) 
+    protected function addUserMasivo(csvRequest $request)
     {
         try{
             $archivo = fopen($request->file('archivo')->getPathname(), 'r');
-      
+
             if ($archivo === false) { //verifico si se abrio el archivo o no
                 return response()->json([
                     'message' => 'No se pudo abrir el archivo CSV.',
@@ -181,7 +181,7 @@ class RegisterController extends Controller
               }
              })->chunk(100)->each(function ($chunk) use(&$erroresValidacion) {
                 foreach ($chunk as $fila) {
-      
+
                 if ($fila[0] === 'id') {
                     continue; // Omitir la primera fila
                 }
@@ -195,7 +195,7 @@ class RegisterController extends Controller
                     $type_user = $fila[6];
 
                     $datetime = now();
-                    
+
                     $lote_user = [
                       'name' => $name,
                       'email'=> $email,
@@ -238,16 +238,16 @@ class RegisterController extends Controller
                    ];
 
                    $this->addTipoUserMasivo($lote_tipoUser);
-                
+
               }
-            
+
             });
-              
-                
+
+
             if ($archivoAbierto) {
                 fclose($archivo);
             }
-    
+
             if (!empty($erroresValidacion)) { //Avisa si hay un dato no valido
                 return response()->json([
                     'message' => 'Se encontraron errores de validación.',
@@ -255,11 +255,11 @@ class RegisterController extends Controller
                     'errors' => $erroresValidacion
                 ], 422);
             }
-            
+
               return response()->json(['message'  => 'Datos procesados correctamente',
                                       'status'=>'OK'
       ],201);
-      
+
             }catch(\Exception $e){
                 Log::error($e->getMessage());
                 return response()->json([
@@ -270,12 +270,12 @@ class RegisterController extends Controller
             }
     }
 
-    protected function addTipoUserMasivo(array $dataUsers) 
+    protected function addTipoUserMasivo(array $dataUsers)
     {
         try{
-          
+
           $chunks = array_chunk($dataUsers, 100);
-  
+
          foreach($chunks as $chunk){
 
           foreach($chunk as $data){
@@ -311,9 +311,9 @@ class RegisterController extends Controller
             }
           }
          }
-  
+
          unset($dataUsers);
-      
+
         }catch(\Exception $e){
             Log::error($e->getMessage());
             return response()->json([
@@ -326,19 +326,19 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        echo "Her, sy yo, soy yo,...";
+        echo "Her, soy yo, soy yo,...";
         echo "<pre>";
         //dd($data);
         //$request = $data['request'];
         //$name = $request->request->get('name');
-        $file = $request->files->get('image');
-        $originalName = $file->getClientOriginalName();
-        print_r($file->getClientOriginalName());
-        print_r($request->all());
+        //$file = $request->files->get('image');
+        //$originalName = $file->getClientOriginalName();
+        //print_r($file->getClientOriginalName());
+        //print_r($request->all());
         //print_r($data['request']->name);
         //print_r($data['files']->originalName);
         echo "</pre>";
-        exit;
+        //exit;
 
         $this->create((array) $request);
 
@@ -347,7 +347,7 @@ class RegisterController extends Controller
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);  
+        $user->password = Hash::make($request->password);
 
         // Aquí puedes agregar campos personalizados a tu modelo de usuario
 
@@ -357,4 +357,52 @@ class RegisterController extends Controller
 
         return redirect($this->redirectPath());
     }
+
+
+    public function crearUsuario()
+    {
+
+        return view('auth.crearusuario', [
+        	'quien' => 'Her, soy yo, soy yo,...',
+        ]);
+
+    }
+
+    public function modificarUsuario()
+    {
+
+        return view('auth.modificarusuario', [
+        	'quien' => 'Her, soy yo, soy yo,...',
+        ]);
+
+    }
+
+    public function consultarUsuario()
+    {
+
+        return view('auth.consultarusuario', [
+        	'quien' => 'Her, soy yo, soy yo,...',
+        ]);
+
+    }
+
+    public function eliminarUsuario()
+    {
+
+        return view('auth.eliminarusuario', [
+        	'quien' => 'Her, soy yo, soy yo,...',
+        ]);
+
+    }
+
+    public function archivarUsuario()
+    {
+
+        return view('auth.archivarusuario', [
+        	'quien' => 'Her, soy yo, soy yo,...',
+        ]);
+
+    }
+
+
 }

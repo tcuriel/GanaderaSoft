@@ -6,23 +6,28 @@
     gap: 21px;
 }
 .complete-logo-app {
-    width: 183px;
-    height: 184px;
+    width: 257px;
+    height: 258px;
+    top: 138px;
+    left: 156px;
+    gap: 0px;
+    opacity: 0px;
 
     background: url("/public/images/VACA-1_1.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 
-    margin-bottom: 43px;
+    /*margin-bottom: 43px;*/
+
 }
 .frontpage-wellcome {
-    border-radius: 300px;
+    border-radius: 250px;
     background: url("/public/images/prorataWellcome.jpeg"), lightgray 50%/cover no-repeat;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     background-size: cover;
     background-position: right top;
-    height: 600px;
-    width: 115%;
+    height: 500px;
+    width: 100%;
     margin-top: 71px;
 }

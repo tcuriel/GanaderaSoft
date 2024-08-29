@@ -7,13 +7,27 @@
 }
 
 body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
     background-color: #E6F4E7; /* #C4E3EE; */
-    background-image: url('/images/fondo_GSx2.svg'); /* Replace with actual path */
+    background-image: url('/images/fondo_GSx3.svg'); /* Replace with actual path */
     /*opacity: 0.5; /* Adjust opacity as needed */
     background-size: cover; /* Or adjust as needed */
     background-repeat: no-repeat;   /* Or adjust as needed */
     background-position: center;    /* Or adjust as needed */
     height: 100vh; /* Adjust height as needed */
+}
+
+.container {
+width: 80%;
+margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
 }
 
 aside {

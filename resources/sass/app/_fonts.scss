@@ -19,9 +19,9 @@
 }
 .title-blue {
     color: $primaryblue;
-
+    font-family: Poppins;
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
@@ -29,7 +29,6 @@
 }
 .title-black {
     color: $primaryblack;
-
     font-family: Poppins;
     font-feature-settings: 'clig' off, 'liga' off;
     /*font-family: 'Roboto', sans-serif;*/
@@ -42,8 +41,7 @@
 }
 .text-wellcome {
     color: $primaryblack;
-
-    font-family: Poppins;
+    font-family: Inter;
     font-feature-settings: 'clig' off, 'liga' off;
     /*font-family: 'Roboto', sans-serif;*/
     font-size: 20px;
