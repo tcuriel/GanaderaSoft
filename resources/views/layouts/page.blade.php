@@ -6,10 +6,18 @@
 
     @vite(['resources/sass/app.scss', 'resources/sass/app/layouts/styles.scss'])
     
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+
     @yield('css-content')
     
     <!-- App style -->
     <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
+
+    <style>
+
+    </style>
 
 @stop
 

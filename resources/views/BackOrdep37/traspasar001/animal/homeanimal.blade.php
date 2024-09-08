@@ -10,42 +10,33 @@
     </!--div-->
     <div class="row g-3">
         <div class="col">
-            <table id="animalTable" class="display">
-                <thead id="tableHead">
+            <table id="table_id" class="display">
+                <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Código</th>
+                        <th>Peso</th>
                         <th>Raza</th>
-                        <th>Raza</th>
-                        <th>Etapa</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody id="animalTableBody">
-                   
+                <tbody>
+                    <tr>
+                        <td>Row Nombre</td>
+                        <td>Row Código</td>
+                        <td>Row Peso</td>
+                        <td>Row Raza</td>
+                        <td>Row Acciones</td>
+                    </tr>
+                    <tr>
+                        <td>Row Nombre</td>
+                        <td>Row Código</td>
+                        <td>Row Peso</td>
+                        <td>Row Raza</td>
+                        <td>Row Acciones</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
-<script>
-
-
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    // Función para obtener el ID de la URL
-    function getSessionIdFromUrl() {
-            const url = window.location.href;
-            const parts = url.split('/');
-            return parts[parts.length - 1]; // Asumiendo que el ID está al final de la URL
-        }
-
-        const sessionId = getSessionIdFromUrl();
-
-    function loadData(){
-      let url = ``
-
-    }
-  });
-</script>

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,14 +27,8 @@ Route::get('/acerca_de', function () {
 
 Auth::routes();
 
-//Route::get('/registrar', [UserController::class, 'create'])->middleware('isAdmin');
-//Route::get('/crearusuario', [App\Http\Controllers\Auth\RegisterController::class, 'crearUsuario'])->name('crearusuario');
-Route::middleware(['auth', 'admin'])->get('/crearusuario', [App\Http\Controllers\Auth\RegisterController::class, 'crearUsuario'])->name('crearusuario');
-Route::get('/modificarusuario', [App\Http\Controllers\Auth\RegisterController::class, 'modificarUsuario'])->name('modificarusuario');
-Route::get('/consultarusuario', [App\Http\Controllers\Auth\RegisterController::class, 'consultarUsuario'])->name('consultarusuario');
-Route::get('/eliminarusuario', [App\Http\Controllers\Auth\RegisterController::class, 'eliminarUsuario'])->name('eliminarusuario');
-Route::get('/archivarusuario', [App\Http\Controllers\Auth\RegisterController::class, 'archivarUsuario'])->name('archivarusuario');
 
+Route::get('/crearusuario', [App\Http\Controllers\Auth\RegisterController::class, 'crearUsuario'])->name('crearusuario');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -62,8 +55,7 @@ Route::get('/emailsent', function () {
 })->name('password.emailsent');
 
 //Route::get('/seleccionar',[SubirUsuarioController::class,'seleccionarArvhivo'])->name('seleccionar');
-Route::get('/seleccionar',[App\Http\Controllers\User\SubirUsuarioController::class,'seleccionarArchivo'])->name('seleccionar');
-Route::get('/seleccionarSubirUsuarios',[App\Http\Controllers\User\SubirUsuarioController::class,'seleccionarSubirUsuarios'])->name('seleccionarSubirUsuarios');
+Route::get('/seleccionar',[App\Http\Controllers\User\SubirUsuarioController::class,'seleccionarArvhivo'])->name('seleccionar');
 
 Route::get('/finca/rebano/{id_finca}/up/{id_rebano}', [App\Http\Controllers\HomeController::class, 'upRebano'])->name('upRebano');
 //Route::get('/propietario', [App\Http\Controllers\PropietarioController::class, 'index'])->name('propietario');
@@ -71,19 +63,8 @@ Route::resource('finca', App\Http\Controllers\FincaController::class);
 Route::get('/homeImage',[App\Http\Controllers\HomeController::class, 'photo'])->name('homeImage');
 Route::post('/upload', [App\Http\Controllers\HomeController::class, 'upload'])->name('upload');
 
-Route::post('/crear_finca', [App\Http\Controllers\ActionPostController::class, 'create_farm'])->name('create_farm');
-
 // reproduccion
 route::get('/agregarReproduccion/{id_Animal}',[App\Http\Controllers\HomeController::class,'crearReproduccion']);
-route::get('/agregar/celo/{id_Animal}',[App\Http\Controllers\HomeController::class,'crearCelo']);
-// sanidad
-route::get('/getsanidad/{id_Rebano}',[App\Http\Controllers\HomeController::class,'verSanidad']);
-
-Route::get('/animal/{id}', [App\Http\Controllers\HomeController::class, 'detalleAnimal']);
-
-Route::get('/medidas',[App\Http\Controllers\HomeController::class,'medidas']);
-
-Route::get('/animal/modificar/{id_animal}',[App\Http\Controllers\HomeController::class,'modificarAnimal']);
 
 Route::get('/auth/google/redirect', function () {
     return Socialite::driver('google')->redirect();

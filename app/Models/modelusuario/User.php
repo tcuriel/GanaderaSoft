@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
+    // Atributos
+    // *********
+
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = "users";
     public $timestamps = true;// Activa timestamps
@@ -30,6 +33,29 @@ class User extends Authenticatable
         'type_user',
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+
+    // Metodos
+    // *********
+    
     public function propietario(): HasOne
     {
         return $this->HasOne(propietario::class,"id","id");
@@ -39,7 +65,6 @@ class User extends Authenticatable
     {
         return $this->HasOne(transcriptor::class,"id","id");
     }
-
 
     public function existeCorreo($correo)
     {
@@ -93,23 +118,9 @@ class User extends Authenticatable
         return 'profile/username';
     }
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+    public function isAdmin()
+    {
+        return $this->type_user === 'Administrar';
+    }
+    
 }

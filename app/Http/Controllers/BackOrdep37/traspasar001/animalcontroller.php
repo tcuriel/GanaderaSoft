@@ -21,7 +21,7 @@ use App\Models\modelanimal\medidas_corporales;
 use App\Models\modelanimal\peso_corporal;
 use App\Models\modelanimal\raza_animal;
 use App\Models\modelanimal\raza_toro;
-use App\Models\modelanimal\registro_pesocor;
+//use App\Models\modelanimal\registro_pesocor;
 use App\Models\modelanimal\tipo_raza;
 use App\Models\modelanimal\Toro;
 use App\Models\modelanimal\semen_toro;
@@ -49,7 +49,7 @@ class animalcontroller extends Controller
   protected medidas_corporales $medidas;
   protected indices_corporales $indices;
   protected peso_corporal $pesos;
-  protected registro_pesocor $registroPeso;
+  //protected registro_pesocor $registroPeso;
 
 
   public function __construct()
@@ -60,154 +60,154 @@ class animalcontroller extends Controller
     $this->medidas = new medidas_corporales;
     $this->indices = new indices_corporales;
     $this->pesos = new peso_corporal;
- 
+    //$this->registroPeso = new registro_pesocor;
   }
     //---------------AREA DE ANIMAL------------------
-    public function getAnimals(int $id_Rebano){
-      try{
-
-//DB::enableQueryLog();
-
-        $animales = DB::table('animal')->join('etapa_animal','etapa_animal.etan_animal_id','=','animal.id_Animal')
-                                       ->join('etapa','etapa_animal.etan_etapa_id','=','etapa.etapa_id')
-                                        ->select('animal.Nombre','animal.codigo_animal',
-                                          'animal.Sexo','animal.fecha_nacimiento','etapa_nombre',
-                                          'etapa_animal.etan_animal_id','animal.id_Animal')
-                                        ->where('animal.id_Rebano',$id_Rebano)
-                                        ->where('etan_fecha_fin',null)
-                                        ->get();
-
-//dd(DB::getQueryLog());
-
-          return response()->json([
-              'message'=> 'animales del rebaño',
-              'data'=>$animales,
-              'status'=>'OK'
-          ],200);
-      }catch(\Excepcion $e){
-        return $this->manejarExcepcion($e);
-      }
-    }
-
-    public function getTipoAnimal(){
-      try{
-          $tipo = DB::table('tipo_animal')->get();
-
-          return response()->json([
-            'message'=> 'tipo',
-            'data'=>$tipo,
-            'status'=>'OK'
-        ],200);
-      }catch(\Excepcion $e){
-        return $this->manejarExcepcion($e);
-      }
-    }
-
-    public function getEtapaAnimal(int $etapa_id){
-      try{
-        $etapa = DB::table('etapa')->where('etapa_fk_tipo_animal_id',$etapa_id)->get();
-
-        return response()->json([
-          'message'=> 'tipo',
-          'data'=>$etapa,
-          'status'=>'OK'
-      ],200);
-    }catch(\Excepcion $e){
-      return $this->manejarExcepcion($e);
-    }
-    }
-
-    public function getSalud(){
-      try{
-        $salud = DB::table('estado_salud')->get();
-
-        return response()->json([
-          'message'=> 'tipo',
-          'data'=>$salud,
-          'status'=>'OK'
-        ],200);
-      }catch(\Excepcion $e){
-      return $this->manejarExcepcion($e);
-      }
-    }
-
-    public function getRebanos(int $id_finca){
-      try{
-        $rebano = DB::table('rebano')->where('id_Finca',$id_finca)->get();
-
-        return response()->json([
-          'message'=> 'rebanos',
-          'data'=>$rebano,
-          'status'=>'OK'
-        ],200);
-      }catch(\Excepcion $e){
-      return $this->manejarExcepcion($e);
-      }
-    }
-
-    public function getRazas(int $id_finca){
-      try{
-        $raza = DB::table('composicion_raza')->where('fk_id_Finca',$id_finca)
-                                             ->orWhere('fk_id_Finca',null)
-                                             ->select('id_Composicion','Nombre')
-                                             ->get();
-
-        return response()->json([
-          'message'=> 'razas',
-          'data'=>$raza,
-          'status'=>'OK'
-        ],200);
-      }catch(\Excepcion $e){
-      return $this->manejarExcepcion($e);
-      }
-    }
-
     // AGREGAR ANIMAL
-    public function agregarAnimal(animalRequest $request){
-      $dataAnimal = $request->validated();
-      try{
-        DB::transaction(function() use ($dataAnimal,&$data){
-          $id_animal = DB::table('animal')->insertGetId([
-            'id_Rebano' => $dataAnimal['rebaño'],
-            'Nombre' => $dataAnimal['Nombre'],
-            'codigo_animal' => $dataAnimal['codigo_animal'],
-            'Sexo' => $dataAnimal['Sexo'],
-            'fecha_nacimiento' => $dataAnimal['fecha_nacimiento'],
-            'Procedencia' => $dataAnimal['procedencia'],
-            'archivado' => 0,
-            'fk_composicion_raza' => $dataAnimal['raza'],
-            'created_at' => now(),
-            'updated_at' => now(),
-          ]);
+    public function agregarAnimal(animalRequest $request,$idFinca,$idRebano)
+    {
+      if(isset($request->validated()['animal'])){
+        $etapa = $request->validated()['animal']['Etapa'];
+        $edad = $request->validated()['animal']['Edad'];
+        $tipo = $request->validated()['animal']['Tipo'];
 
-          DB::table('estado_animal')->insert([
-            'esan_fk_id_animal' => $id_animal,
-            'esan_fk_estado_id' => $dataAnimal['estado_salud'],
-            'esan_fecha_ini' => now(),
-            'esan_fecha_fin' => null,
-          ]);
+        $informacion = [
+          'etapa' => $etapa,
+          'edad' => $edad,
+          'tipo' => $tipo
+        ];
 
-          DB::table('etapa_animal')->insert([
-            'etan_animal_id' => $id_animal,
-            'etan_etapa_id' => $dataAnimal['etapa_animal'],
-            'etan_fecha_ini' => now(),
-            'etan_fecha_fin' => null,
-           ]);
+        if(!$this->animal->verificarEtapa($etapa,$edad,$tipo)){
+          return $this->enviarRespuesta('los datos no coinciden, verifique si el tipo de animal coincide con su etapa o edad'
+                                      ,$informacion,'OK',400);
+        }
+        try{
+          DB::transaction(function() use ($request,$idFinca,$idRebano,&$data){
+          
+          $animalData = $request->validated()['animal'];
+          
+          $animalData['id_Finca'] = $idFinca;
+          $animalData['id_Rebano'] = $idRebano;
+          $animalData['archivado'] = false;
 
-           $data = [
-             'id' => $id_animal
-           ];
+          /* Preparar los datos */
+          $animalDataStore = ['id_Rebano' => $idRebano,
+                              'Nombre' => $animalData['Nombre'],
+                              'Sexo' => $animalData['Sexo'],
+                              'archivado' => false,
+                              'fecha_nacimiento' => date('Y-m-d'),
+                              'fk_composicion_raza' => 43,
+                             ];
+
+          $animal = animal::create($animalDataStore);
+          $id_Animal = $animal->id_Animal;
+          
+          //----------------------------------------------------------
+          $medida = [];
+          $indice = [];
+          $peso = 0;
+          $cambio= "Nada...";
+
+          if(true == false)
+          {
+  
+            $pesoData = [
+              'Fecha_Peso' => $request['peso']['Fecha_Peso'],
+              'Peso' => $request['peso']['Peso'],
+              'Comentario' => $request['peso']['Comentario'],
+              'id_Tecnico' => $request['peso']['id_Tecnico']
+            ];
+            $pesoData['id_Animal'] = $id_Animal;
+         
+            $peso = peso_corporal::create($pesoData);
+      
+            $columna_fecha = 'Fecha_' . $request['peso']['Tipo'];
+            $columna_peso = 'Peso_' . $request['peso']['Tipo'];
+            
+             $datosHistorico = [
+                'id_Peso' => $peso->id_Peso,
+                'id_Animal' => $id_Animal,
+                'id_Tecnico' => $request['peso']['id_Tecnico'],
+                $columna_fecha => $request['peso']['Fecha_Peso'],
+                $columna_peso => $request['peso']['Peso'],
+                'Comentario' => $request['peso']['Comentario'],
+            ];
+            $historico = DB::table('Registro_Pesocor')->insert($datosHistorico);
+          
+  
+          if($this->medidas->verificarNulidad($request->validated()['medida'])){
+            $medidaData = $request->validated()['medida'];
+            $medidaData['id_Animal'] = $id_Animal;
+  
+            $medida = medidas_corporales::create($medidaData);
+            
+            $historicoData = $medidaData;
+            $historicoData['id_Medida'] = $medida->id_Medida;
+            $historicoData['id_Animal'] = $id_Animal;
+            //agrega la fecha tipo date al registro
+            $fecha = Carbon::now();
+            $fecha->timestamp;
+            $fecha->toDateTimeString();
+            $historicoData['Fecha_Actualizacion'] = $fecha;
+  
+            $historico = historico_medidascor::create($historicoData);
+            }
+  
+            if($this->indices->verificarNulidad($request->validated()['indice'])){
+              $indiceData = $request->validated()['indice'];
+              $indiceData['id_Animal'] = $id_Animal;
+  
+              $indice = indices_corporales::create($indiceData);
+            
+            $historicoData = $indiceData;
+            $historicoData['id_Indice'] = $indice->id_Indice;
+            $historicoData['id_Animal'] = $id_Animal;
+            //agrega la fecha tipo date al registro
+            $fecha = Carbon::now();
+            $fecha->timestamp;
+            $fecha->toDateTimeString();
+            $historicoData['Fecha_Actualizacion'] = $fecha;
+  
+            $historico = historico_indicescor::create($historicoData);
+            }
+
+          //----------------------------------------------------------
+
+          $cambioData = [
+                    'Fecha_Cambio' => date('Y-m-d'),
+                    'Etapa_Cambio' =>  $request->validated()['animal']['Etapa'],
+                    'Peso' =>  $request->validated()['peso']['Peso'],
+                    'Altura' => $request->validated()['medida']['Altura_HC'],
+                    'Comentario' => $request->validated()['animal']['Procedencia'],
+                    'Edad' => $request->validated()['animal']['Edad'],
+          ];
+          $cambioData['id_Animal'] = $id_Animal;
+          $cambio = cambios_animal::create($cambioData);
+         
+          $razaData = $request->validated()['composicion'];
+          $razaData['id_Animal'] = $id_Animal;
+          
+          
+          DB::table('Raza_Animal')->insert($razaData);
+          }
+
+          $data =[
+            'animal' => $animal,
+            'medida' => $medida,
+            'indice' => $indice,
+            'peso' => $peso,
+            'cambio Animal' => $cambio,
+            
+          ];
+
         });
-
-        return response()->json([
-          'message'=> 'creado animal',
-          'data'=>$data,
-          'status'=>'OK'
-        ],201);
-
-      }catch(\Excepcion $e){
-      return $this->manejarExcepcion($e);
+        }catch(\Exception $e){
+          return $this->manejarExcepcion($e);
+        }
+  
+         return $this->enviarRespuesta('El animal se ha ingresado con exito',$data,'OK',201);
       }
+
     }
 
     public function identificarSeparador(csvRequest $request)
@@ -258,7 +258,90 @@ class animalcontroller extends Controller
     'archivo' => $fileName, // Or the stored file path
     ]
     ]);
+    }    
+
+    /*public function agregarMasivo(csvRequest $request)
+    {
+      try{
+      $archivo = fopen($request->file('archivo')->getPathname(), 'r');
+
+      if ($archivo === false) { //verifico si se abrio el archivo o no
+        return response()->json([
+            'message' => 'No se pudo abrir el archivo CSV.',
+            'status' => 'ERROR'
+        ], 500);
     }
+    $archivoAbierto = true;
+
+      LazyCollection::make(function () use ($archivo) {
+        while ($fila = fgetcsv($archivo, 0, ';')) {
+            yield $fila;
+        }
+       })->chunk(500)->each(function ($chunk) use ($request, &$erroresValidacion) {
+          foreach ($chunk as $fila) {
+
+          if ($fila[0] === 'Nombre') {
+              continue; // Omitir la primera fila
+          }
+              // Lógica para procesar cada fila
+              $nombre = $fila[0];
+              $sexo = $fila[1];
+              $edad = $fila[2];
+              $tipo = $fila[3];
+              $etapa = $fila[4];
+              $estado = $fila[5];
+              $procedencia = $fila[6];
+              $fecha = now();
+
+              $lote = [
+                'id_Finca'=> $request->validated()['id_Finca'],
+                'id_Rebano'=> $request->validated()['id_Rebano'],
+                'Nombre' => $nombre,
+                 'Sexo'=> $sexo,
+                 'Edad'=> $edad,
+                 'Tipo'=> $tipo,
+                 'Etapa'=> $etapa,
+                 'Estado'=> $estado,
+                 'Procedencia'=> $procedencia,
+                 'archivado'=> false,
+                 'created_at'=> $fecha,
+                 'updated_at'=> $fecha
+              ];
+
+              $validator = $this->validatorAnimal($lote); //realizo la validacion
+
+                  if ($validator->fails()) {
+                      $erroresValidacion[] = $validator->errors();
+                      return false; // Detener el procesamiento de más filas
+                  }
+
+              DB::table('animal')->insert($lote);
+              Log::info("Animal insertado: ", $lote);
+        }
+      
+      });
+        
+      if ($archivoAbierto) {
+        fclose($archivo);
+    }
+
+    if (!empty($erroresValidacion)) { //Avisa si hay un dato no valido
+        return response()->json([
+            'message' => 'Se encontraron errores de validación.',
+            'status' => 'ERROR',
+            'errors' => $erroresValidacion
+        ], 422);
+    }
+
+        return response()->json(['message'  => 'Datos procesados correctamente',
+                                'status'=>'OK'
+],201);
+
+      }catch(\Exception $e){
+        fclose($archivo);
+        $this->manejarExcepcion($e);
+      }
+    }*/
     
 
     public function modificarAnimal(modificarAnimalRequest $request, $id_Animal)
@@ -322,27 +405,23 @@ class animalcontroller extends Controller
     }
 
     // Listar animal de un rebaño, el tipo de listado es por si son animales archivados o activos
-    public function listarAnimales(int $id_Rebano)
+    public function listarAnimales($idFinca,$idRebano,$tipoListado)
     {
       try{
-        $animales =  DB::table('animal')->join('etapa_animal','etan_animal_id','=','id_Animal')
-                                       ->join('etapa','etan_etapa_id','=','etapa_id')
-                                        ->select('animal.Nombre','animal.Sexo',
-                                        'animal.fecha_nacimiento','etapa_nombre')
-                                        ->where('animal.id_Rebano',$id_Rebano)
-                                        ->where('etan_fecha_fin',null)
-                                        ->get();
+        $animales = DB::table('Animal')->where('id_Finca',$idFinca)
+                    ->where('id_Rebano', $idRebano)
+                    ->where('Archivado', $tipoListado)->get();
         
         if($animales->isEmpty()){
             return response()->json([
-                'message' => 'El rebano '.$id_Rebano.' no tiene animales ingresados',
+                'message' => 'El rebano '.$idRebano.' no tiene animales ingresados',
                 'data' => [],
                 'code' => 'NO_FINCAS_CREADAS',
                 'status' => 'OK'
-            ], 200);
+            ], 204);
         }else{
             return response()->json([
-                'message' => 'Animales del rebano '.$id_Rebano,
+                'message' => 'Animales del rebano '.$idRebano,
                 'data' => $animales,
                 'status' => 'OK'
             ], 200);
@@ -1513,7 +1592,7 @@ public function establecerPeso(pesoRequest $request,$tipo,$id_Animal,$id_Tecnico
     return $this->manejarExcepcion($e);
   }
 }
-
+/*
 public function actualizarPesoCorporal(pesoRequest $request,$idPeso,$tipo,$id_Tecnico=null)
 {
   if($this->registroPeso->verificarModificacion($request,$idPeso,$tipo))
@@ -1555,7 +1634,7 @@ public function actualizarPesoCorporal(pesoRequest $request,$idPeso,$tipo,$id_Te
       [],'OK',200);
     }
 }
-
+*/
 
 
 public function listarPesos($idPeso)

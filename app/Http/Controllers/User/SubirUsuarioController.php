@@ -34,7 +34,7 @@ class SubirUsuarioController extends Controller
         $this->config = $config;
     }
 
-    function seleccionarArvhivo()
+    function seleccionarArchivo()
     {   
         
         $user = Auth::user();
@@ -71,6 +71,17 @@ class SubirUsuarioController extends Controller
             'animalState' => $animalState,
             'animalStage' => $animalStage,
             'listRebano' => $listRebano,
+        ]);
+
+    }
+
+    public function seleccionarSubirUsuarios()
+    {
+
+        return view('usuario.seleccionarSubirUsuarios', [
+        	'mostrar_lateral' => true,
+            'mostrar_instituciones' => true,
+            'mostrar_estrella_solitaria' => true,
         ]);
 
     }

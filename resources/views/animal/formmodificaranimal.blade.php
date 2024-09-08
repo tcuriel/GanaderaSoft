@@ -1,4 +1,4 @@
-<form action="/Animal/agregar-animal" method="post" id="form_create_animal" class="form-app card border-0 shadow-none bg-transparent">
+<form action="" method="post" id="form_modificar_animal" class="form-app card border-0 shadow-none bg-transparent">
     @csrf
     <div class="card-body pr-xl-5">
         <div class="row">
@@ -160,139 +160,96 @@
             </div>
             <div class="col-md-7 d-flex flex-wrap justify-content-center justify-content-md-end">
                 <a href="{{ url()->previous() }}" class="btn btn-primary-darck ms-2">Regresar</a>
-                <button type="submit" class="btn btn-secondary ms-4">Agregar</button>
+                <button type="submit" class="btn btn-secondary ms-4">Modificar</button>
             </div>
         </div>
     </div>
 </form>
 
-
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-    let selectTipo = document.getElementById('tipo_animal');
+     document.addEventListener('DOMContentLoaded', function() {
+    const urlTipo = `/Animal/tipos`;
+    const urlSalud = `/Animal/salud`;
 
     function getSessionIdFromUrl() {
-            const url = window.location.href;
-            const parts = url.split('/');
-            return parts[parts.length - 1]; // Asumiendo que el ID está al final de la URL
-        }
+        const url = window.location.href;
+        const parts = url.split('/');
+        return parts[parts.length - 1]; // Asumiendo que el ID está al final de la URL
+    }
+    const animalID = getSessionIdFromUrl();
 
-      function loadData(){
-        const sessionId = getSessionIdFromUrl();
-        const urlTipo = `/Animal/tipos`;
-        const urlSalud = `/Animal/salud`;
-        const urlRebaño = `/Animal/rebano/${sessionId}`;
-        const urlRaza = `/Animal/razas/${sessionId}`;
+    fetch(`/Animal/detalle/${animalID}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Verificar la estructura de los datos
+            if (data.status === 'OK') {
+                const animal = data.data[0];
+                document.getElementById('nombre').value = animal.animal_nombre || '';
+                document.getElementById('codigo_animal').value = animal.codigo_animal || '';
+                document.getElementById('sex').value = animal.Sexo || '';
+                document.getElementById('fecha_nacimiento').value = animal.fecha_nacimiento || '';
+                document.getElementById('tipo_animal').value = animal.tipo_animal || '';
+                document.getElementById('procedencia').value = animal.Procedencia || '';
 
-      let selectSalud = document.getElementById('estado_salud');
-      let selectRebaño = document.getElementById('rebaño');
-      let selectRaza = document.getElementById('raza');
+                // Agregar opciones al select de raza y establecer el valor
+                const razaSelect = document.getElementById('raza');
+                const razaOption = document.createElement('option');
+                razaOption.value = animal.Nombre;
+                razaOption.text = animal.Nombre;
+                razaOption.selected = true;
+                razaSelect.appendChild(razaOption);
 
-      let placeholderOption = selectTipo.querySelector('option[hidden][value="tipo"]');
-      let placeholderOptionSalud = selectSalud.querySelector('option[hidden][value="salud"]');
-      let placeholderOptionRebaño = selectRebaño.querySelector('option[hidden][value="rebaño"]');
-      let placeholderOptionRaza = selectRaza.querySelector('option[hidden][value="razas"]');
+                // Agregar opciones al select de etapa y establecer el valor
+                const etapaSelect = document.getElementById('etapa_animal');
+                const etapaOption = document.createElement('option');
+                etapaOption.value = animal.etapa_nombre;
+                etapaOption.text = animal.etapa_nombre;
+                etapaOption.selected = true;
+                etapaSelect.appendChild(etapaOption);
 
-          fetch(urlTipo)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'OK') {
+                // Agregar opciones al select de tipo de animal y establecer el valor
+                const tipoSelect = document.getElementById('tipo_animal');
+                const tipoOption = document.createElement('option');
+                tipoOption.value = animal.tipo_animal_nombre;
+                tipoOption.text = animal.tipo_animal_nombre;
+                tipoOption.selected = true;
+                tipoSelect.appendChild(tipoOption);
 
-                        selectTipo.innerHTML = ''; // Limpiar el contenido anterior
-                        selectTipo.appendChild(placeholderOption); // Volver a agregar el placeholder
-                        data.data.forEach(tipo => {
-                            const option = document.createElement('option');
-                            option.value = tipo.tipo_animal_id;
-                            option.textContent = tipo.tipo_animal_nombre;
-                            selectTipo.appendChild(option);
-                        });
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        
-          fetch(urlSalud)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'OK') {
+                // Agregar opciones al select de rebaño y establecer el valor
+                const rebanoSelect = document.getElementById('rebaño');
+                const rebanoOption = document.createElement('option');
+                rebanoOption.value = animal.rebano;
+                rebanoOption.text = animal.rebano;
+                rebanoOption.selected = true;
+                rebanoSelect.appendChild(rebanoOption);
 
-                        selectSalud.innerHTML = ''; // Limpiar el contenido anterior
-                        selectSalud.appendChild(placeholderOptionSalud); // Volver a agregar el placeholder
-                        data.data.forEach(salud => {
+                // Fetch para obtener los datos de salud
+                fetch(urlSalud)
+                    .then(response => {
+                        console.log(response); // Verificar la respuesta del servidor
+                        return response.json();
+                    })
+                    .then(saludData => {
+                        console.log(saludData); // Verificar la estructura de los datos de salud
+                        const saludSelect = document.getElementById('estado_salud');
+                        saludData.forEach(salud => {
                             const option = document.createElement('option');
                             option.value = salud.estado_id;
                             option.textContent = salud.estado_nombre;
-                            selectSalud.appendChild(option);
+                            if (salud.estado_nombre === animal.estado_nombre) {
+                                option.selected = true;
+                            }
+                            saludSelect.appendChild(option);
                         });
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+                    })
+                    .catch(error => console.error('Error al obtener los datos de salud:', error));
+            } else {
+                console.error('Error:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos del animal:', error);
+        });
+});
 
-          fetch(urlRebaño)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'OK') {
-
-                        selectRebaño.innerHTML = ''; // Limpiar el contenido anterior
-                        selectRebaño.appendChild(placeholderOptionRebaño); // Volver a agregar el placeholder
-                        data.data.forEach(rebaño => {
-                            const option = document.createElement('option');
-                            option.value = rebaño.id_Rebano;
-                            option.textContent = rebaño.Nombre;
-                            selectRebaño.appendChild(option);
-                        });
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-
-        
-          fetch(urlRaza)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'OK') {
-
-                        selectRaza.innerHTML = ''; // Limpiar el contenido anterior
-                        selectRaza.appendChild(placeholderOptionRaza); // Volver a agregar el placeholder
-                        data.data.forEach(raza => {
-                            const option = document.createElement('option');
-                            option.value = raza.id_Composicion;
-                            option.textContent = raza.Nombre;
-                            selectRaza.appendChild(option);
-                        });
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-      }
-
-      function loadEtapa(etapa_id){
-        const urlEtapa = `/Animal/etapas/${etapa_id}`
-        let selectEtapa = document.getElementById('etapa_animal');
-
-        fetch(urlEtapa)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'OK') {
-
-                        selectEtapa.innerHTML = ''; // Limpiar el contenido anterior
-                       
-                        data.data.forEach(etapa => {
-                            const option = document.createElement('option');
-                            option.value = etapa.etapa_id;
-                            option.textContent = etapa.etapa_nombre;
-                            selectEtapa.appendChild(option);
-                        });
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-      }
-
-      // Agregar evento change al selectPadrote
-     selectTipo.addEventListener('change', function() {
-        const selectedTipoId = selectTipo.value;
-        if (selectedTipoId) {
-            loadEtapa(selectedTipoId);
-        }
-    });
-
-      loadData();
-   });
 </script>

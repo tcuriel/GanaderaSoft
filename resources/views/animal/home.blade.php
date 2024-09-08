@@ -68,7 +68,7 @@
 
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
  document.addEventListener('DOMContentLoaded', function() {
     const selectView = document.getElementById('selectView');
@@ -130,6 +130,7 @@
 
     pageData.forEach((item, index) => {
         const row = document.createElement('tr');
+        const buttonModificar = `/animal/modificar/${item.id_Animal}`;
         row.innerHTML = `
             <td>${item.id_Animal}</td>
             <td>${item.Nombre}</td>
@@ -140,6 +141,12 @@
                 <button class="btn btn-secondary detalle-btn" data-id="${item.id_Animal}" data-bs-toggle="modal" data-bs-target="#animalDetailModal">
                     Detalle
                 </button>
+                <button type="button" class="btn btn-secondary" onclick="confirmArchivar(${item.id_Animal})">
+                    Archivar
+                </button>
+                 <a href="${buttonModificar}" class="btn btn-secondary">
+                    Modificar
+                </a>
             </td>
         `;
         tbody.appendChild(row);
@@ -257,4 +264,54 @@
         loadRebanos();
     });
 
+
+    function confirmArchivar(id_animal) {
+    Swal.fire({
+        title: '¿Estás seguro de archivar el animal?',
+        text: "Toda la informacion relacionada será archivada",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Archivar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si el usuario confirma, envía la solicitud de eliminación
+            var actionUrl = `/Animal/archivar-animal/${id_animal}`;
+
+            fetch(actionUrl, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Asegúrate de que este token esté disponible
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'OK') {
+                    Swal.fire(
+                        'animal archivado',
+                        data.message,
+                        'success'
+                    );
+                } else {
+                    Swal.fire(
+                        'Error!',
+                        data.message,
+                        'error'
+                    );
+                }
+            })
+            .catch(error => {
+                Swal.fire(
+                    'Error!',
+                    'Ocurrió un error al archivar el registro.',
+                    'error'
+                );
+                console.error('Error:', error);
+            });
+        }
+    });
+}
 </script>

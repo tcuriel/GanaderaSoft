@@ -11,7 +11,6 @@ Route::get('/etapas/{etapa_id}',[animalcontroller::class,'getEtapaAnimal']);
 Route::get('/salud',[animalcontroller::class,'getSalud']);
 Route::get('/rebano/{id_finca}',[animalcontroller::class,'getRebanos']);
 Route::get('/razas/{id_finca}',[animalcontroller::class,'getRazas']);
-Route::get('/detalle/{id_Animal}',[animalcontroller::class,'detailAnimal']);
 
 Route::post('/agregar-animal',[animalcontroller::class,'agregarAnimal']);
 

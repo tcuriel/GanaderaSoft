@@ -271,7 +271,7 @@ class HomeController extends Controller
         }
         return redirect()->back();
     }
-
+    
     public function crearReproduccion($id_Animal){
         return view('reproduccion.createreproduccion',[
                     'user'=> Auth::user(),
@@ -283,7 +283,7 @@ class HomeController extends Controller
         return view('reproduccion.createcelo',[
             'user'=> Auth::user(),
             'data'=> $id_Animal
-        ]);
+		]);
     }
 
     public function verSanidad($id_Animal){
@@ -296,6 +296,19 @@ class HomeController extends Controller
     public function detalleAnimal(int $id_Animal){
         $animal = DB::table('animal')->where('id_Animal',$id_Animal)->first();
         return response()->json($animal);
+    }
+
+    public function medidas(){
+        return view('animal.medidas',[
+            'user' => Auth::user(),
+           
+        ]);
+    }
+
+    public function modificarAnimal($id_Animal){
+        return view('animal.modificaranimal',[
+            'user' => Auth::user(),
+        ]);
     }
 
 }

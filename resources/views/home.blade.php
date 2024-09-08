@@ -83,8 +83,8 @@
 @stop
 
 @section('js')
-    <script src="{{ asset('assets/fcm/src/grid.js') }}"></script>
-    <script type="module" src="{{ asset('assets/fcm/src/index.js') }}"></script>
+    <!--script src="{{ asset('assets/fcm/src/grid.js') }}"></script-->
+    <!--script type="module" src="{{ asset('assets/fcm/src/index.js') }}"></script-->
     
     <script>
         let navItems = document.querySelectorAll('.nav-pills .nav-link');

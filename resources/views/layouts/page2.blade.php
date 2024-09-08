@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style-tabs.css') }}">
     <!--link rel="stylesheet" href="{{-- asset('assets/css/Styles.css') --}}"-->
 
+	@yield('css-content')
+
 @stop
 
 @section('body')
@@ -35,7 +37,8 @@
 		{{-- Content Aside --}}
 		@if($mostrar_lateral)
 			<aside class="aside">
-				@yield('lateral')
+				<!--yield('lateral')-->
+				@include('partials.aside2-page')
 			</aside>
 		@endif
 		{{-- Content Navbar --}}
@@ -44,12 +47,13 @@
 
 				<div class="instituciones">
 					@if($mostrar_instituciones)
-						@yield('instituciones')
+						<!--yield('instituciones')-->
+						@include('partials.instituciones')
 					@endif
 				</div>
 
 				<div class="nav-left">
-					@include('partials.navbar.navba2-page')
+					@include('partials.navba2-page')
 				</div>
 
 			</nav>
@@ -99,7 +103,5 @@
 @section('adminlte_js')
 
     @yield('js-content')
-
-	<script  src="{{ asset('assets/js/script-tabs.js') }}"></script>
 
 @stop

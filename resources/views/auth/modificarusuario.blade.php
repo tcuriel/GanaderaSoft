@@ -25,7 +25,10 @@
 @endsection
 
 @section('instituciones')
-
+        <img src="{{ asset('images/ucv 1.svg') }}" alt="">
+        <img src="{{ asset('images/logonuevopng (1) 1.svg') }}" alt="">
+        <img src="{{ asset('images/fagro.svg') }}" alt="">
+        <img src="{{ asset('images/Fonacit 1.svg') }}" alt="">
 @endsection
 
 @section('barra2')
@@ -58,6 +61,82 @@
 @endsection
 
 @section('lateral')
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: transparent;">
+    <!-- Sidebar -->
+    <div class="sidebar" style="background-color: transparent;">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-alt"></i>
+              <p>
+                Usuarios
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('crearusuario')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../index2.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Modificar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../index3.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Consultar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../index3.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Eliminar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../index3.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Archivar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users"></i>
+              <p>
+                Subir usuarios
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('seleccionarSubirUsuarios')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Subir</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+      </div>
+    <!-- /.sidebar -->
+  </aside>
 
 @endsection
 
@@ -245,7 +324,7 @@
                         <div class="row d-flex justify-content-center align-items-center">
                             <div class="col-2">
                                 {{-- Register button --}}
-                                <button type="submit" class="btn btn-secundary2 w-100 mb-3">{{ __('adminlte::adminlte.create_account') }}</button>
+                                <button type="submit" class="btn btn-secundary2 w-100 mb-3">{{ __('Actualizar') }}</button>
                             </div>
                             <label class="col-12 form-label mt-3"><span class="text-danger">(*)</span>
                             {{ __('adminlte::adminlte.required_camp') }}</label>

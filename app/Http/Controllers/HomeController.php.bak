@@ -43,19 +43,8 @@ class HomeController extends Controller
         $statusFarms = config('app.statusfarm');
         $fincas = $this->fincaController->fincasPropietario($user->id,0)->getData();
         
-        if($user->type_user == 'Administrar')
-        {
-            $aDonde = 'administrar.welcome2';
-        }else if($user->type_user == 'Propietario')
-        {
-            $aDonde = 'finca.welcome';
-        }else
-        {
-            $aDonde = 'welcome';
-        }
-
-        return view($aDonde, [
-        	'user' => $user,
+        return view('finca.welcome', [
+            'user' => $user,
             'statusFarms' => $statusFarms,
             'farms' => $fincas->data
         ]);
@@ -251,27 +240,6 @@ class HomeController extends Controller
         ]);
     }
 
-    public function  photo(Request $request)
-    {
-        return view('homeImage');
-    }
-    
-    public function upload(Request $request)
-    {
-
-        echo "<pre>Her, soy yo..[";
-        print_r($request->image->getClientOriginalName());
-        echo "]<pre>";
-        exit;
-
-        if($request->hasFile('image')){
-            $filename = $request->image->getClientOriginalName();
-            $request->image->storeAs('images',$filename,'public');
-            Auth()->user()->update(['image'=>$filename]);
-        }
-        return redirect()->back();
-    }
-
     public function crearReproduccion($id_Animal){
         return view('reproduccion.createreproduccion',[
                     'user'=> Auth::user(),
@@ -283,7 +251,7 @@ class HomeController extends Controller
         return view('reproduccion.createcelo',[
             'user'=> Auth::user(),
             'data'=> $id_Animal
-        ]);
+]);
     }
 
     public function verSanidad($id_Animal){
@@ -296,6 +264,19 @@ class HomeController extends Controller
     public function detalleAnimal(int $id_Animal){
         $animal = DB::table('animal')->where('id_Animal',$id_Animal)->first();
         return response()->json($animal);
+    }
+
+    public function medidas(){
+        return view('animal.medidas',[
+            'user' => Auth::user(),
+           
+        ]);
+    }
+
+    public function modificarAnimal($id_Animal){
+        return view('animal.modificaranimal',[
+            'user' => Auth::user(),
+        ]);
     }
 
 }

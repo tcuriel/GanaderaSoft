@@ -16,6 +16,7 @@ use Illuminate\Support\LazyCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
+use App\Http\Middleware\IsAdmin;
 
 class RegisterController extends Controller
 {
@@ -48,7 +49,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //$this->middleware('guest');
         $this->usuario = new User;
         $this->transcriptor = new transcriptor;
     }
@@ -404,5 +405,13 @@ class RegisterController extends Controller
 
     }
 
+    public function seleccionarSubirUsuarios()
+    {
+
+        return view('usuario.seleccionarSubirUsuarios', [
+        	'quien' => 'Her, soy yo, soy yo,...',
+        ]);
+
+    }
 
 }

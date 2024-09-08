@@ -65,9 +65,6 @@ class animalcontroller extends Controller
     //---------------AREA DE ANIMAL------------------
     public function getAnimals(int $id_Rebano){
       try{
-
-//DB::enableQueryLog();
-
         $animales = DB::table('animal')->join('etapa_animal','etapa_animal.etan_animal_id','=','animal.id_Animal')
                                        ->join('etapa','etapa_animal.etan_etapa_id','=','etapa.etapa_id')
                                         ->select('animal.Nombre','animal.codigo_animal',
@@ -75,9 +72,8 @@ class animalcontroller extends Controller
                                           'etapa_animal.etan_animal_id','animal.id_Animal')
                                         ->where('animal.id_Rebano',$id_Rebano)
                                         ->where('etan_fecha_fin',null)
+                                        ->where('animal.archivado',0)
                                         ->get();
-
-//dd(DB::getQueryLog());
 
           return response()->json([
               'message'=> 'animales del rebaño',
@@ -133,7 +129,7 @@ class animalcontroller extends Controller
 
     public function getRebanos(int $id_finca){
       try{
-        $rebano = DB::table('rebano')->where('id_Finca',$id_finca)->get();
+        $rebano = DB::table('Rebano')->where('id_Finca',$id_finca)->get();
 
         return response()->json([
           'message'=> 'rebanos',
@@ -160,6 +156,33 @@ class animalcontroller extends Controller
       }catch(\Excepcion $e){
       return $this->manejarExcepcion($e);
       }
+    }
+
+    public function detailAnimal(int $id_Animal){
+      try{
+          $detalle = DB::table('animal')->join('etapa_animal','etapa_animal.etan_animal_id','=','animal.id_Animal')
+                                        ->join('etapa','etapa_animal.etan_etapa_id','=','etapa.etapa_id')
+                                        ->join('tipo_animal','tipo_animal.tipo_animal_id','=','etapa.etapa_fk_tipo_animal_id')
+                                        ->join('composicion_raza','animal.fk_composicion_raza','=','composicion_raza.id_Composicion')
+                                        ->join('estado_animal','estado_animal.esan_fk_id_animal','=','animal.id_Animal')
+                                        ->join('estado_salud','estado_salud.estado_id','=','estado_animal.esan_fk_estado_id')
+                                        ->join('rebano','rebano.id_Rebano','=','animal.id_Rebano')
+                                        ->select('animal.Nombre as animal_nombre','animal.codigo_animal',
+                                            'animal.Sexo','animal.fecha_nacimiento','animal.Procedencia',
+                                            'etapa_nombre','composicion_raza.Nombre','tipo_animal.tipo_animal_nombre',
+                                            'estado_salud.estado_nombre','rebano.Nombre as rebano')
+                                            ->where('etan_fecha_fin',null)
+                                        ->where('id_Animal',$id_Animal)->get();
+
+        
+          return response()->json([
+            'message'=> 'animal',
+            'data'=>$detalle,
+            'status'=>'OK'
+          ],200);
+      }catch(\Excepcion $e){
+        return $this->manejarExcepcion($e);
+        }
     }
 
     // AGREGAR ANIMAL
@@ -204,7 +227,6 @@ class animalcontroller extends Controller
           'data'=>$data,
           'status'=>'OK'
         ],201);
-
       }catch(\Excepcion $e){
       return $this->manejarExcepcion($e);
       }
@@ -311,11 +333,17 @@ class animalcontroller extends Controller
       try{
       $animalArchivo = DB::table('animal')->where('id_Animal',$id_Animal)->first();
    
-          $animalArchivo['Archivado'] = true;
-  
-          $animalArchivo->save();
+      if ($animalArchivo) {
+        // Actualiza el campo 'Archivado' a true
+        DB::table('animal')
+            ->where('id_Animal', $id_Animal)
+            ->update(['Archivado' => true]);
 
-          return $this->enviarRespuesta('El animal se ha archivado con exito',$animalArchivo,'OK',200);
+        // Recarga el registro actualizado
+        $animalArchivoActualizado = DB::table('animal')->where('id_Animal', $id_Animal)->first();
+
+        return $this->enviarRespuesta('El animal se ha archivado con éxito', $animalArchivoActualizado, 'OK', 200);
+    }
       }catch(\Exception $e){
        $this->manejarExcepcion($e);
       }

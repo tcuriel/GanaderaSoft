@@ -1,0 +1,62 @@
+.label-texto {
+    color: rgb(0, 0, 0);
+    font-weight: Regular;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-texto {
+    background-color: #FFFFFF;
+    border: 2px solid #148FBE;
+    opacity: 0.7;
+    padding: 5px;
+    display: block;
+    width: 100%;
+    border-radius: 10px; /* Añade bordes redondeados */
+  }
+  
+  .info-section h6 {
+    margin-bottom: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-start; /* Alinea los botones a la izquierda */
+    gap: 10px; /* Espacio entre los botones */
+  }
+
+  .button-green {
+    background-color: #2B7710; /* Color verde */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+    font-size: 16px; /* Tamaño de fuente */
+    display: inline-flex; /* Para alinear icono y texto */
+    align-items: center; /* Centrar verticalmente */
+  }
+  
+  .button-blue {
+    background-color: #105D77; /* Color azul */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+    font-size: 16px; /* Tamaño de fuente */
+    display: inline-flex; /* Para alinear icono y texto */
+    align-items: center; /* Centrar verticalmente */
+  }
+  
+  .button-green i, .button-blue i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+  }
+  
