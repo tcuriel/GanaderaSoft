@@ -16,8 +16,7 @@
 	<link rel="stylesheet" href=" {{ asset('assets/css/style-new2.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/css/style-tabs.css') }}">
-    <!--link rel="stylesheet" href="{{-- asset('assets/css/Styles.css') --}}"-->
-
+ 
 	@yield('css-content')
 
 @stop

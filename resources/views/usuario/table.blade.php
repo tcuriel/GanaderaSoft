@@ -1,8 +1,9 @@
-<div class="container d-flex justify-content-center">
-<div class="card" style="width: 100rem;">
-	<div class="card-header">
+<!--div class="container d-flex justify-content-center">
+<div class="card" style="width: 100rem;"-->
+<div class="card card-primary">
+    <div class="card-header" style="background-color: #5AB0D1;">
         <h2><b>{{ $userData['message'] }}</b>: {{ $tipo }}</h2>
-	</div>
+    </div>
 	<div class="card-body">
 		<!--table id="fincas" class="table table-striped table-bordered" style="width:100%"-->
         <table id="usuarios" class="table table-striped nowrap" style="width:100%">
@@ -11,9 +12,8 @@
                     <th>Id</th>
                     <th>e-mail</th>
                     <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Teléfono</th>
-                    <th>Id Personal</th>
+                    <th>Imagen</th>
+                    <th>Tipo</th>
                 </tr>
             </thead>
                 
@@ -40,18 +40,16 @@
                             {{ $usuario->Nombre }}
                         </td>
                         <td>
-                            {{ $usuario->Apellido }}
+                            {{ $usuario->Imagen }}
                         </td>
                         <td>
-                            {{ $usuario->Telefono }}
+                            {{ $usuario->Tipo }}
                         </td>
-                        <td>
-                            {{ $usuario->id_Personal }}
-                        </td>           
+           
                     </tr>
                 @endforeach
             </tbody>
 	    </table>
 	</div>
 </div>
-</div>
+<!--/div-->

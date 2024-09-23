@@ -318,7 +318,7 @@ class RegisterController extends Controller
                     'updated_at'=>$data['updated_at'],
                     'archivado' => false
                 ];
-                DB::table('transcriptor')->insert($transcriptorData);
+                DB::table('Transcriptor')->insert($transcriptorData);
                 Log::info("Transcriptor insertado: ", $transcriptorData);
 
             }

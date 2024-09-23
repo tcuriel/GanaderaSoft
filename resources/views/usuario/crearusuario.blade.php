@@ -2,7 +2,7 @@
 
 @php
     $cargar_tabs = false;
-    $mostrar_instituciones = false;
+    $mostrar_instituciones = true;
     $mostrar_estrella_solitaria = true;
     $mostrar_lateral = true;
     $mostrar_btn_inicio_sesion = false;
@@ -19,8 +19,8 @@
     @vite('resources/sass/app.scss')
     @vite('resources/sass/app/register/styles.scss')
 
-    <!-- App style -->
-    <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
+    <!-- Upload style -->    
+    <link rel="stylesheet" href=" {{ asset('assets/css/upload.css') }}">
 
 @endsection
 
@@ -63,7 +63,6 @@
 
 @section('contenido')
 
-
 <div id="conteudos" class="conteudos">
 
     <div class="conteudos_tabs">
@@ -87,7 +86,7 @@
 
     <div id="conteudo_1" class="conteudo visivel">
 
-        <div class="row" style="width: 90%;padding: 20px;">
+        <div class="row" style="width: 90%;padding: 10px;">
 
             <h2 class="page-title">Crear Usuario</h2>
 
@@ -97,7 +96,7 @@
                 <div class="row">
 
                     {{-- Panel izquierdo --}}
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
 
                         {{-- Name field --}}
                         <label class="form-label"><span class="text-danger">(*)</span>
@@ -161,7 +160,7 @@
                     </div>
 
                     {{-- Panel derecho --}}
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         {{-- Email field --}}
                         <label class="form-label"><span class="text-danger">(*)</span>
                         {{ __('adminlte::adminlte.email') }}</label>
@@ -231,9 +230,26 @@
                             <option value="Ingenierio">Transcriptor Ingeniero</option>
                             <option value="Veterinario">Transcriptor Veterinario</option>
                             <option value="Asistente">Transcriptor Asistente</option>
-                            <option value="Administrar">Administrador Sistema</option>
                         </select>
 
+                    </div>
+
+                    {{-- Panel derecho --}}
+                    <div class="col-sm-4">
+                    <label class="form-label"><span class="text-danger"></span>
+                                {{ __('adminlte::adminlte.image') }}</label>
+                                <div class = "wrapper">
+                                    <div class = "upload-container">
+                                        <div class = "upload-img">
+                                            <img src = "images/upload.png" alt = "" id="blah">
+                                        </div>
+                                        <p class = "upload-text">Elija imagen para cargar.</p>
+                                    </div>
+                                    <div>
+                                        <input type = "file" name="image" class = "visually-hidden" id = "image">
+                                        <button type = "button" class = "btn btn-secundary upload-btn">Escoge una foto</button>
+                                    </div>
+                                </div>
                     </div>
                 </div>
 
@@ -261,50 +277,55 @@
 @endsection
 
 @section('js-content')
+
     <script>
-            /*
-            const  upload_input = document.getElementById('upload-input');
+        document.addEventListener("DOMContentLoaded", function() {
+        const uploadContainer = document.querySelector('.upload-container');
+        const uploadButton = document.querySelector('.upload-btn');
+        const uploadInput = document.getElementById('image');
+        const uploadText = document.querySelector('.upload-text');
+        const uploadImage = document.querySelector('.upload-img img');
 
-            document.querySelector('.upload-btn').addEventListener('click', function() {
-                document.getElementById('upload-input').click();
-            });
+        const handleFile = (file) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
 
-            upload_input.onchange = evt => {
-                const [file] = upload_input.files;
-                if (file) {
-                    blah.src = URL.createObjectURL(file);
-                }
-            }
-            */
-            /*
-            document.addEventListener("DOMContentLoaded", function() {
-                const uploadContainer = document.querySelector('.upload-container');
-                const uploadButton = document.querySelector('.upload-btn');
-                const uploadInput = document.getElementById('image');
-                const uploadText = document.querySelector('.upload-text');
-                const uploadImage = document.querySelector('.upload-img img');
+            reader.onloadend = function() {
+            uploadText.textContent = file.name;
+            uploadImage.setAttribute('aria-label', file.name);
+            uploadImage.setAttribute('src', reader.result);
+            };
+        };
 
-                uploadContainer.addEventListener('click', function() {
-                    uploadInput.click();
-                });
+        // Drag and Drop functionality
+        uploadContainer.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            uploadContainer.classList.add('dragover');
+        });
 
-                uploadButton.addEventListener('click', function() {
-                    uploadInput.click();
-                });
+        uploadContainer.addEventListener('dragleave', () => {
+            uploadContainer.classList.remove('dragover');
+        });
 
-                uploadInput.addEventListener('change', function(event) {
-                    const file = event.target.files[0];
-                    const reader = new FileReader();
-                    reader.readAsDataURL(file);
+        uploadContainer.addEventListener('drop', (event) => {
+            event.preventDefault();
+            uploadContainer.classList.remove('dragover');
+            handleFile(event.dataTransfer.files[0]);
+        });
 
-                    reader.onloadend = function() {
-                        uploadText.textContent = file.name;
-                        uploadImage.setAttribute('aria-label', file.name);
-                        uploadImage.setAttribute('src', reader.result);
-                    };
-                });
-            });
-            */
-        </script>
+        uploadButton.addEventListener('click', function() {
+            uploadInput.click();
+        });
+
+        // Click functionality
+        uploadContainer.addEventListener('click', () => {
+            uploadInput.click();
+        });
+
+        uploadInput.addEventListener('change', () => {
+            handleFile(uploadInput.files[0]);
+        });
+        });
+    </script>
 
 @endsection

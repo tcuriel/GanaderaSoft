@@ -30,11 +30,21 @@ Auth::routes();
 
 //Route::get('/registrar', [UserController::class, 'create'])->middleware('isAdmin');
 //Route::get('/crearusuario', [App\Http\Controllers\Auth\RegisterController::class, 'crearUsuario'])->name('crearusuario');
-Route::middleware(['auth', 'admin'])->get('/crearusuario', [App\Http\Controllers\Auth\RegisterController::class, 'crearUsuario'])->name('crearusuario');
+/*Route::middleware(['auth', 'admin'])->get('/crearusuario', [App\Http\Controllers\Auth\RegisterController::class, 'crearUsuario'])->name('crearusuario');
 Route::get('/modificarusuario', [App\Http\Controllers\Auth\RegisterController::class, 'modificarUsuario'])->name('modificarusuario');
 Route::get('/consultarusuario', [App\Http\Controllers\Auth\RegisterController::class, 'consultarUsuario'])->name('consultarusuario');
 Route::get('/eliminarusuario', [App\Http\Controllers\Auth\RegisterController::class, 'eliminarUsuario'])->name('eliminarusuario');
 Route::get('/archivarusuario', [App\Http\Controllers\Auth\RegisterController::class, 'archivarUsuario'])->name('archivarusuario');
+*/
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/crearusuario', [App\Http\Controllers\Auth\RegisterController::class, 'createUsuario'])->name('crearusuario');
+    Route::get('/editarusuario', [App\Http\Controllers\Auth\RegisterController::class, 'editUsuario'])->name('editarusuario');
+    Route::put('/actualizarusuario', [App\Http\Controllers\Auth\RegisterController::class, 'updateUsuario'])->name('actualizarusuario');
+    // ... y así sucesivamente para todas las rutas que deban usar estos middleware
+});
+
+Route::get('/crudusuarios/{opcion}/{archivado}', [App\Http\Controllers\principalcontroller::class, 'crudUsuarios'])->name('crudusuarios.option.list');
+//Route::get('/listado/{opcion}/{archivado}',[principalcontroller::class,'userOptionList'])->name('users.option.list');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -54,6 +64,7 @@ Route::post('/crear_finca', [App\Http\Controllers\ActionPostController::class, '
 
 /* --- */
 Route::post('/storeregister', [App\Http\Controllers\Auth\RegisterController::class, 'store'])->name('storeregister');
+
 Route::post('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'logout'])->name('logout');
 //Route::get('/emailsent', [App\Http\Controllers\Auth\LogoutController::class, 'logout'])->name('logout');
 
@@ -68,6 +79,7 @@ Route::get('/seleccionarSubirUsuarios',[App\Http\Controllers\User\SubirUsuarioCo
 Route::get('/finca/rebano/{id_finca}/up/{id_rebano}', [App\Http\Controllers\HomeController::class, 'upRebano'])->name('upRebano');
 //Route::get('/propietario', [App\Http\Controllers\PropietarioController::class, 'index'])->name('propietario');
 Route::resource('finca', App\Http\Controllers\FincaController::class);
+
 Route::get('/homeImage',[App\Http\Controllers\HomeController::class, 'photo'])->name('homeImage');
 Route::post('/upload', [App\Http\Controllers\HomeController::class, 'upload'])->name('upload');
 

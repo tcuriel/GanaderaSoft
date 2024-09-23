@@ -11,7 +11,7 @@ function limparSelecao(){
 abas.addEventListener("click", function(event){
   var abaClicada = event.target.id;
   var itemSelecionado = abaClicada.substring(abaClicada.lastIndexOf("_"));
-
+  console.log('Click...');
   /* Chama função que tira a seleção do item atual */
   limparSelecao();
 

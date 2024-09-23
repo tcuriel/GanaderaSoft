@@ -22,9 +22,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap452.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap4x.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/responsive.bootstrap4x.css') }}">
-    <style>
 
-    </style>
 @endsection
 
 @section('instituciones')
@@ -68,18 +66,8 @@
 
 	<div id="conteudos" class="conteudos">
 
-	<div class="conteudos_tabs" style="">
-        <div style="display: flex;
-                    flex-direction: row;
-                    justify-content: right;
-                    align-items: right;
-                    width: 100%">
-            <a href="{{route('crearusuario')}}" 
-               type="button"
-               class="btn btn-secondary btn-230 btn-lg">
-                + Crear
-            </a>
-        </div>
+	<div class="conteudos_tabs">
+
 		<ul id="abas" class="teste">
 
 			@if($cargar_tabs)

@@ -12,9 +12,25 @@
     <!--link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"-->
     <link rel="stylesheet" href=" {{ asset('assets/css/style-new2.css') }}">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 @endsection
 
 @section('body')
+
+    @if(session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{ url()->previous() }}";
+                }
+            });
+        </script>
+    @endif
 
     <!--section class="home"-->
 
@@ -45,6 +61,7 @@
     <!--script src="{{ asset('js/app.js') }}"></script-->
 
     <script>
+        //import Swal from 'sweetalert2';
         // Set timeout for splash screen display
         setTimeout(() => {
             document.getElementById('splash-screen').classList.add('fade-out');

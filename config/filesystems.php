@@ -24,7 +24,7 @@ return [
     | may even configure multiple disks of the same driver. Defaults have
     | been set up for each driver as an example of the required values.
     |
-    | Supported Drivers: "local", "ftp", "sftp", "s3"
+    | Supported Drivers: "local", "ftp", "sftp", "s3"	'/srv/disk3/1885095/www/ganaderasoft.alfalatinacolombia.com/public/storage'
     |
     */
 
@@ -42,6 +42,12 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,
+        ],
+            
+        'public_custom' => [
+            'driver' => 'local',
+            'root' => public_path().'/storage',
+            'visibility' => 'public',
         ],
 
         's3' => [

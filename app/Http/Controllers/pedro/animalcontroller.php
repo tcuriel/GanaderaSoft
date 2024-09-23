@@ -106,6 +106,8 @@ class animalcontroller extends Controller
         return $this->manejarExcepcion($e);
       }
     }
+
+
     public function getTipoAnimal(){
       try{
           $tipo = DB::table('tipo_animal')->get();
@@ -195,6 +197,7 @@ class animalcontroller extends Controller
          return $this->manejarExcepcion($e);
       }
     }
+
     public function detailAnimal(int $id_Animal){
       try{
           $detalle = DB::table('animal')->join('etapa_animal','etapa_animal.etan_animal_id','=','animal.id_Animal')
@@ -206,9 +209,8 @@ class animalcontroller extends Controller
                                         ->join('rebano','rebano.id_Rebano','=','animal.id_Rebano')
                                         ->select('animal.Nombre as animal_nombre','animal.codigo_animal',
                                             'animal.Sexo','animal.fecha_nacimiento','animal.Procedencia',
-                                            'etapa_nombre','composicion_raza.Nombre','composicion_raza.id_Composicion','tipo_animal.tipo_animal_nombre',
-                                            'estado_salud.estado_nombre','estado_salud.estado_id','rebano.Nombre as rebano',
-                                            'rebano.id_Rebano','tipo_animal.tipo_animal_id','etapa_animal.etan_etapa_id')
+                                            'etapa_nombre','composicion_raza.Nombre','tipo_animal.tipo_animal_nombre',
+                                            'estado_salud.estado_nombre','rebano.Nombre as rebano')
                                             ->where('etan_fecha_fin',null)
                                         ->where('id_Animal',$id_Animal)->get();
 
@@ -320,83 +322,33 @@ class animalcontroller extends Controller
     ]);
     }
     
-    public function modificarAnimal(animalRequest $request,int $id_animal)
+
+    public function modificarAnimal(modificarAnimalRequest $request, $id_Animal)
     {
-      $dataAnimal = $request->validated();
-    
+
+      if(isset($request->validated()['animal'])){
         try{
-          $animal = animal::find($id_animal);
+          $animal = animal::findOrFail($id_Animal);
 
-          if($animal){
-            DB::transaction(function() use ($dataAnimal,$id_animal,&$data){
-              DB::table('animal')->where('id_Animal',$id_animal)
-                                  ->update([
-                                    'id_Rebano' => $dataAnimal['rebaño'],
-                                    'Nombre' => $dataAnimal['Nombre'],
-                                    'codigo_animal' => $dataAnimal['codigo_animal'],
-                                    'Sexo' => $dataAnimal['Sexo'],
-                                    'fecha_nacimiento' => $dataAnimal['fecha_nacimiento'],
-                                    'Procedencia' => $dataAnimal['procedencia'],
-                                    'fk_composicion_raza' => $dataAnimal['raza'],
-                                    'updated_at' => now(),
-                                   ]);
+      if($animal){
+        $animalData = $request->validated()['animal'];
+        $animal->fill($animalData);
+        $animal->save();
 
-                  //-------------------
-              /*    DB::table('estado_animal')->insert([
-                    'esan_fk_id_animal' => $id_animal,
-                    'esan_fk_estado_id' => $dataAnimal['estado_salud'],
-                    'esan_fecha_ini' => now(),
-                    'esan_fecha_fin' => null,
-                  ]); */
-                  if(!$this->animal->verificarSalud($dataAnimal['estado_salud'],$id_animal)){
-                    DB::table('estado_animal')
-                                    ->where('esan_fk_id_animal',$id_animal)
-                                    ->where('esan_fecha_fin',null)
-                                    ->update([
-                                      'esan_fecha_fin' => now(),
-                                    ]);
+        $data = [
+          'Animal' => $animal
+        ];
 
-                    DB::table('estado_animal')->insert([
-                      'esan_fk_id_animal' => $id_animal,
-                      'esan_fk_estado_id' => $dataAnimal['estado_salud'],
-                      'esan_fecha_ini' => now(),
-                       'esan_fecha_fin' => null,
-                      ]);
-                  }
-                  
-                  if(!$this->animal->verificarUltimaEtapa($dataAnimal['etapa_animal'],$id_animal)){
-                    DB::table('etapa_animal')
-                                        ->where('etan_animal_id',$id_animal)
-                                        ->where('etan_fecha_fin',null)
-                                        ->update([
-                                        'etan_fecha_fin' => now(),
-                                        ]);
-                                     
-                                      
-                    DB::table('etapa_animal')->insert([
-                        'etan_animal_id' => $id_animal,
-                        'etan_etapa_id' => $dataAnimal['etapa_animal'],
-                        'etan_fecha_ini' => now(),
-                        'etan_fecha_fin' => null,
-                          ]);
-                  }
-              
-        
-                  //----------------------
-                  $data = [
-                    'id' => $id_animal
-                  ];
-            });
-          }
-
-          return response()->json([
-            'message'=> 'modificado con exito',
-            'data'=>$data,
-            'status'=>'OK'
-          ],200);
+        return $this->enviarRespuesta('El registro se ha modificado con exito',$data,'OK',200);
+       
+      }else{
+        return $this->enviarRespuesta('No se ha encontrado registro con este ID ',[],'OK',200);
+      }
         }catch(\Exception $e){
           $this->manejarExcepcion($e);
         }
+      }
+
     }
 
     public function eliminarAnimal($id_Animal)
@@ -435,26 +387,6 @@ class animalcontroller extends Controller
       }catch(\Exception $e){
        $this->manejarExcepcion($e);
       }
-    }
-
-    public function activarAnimal($id_Animal){
-      try{
-        $animalArchivo = DB::table('animal')->where('id_Animal',$id_Animal)->first();
-     
-        if ($animalArchivo) {
-          // Actualiza el campo 'Archivado' a true
-          DB::table('animal')
-              ->where('id_Animal', $id_Animal)
-              ->update(['Archivado' => false]);
-  
-          // Recarga el registro actualizado
-          $animalArchivoActualizado = DB::table('animal')->where('id_Animal', $id_Animal)->first();
-  
-          return $this->enviarRespuesta('El animal se ha activado con éxito', $animalArchivoActualizado, 'OK', 200);
-      }
-        }catch(\Exception $e){
-         $this->manejarExcepcion($e);
-        }
     }
 
     // Listar animal de un rebaño, el tipo de listado es por si son animales archivados o activos

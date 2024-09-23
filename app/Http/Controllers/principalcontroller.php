@@ -36,7 +36,7 @@ class principalcontroller extends Controller
     }
 
     //Todos los usuarios del sistema para visualizar por el administrador
-    protected function userOptionList($opcion, $archivado) {
+    protected function userOptionList($opcion='mixto', $archivado=0) {
 
         $user = Auth::user();
         /*
@@ -53,22 +53,22 @@ class principalcontroller extends Controller
           case 'mixto':
               //return $this->usersList($archivado);
               $jsonData = $this->usersList($archivado);
-              return view('usuario.welcome', ['user' => $user,
-                                              'tipo' => 'Mixto',
+              return view('usuario.mostrar', ['user' => $user,
+                                              'tipo' => 'xMixto',
                                               'userData' => json_decode($jsonData->getContent(), true)]);
             break;
           case 'propietario':
              //return $this->propietarioList($archivado);
              $jsonData = $this->propietarioList($archivado);
-             return view('usuario.welcome', ['user' => $user,
-                                             'tipo' => 'Propietario',
+             return view('usuario.mostrar', ['user' => $user,
+                                             'tipo' => 'xPropietario',
                                              'userData' => json_decode($jsonData->getContent(), true)]);
              break;
           case 'transcriptor':
             //return 
             $jsonData = $this->transcriptorList($archivado);
-            return view('usuario.welcome', ['user' => $user,
-                                            'tipo' => 'Transcriptor',
+            return view('usuario.mostrar', ['user' => $user,
+                                            'tipo' => 'xTranscriptor',
                                             'userData' => json_decode($jsonData->getContent(), true)]);
 
             break;
@@ -78,7 +78,8 @@ class principalcontroller extends Controller
         }
       }
   
-      protected function usersList($archivado) {
+      protected function usersList($archivado) 
+      {
           try{
           $users = DB::table('users as us')
                   ->leftJoin('Propietario as P', 'us.id', '=', 'P.id')
@@ -90,8 +91,9 @@ class principalcontroller extends Controller
                                 DB::raw('COALESCE(P.Apellido, T.Apellido) as Apellido'),
                                 DB::raw('COALESCE(P.Telefono, T.Telefono) as Telefono'),
                                 DB::raw('COALESCE(P.id_Personal, T.id_Personal) as id_Personal'),
-                                DB::raw('COALESCE(T.Tipo_Transcriptor, "") as Tipo_Transcriptor')
-                                
+                                DB::raw('COALESCE(T.Tipo_Transcriptor, "") as Tipo_Transcriptor'),
+                                DB::raw('image as Imagen'),
+                                DB::raw('type_user as Tipo'),  
                             )->whereRaw('COALESCE(P.Archivado, T.Archivado) = ?', [$archivado])
                             ->get();
 
@@ -136,7 +138,10 @@ class principalcontroller extends Controller
                                'P.Nombre',
                                'P.Apellido',
                                'P.Telefono',
-                               'P.id_Personal'
+                               'P.id_Personal')
+                               ->addSelect(
+                               DB::raw('image as Imagen'),
+                               DB::raw('type_user as Tipo'),  
                                )->where('P.archivado',$archivado)
                                ->get();
   
@@ -173,7 +178,10 @@ class principalcontroller extends Controller
                     'T.Apellido',
                     'T.Telefono',
                     'T.id_Personal',
-                    'T.Tipo_Transcriptor'
+                    'T.Tipo_Transcriptor')
+                    ->addSelect(
+                      DB::raw('image as Imagen'),
+                      DB::raw('type_user as Tipo'), 
                       )->where('T.archivado',$archivado)
                       ->get();
   
@@ -213,7 +221,6 @@ class principalcontroller extends Controller
                       DB::raw('COALESCE(p.Telefono, t.Telefono) as Telefono'),
                       DB::raw('COALESCE(p.id_Personal, t.id_Personal) as id_Personal'),
                       DB::raw('COALESCE(t.Tipo_Transcriptor, "") as Tipo_Transcriptor')
-                      
                   )->where('u.id', $id) //ubico a partir de su id especifica
                   ->get();
 
@@ -492,4 +499,62 @@ class principalcontroller extends Controller
           }
           return $resultado;
        }
+
+    //Todos los usuarios del sistema para visualizar por el administrador
+    protected function crudUsuarios( $archivado=0) 
+    {
+
+      $user = Auth::user();
+
+      $jsonData = $this->usersListAll($archivado);
+      return view('usuario.welcome', ['user' => $user,
+                                      'tipo' => '',
+                                      'userData' => json_decode($jsonData->getContent(), true)]);
+    
+                                    }
+
+    protected function usersListAll($archivado) 
+    {
+        try{
+        $users = DB::table('users as us')
+                ->select('us.id',
+                          'us.email')
+                            ->addSelect(
+                              DB::raw('name as Nombre'),
+                              DB::raw('image as Imagen'),
+                              DB::raw('type_user as Tipo'),                             
+                          )->get();
+
+          //elimino el campo Tipo_Transcriptor si viene como vacio (debido al proopietario)
+          $users = $users->map(function ($item) {
+          
+            if (empty($item->Tipo_Transcriptor)) {
+                unset($item->Tipo_Transcriptor);
+            }
+            return $item;
+        });
+
+          if($users->isEmpty()){
+            return response()->json([
+              'message'=>'No hay usuarios en el sistema',
+              'data'=>[],
+              'status'=>'OK'
+          ],204);
+          }else{
+            return response()->json([
+              'message'=>'Usuarios en el sistema',
+              'data'=>$users,
+              'status'=>'OK'
+          ],200);
+          }
+        }catch(QueryException $e){
+            Log::error($e->getMessage());
+                return response()->json([
+                    'message'=>'Ha habido un fallo al listar todos los usuarios. Intente de nuevo',
+                    'data'=>[],
+                    'status'=>'Error'
+                ],500);
+        }
+    }
+
 }

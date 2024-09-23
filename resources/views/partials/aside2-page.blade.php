@@ -35,12 +35,34 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+
                 <li class="nav-item">
-                <a href="{{route('crearusuario')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>CRUD</p>
-                </a>
-              </li>
+                  <a href="{{route('crudusuarios.option.list', ['opcion' => 'mixto', 'archivado' => 0])}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>CRUD</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{route('users.option.list', ['opcion' => 'mixto', 'archivado' => 0])}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Mixto</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{route('users.option.list', ['opcion' => 'propietario', 'archivado' => 0])}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Propietario</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{route('users.option.list', ['opcion' => 'transcriptor', 'archivado' => 0])}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Transcriptor</p>
+                  </a>
+                </li>
               <!--li class="nav-item">
                 <a href="{{route('crearusuario')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

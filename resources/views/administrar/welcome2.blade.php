@@ -1,9 +1,9 @@
 @extends('layouts.page2')
 
 @php
-    $cargar_tabs = true;
+    $cargar_tabs = false;
     $mostrar_instituciones = true;
-    $mostrar_estrella_solitaria = false;
+    $mostrar_estrella_solitaria = true;
     $mostrar_lateral = true;
     $mostrar_btn_inicio_sesion = false;
 @endphp
@@ -18,15 +18,20 @@
 
     @vite('resources/sass/app/wellcome/styles.scss')
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        .center-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+    </style>
+
 @endsection
 
 @section('instituciones')
-    <!--div class="instituciones"-->
-        <img src="{{ asset('images/ucv 1.svg') }}" alt="">
-        <img src="{{ asset('images/logonuevopng (1) 1.svg') }}" alt="">
-        <img src="{{ asset('images/fagro.svg') }}" alt="">
-        <img src="{{ asset('images/Fonacit 1.svg') }}" alt="">
-    <!--/div-->
+
 @endsection
 
 @section('barra2')
@@ -60,126 +65,111 @@
 
 @section('lateral')
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: transparent;">
-    <!-- Sidebar -->
-    <div class="sidebar" style="background-color: transparent;">
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user-alt"></i>
-              <p>
-                Usuarios
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('crearusuario')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modificar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Eliminar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Archivar</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-users"></i>
-              <p>
-                Subir usuarios
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('seleccionarSubirUsuarios')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Subir</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-      </div>
-    <!-- /.sidebar -->
-  </aside>
-
 @endsection
 
 @section('contenido')
 
-    <div id="conteudos" class="conteudos">
+    @if(session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{ url()->previous() }}";
+                }
+            });
+        </script>
+    @endif
 
-        <div class="conteudos_tabs">
+<div id="conteudos" class="conteudos">
 
-            <ul id="abas" class="teste">
-                <li class="selecionada">
-                    <a id="aba_1" href="#aba_1" onclick="event.preventDefault()">
-                    </a>
-                </li>
-                <li>
-                    <a id="aba_2" href="#aba_2" onclick="event.preventDefault()">
-                    </a>
-                </li>
-            </ul>
+  <div class="conteudos_tabs">
 
-        </div>
+      <ul id="abas" class="teste">
 
-        <div id="conteudo_1" class="conteudo visivel">
+          @if($cargar_tabs)
+              <li class="selecionada">
+                  <a id="aba_1" href="#aba_1" onclick="event.preventDefault()">
+                  </a>
+              </li>
+              <li>
+                  <a id="aba_2" href="#aba_2" onclick="event.preventDefault()">
+                  </a>
+              </li>
+          @endif
+          
+      </ul>
 
-            <p>Conteúdo da Aba 1</p>
+  </div>
 
-        </div>
-
-        <div id="conteudo_2" class="conteudo">
-
-            <p>Conteúdo da Aba 2</p>
-
-        </div>
-
+  <div id="conteudo_1" class="conteudo visivel">
+    <div class="center-image-container">
+        <img src="{{ asset('images/superusuarioXL.png') }}" alt="Super Usuario">
     </div>
+  </div>
+
+  <div id="conteudo_2" class="conteudo">
+
+	</div>
+
+</div>
 
 @endsection
 
 @section('js-content')
+    <script>
+            /*
+            const  upload_input = document.getElementById('upload-input');
 
-    <!-- Bootstrap 4 -->
-    <!--script src="{{-- asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') --}}"></script-->
-    <!-- AdminLTE App -->
-    <!--script src="{{-- asset('assets/dist/js/adminlte.min.js') --}}"></script-->
-    <!-- AdminLTE for demo purposes -->
-    <!--script src="{{-- asset('assets/dist/js/demo.js') --}}"></script-->
+            document.querySelector('.upload-btn').addEventListener('click', function() {
+                document.getElementById('upload-input').click();
+            });
 
-    @endsection
+            upload_input.onchange = evt => {
+                const [file] = upload_input.files;
+                if (file) {
+                    blah.src = URL.createObjectURL(file);
+                }
+            }
+            */
+            /*
+            document.addEventListener("DOMContentLoaded", function() {
+                const uploadContainer = document.querySelector('.upload-container');
+                const uploadButton = document.querySelector('.upload-btn');
+                const uploadInput = document.getElementById('image');
+                const uploadText = document.querySelector('.upload-text');
+                const uploadImage = document.querySelector('.upload-img img');
+
+                uploadContainer.addEventListener('click', function() {
+                    uploadInput.click();
+                });
+
+                uploadButton.addEventListener('click', function() {
+                    uploadInput.click();
+                });
+
+                uploadInput.addEventListener('change', function(event) {
+                    const file = event.target.files[0];
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+
+                    reader.onloadend = function() {
+                        uploadText.textContent = file.name;
+                        uploadImage.setAttribute('aria-label', file.name);
+                        uploadImage.setAttribute('src', reader.result);
+                    };
+                });
+            });
+            */
+        </script>
+
+        <!-- Bootstrap 4 -->
+        <!--script src="{{-- asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') --}}"></script-->
+        <!-- AdminLTE App -->
+        <!--script src="{{-- asset('assets/dist/js/adminlte.min.js') --}}"></script-->
+        <!-- AdminLTE for demo purposes -->
+        <!--script src="{{-- asset('assets/dist/js/demo.js') --}}"></script-->
+
+@endsection

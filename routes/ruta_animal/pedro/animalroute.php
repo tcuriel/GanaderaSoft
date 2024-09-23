@@ -6,23 +6,20 @@ use App\Http\Controllers\animalcontroller;
 
 //Animal
 Route::get('/animales/{id_rebano}',[animalcontroller::class,'getAnimals']);
-Route::get('/animales-archivo/{id_rebano}',[animalcontroller::class,'getAnimalsArchivado']);
 Route::get('/tipos',[animalcontroller::class,'getTipoAnimal']);
 Route::get('/etapas/{etapa_id}',[animalcontroller::class,'getEtapaAnimal']);
 Route::get('/salud',[animalcontroller::class,'getSalud']);
 Route::get('/rebano/{id_finca}',[animalcontroller::class,'getRebanos']);
 Route::get('/razas/{id_finca}',[animalcontroller::class,'getRazas']);
 Route::get('/detalle/{id_Animal}',[animalcontroller::class,'detailAnimal']);
-Route::get('/finca-id/{id_animal}',[animalcontroller::class,'getFincaID']);
 
 Route::post('/agregar-animal',[animalcontroller::class,'agregarAnimal']);
 
-Route::put('/modificar-animal/{id_animal}',[animalcontroller::class,'modificarAnimal']);
+Route::put('/modificar-animal/{idAnimal}',[animalcontroller::class,'modificarAnimal']);
 
 Route::delete('/eliminar-animal/{idAnimal}',[animalcontroller::class,'eliminarAnimal']);
 
 Route::put('/archivar-animal/{idAnimal}',[animalcontroller::class,'archivarAnimal']);
-Route::Put('/activar-animal/{idAnimal}',[animalcontroller::class,'activarAnimal']);
 
 Route::get('/listar-animales/{idRebano}',[animalcontroller::class,'listarAnimales']);
 

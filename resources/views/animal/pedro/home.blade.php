@@ -12,7 +12,6 @@
             </label>
             <select id="selectView" class="form-select form-select-lg" aria-label="Large select example" style="width: 200px; background-color: #C0D43B; color: #0B7509">
                 <option value="animal" selected>Animal</option>
-                <option value="archivado">Animal Archivado</option>
             </select>
         </div>
         <div class="d-flex align-items-center mt-3">
@@ -65,14 +64,7 @@
 </div>
 
 <!-- Incluir el modal -->
-
-<!--button id="btnModal1" data-toggle="modal" data-target="#modal1">Abrir Modal 1</button-->
-<!-- Button trigger modal -->
-<!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
-  Launch static backdrop modal
-</button-->
-
-@include('animal.modaldetalle2')
+@include('animal.modaldetalle')
 
 </div>
 
@@ -114,19 +106,6 @@
                         </tr>
                     `;
                     break;
-                    case 'archivado':
-                        url = `/Animal/animales-archivo/${rebanoId}`;
-                    tableHead.innerHTML = `
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Etapa</th>
-                            <th scope="col">Sexo</th>
-                            <th scope="col">Fecha de Nacimiento</th>
-                            <th scope="col" style="text-align: center;">Acciones</th>
-                        </tr>
-                    `;
-                    break;
                   default:
 
                   break;
@@ -151,8 +130,6 @@
 
     pageData.forEach((item, index) => {
         const row = document.createElement('tr');
-        switch(viewType){
-          case 'animal':
         const buttonModificar = `/animal/modificar/${item.id_Animal}`;
         row.innerHTML = `
             <td>${item.id_Animal}</td>
@@ -161,7 +138,7 @@
             <td>${item.Sexo}</td>
             <td>${item.fecha_nacimiento}</td>
             <td style="text-align: center;">
-                <button class="btn btn-secondary detalle-btn" data-id="${item.id_Animal}" data-bs-toggle="modal" data-bs-target="#modal1">
+                <button class="btn btn-secondary detalle-btn" data-id="${item.id_Animal}" data-bs-toggle="modal" data-bs-target="#animalDetailModal">
                     Detalle
                 </button>
                 <button type="button" class="btn btn-secondary" onclick="confirmArchivar(${item.id_Animal})">
@@ -172,57 +149,25 @@
                 </a>
             </td>
         `;
-        break;
-        case 'archivado':
-
-            row.innerHTML = `
-             <td>${item.id_Animal}</td>
-            <td>${item.Nombre}</td>
-            <td>${item.etapa_nombre}</td>
-            <td>${item.Sexo}</td>
-            <td>${item.fecha_nacimiento}</td>
-            <td style="text-align: center;">
-                <button class="btn btn-secondary detalle-btn" data-id="${item.id_Animal}" data-bs-toggle="modal" data-bs-target="#animalDetailModal">
-                    Detalle
-                </button>
-                <button type="button" class="btn btn-secondary" onclick="confirmActivar(${item.id_Animal})">
-                    Activar
-                </button>
-                 <a href="" class="btn btn-secondary">
-                    Modificar
-                </a>
-            </td>
-            `;
-        break;
-        default:
-        break;
-        }
         tbody.appendChild(row);
     });
 
     // Configurar eventos de clic para los botones "Detalle"
     const detalleButtons = document.querySelectorAll('.detalle-btn');
-detalleButtons.forEach(button => {
-    button.addEventListener('click', function () {
-        const animalId = this.getAttribute('data-id');
-        console.log('[')
-        console.log(animalId);
-        console.log(']')
-        // Verifica si el animalId es válido
-        if (animalId) {
-        
-            const modal = document.getElementById('animalDetailModal');
-            modal.setAttribute('data-animal-id', animalId);
-                    
-            $('#animalDetailModal').modal('show');
-        } else {
-            console.error('Animal ID is undefined');
-        }
+    detalleButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const animalId = this.getAttribute('data-id');
+
+            // Verifica si el animalId es válido
+            if (animalId) {
+                document.getElementById('animalDetailModal').setAttribute('data-animal-id', animalId);
+                        
+                $('#animalDetailModal').modal('show');
+            } else {
+                console.error('Animal ID is undefined');
+            }
+        });
     });
-});
-
- 
-
 }
 
 
@@ -362,56 +307,6 @@ detalleButtons.forEach(button => {
                 Swal.fire(
                     'Error!',
                     'Ocurrió un error al archivar el registro.',
-                    'error'
-                );
-                console.error('Error:', error);
-            });
-        }
-    });
-}
-
-function confirmActivar(id_animal){
-    Swal.fire({
-        title: '¿Estás seguro de activar nuevamente el animal?',
-        text: "Toda la informacion relacionada será activada",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Activar',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Si el usuario confirma, envía la solicitud de eliminación
-            var actionUrl = `/Animal/activar-animal/${id_animal}`;
-
-            fetch(actionUrl, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Asegúrate de que este token esté disponible
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'OK') {
-                    Swal.fire(
-                        'animal activado',
-                        data.message,
-                        'success'
-                    );
-                } else {
-                    Swal.fire(
-                        'Error!',
-                        data.message,
-                        'error'
-                    );
-                }
-            })
-            .catch(error => {
-                Swal.fire(
-                    'Error!',
-                    'Ocurrió un error al activar el registro.',
                     'error'
                 );
                 console.error('Error:', error);
