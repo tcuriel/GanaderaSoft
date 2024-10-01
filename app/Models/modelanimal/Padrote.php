@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\modelanimal;
+namespace App\Models\ModelAnimal;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +9,7 @@ class Padrote extends Model
 {
     use HasFactory;
 
-    protected $table = 'Padrote';
+    protected $table = 'padrote';
     protected $primaryKey = 'id_Toro';
     public $timestamps = true;
 
@@ -24,7 +24,7 @@ class Padrote extends Model
 
     public function toroSemen(): HasMany
     {
-        return $this->HasMany(semen_toro::class,'id_Toro');
+        return $this->HasMany(SemenToro::class,'id_Toro');
     }
 
 

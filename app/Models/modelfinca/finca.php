@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Models\modelfinca;
+namespace App\Models\ModelFinca;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\modelanimal\Animal;
-use App\Models\modelusuario\propietario;
+use App\Models\ModelAnimal\Animal;
+use App\Models\ModelUsuario\Propietario;
 
-class finca extends Model
+class Finca extends Model
 {
     use HasFactory;
 
@@ -26,32 +26,32 @@ class finca extends Model
 
     public function personalfinca(): HasMany
     {
-        return $this->HasMany(personal_finca::class,'id_Finca');
+        return $this->HasMany(PersonalFinca::class,'id_Finca');
     }
 
     public function rebanos(): HasMany
     {
-        return $this->HasMany(rebano::class,'id_Finca');
+        return $this->HasMany(Rebano::class,'id_Finca');
     }
 
     public function inventarioBufalos(): HasOne
     {
-        return $this->HasOne(inventario_bufalo::class, 'id_Finca');
+        return $this->HasOne(InventarioBufalo::class, 'id_Finca');
     }
 
     public function inventarioVacunos(): HasOne
     {
-        return $this->HasOne(inventario_vacuno::class, 'id_Finca');
+        return $this->HasOne(InventarioVacuno::class, 'id_Finca');
     }
 
     public function inventarioGenerales(): HasOne
     {
-        return $this->HasOne(inventario_general::class, 'id_Finca');
+        return $this->HasOne(InventarioGeneral::class, 'id_Finca');
     }
 
     public function hierro(): HasOne
     {
-        return $this->HasOne(hierro::class, 'id_Finca');
+        return $this->HasOne(Hierro::class, 'id_Finca');
     }
 
     public function propietario(): BelongsTo
@@ -61,17 +61,17 @@ class finca extends Model
 
     public function terreno(): HasOne
     {
-        return $this->HasOne(terreno::class, 'id_Finca');
+        return $this->HasOne(Terreno::class, 'id_Finca');
     }
 
     public function movimientoRebanos(): HasOne
     {
-        return $this->HasOne(movimiento_rebano::class, 'id_Finca');
+        return $this->HasOne(MovimientoRebano::class, 'id_Finca');
     }
 
     public function afiliaciones(): HasMany
     {
-        return $this->HasMany(afiliacion::class, "afiliacion", "id_Finca", "id_Finca");
+        return $this->HasMany(Afiliacion::class, "afiliacion", "id_Finca", "id_Finca");
     }
 
     public function toros(): HasMany
@@ -96,7 +96,7 @@ class finca extends Model
     }
 
     public function existeFinca($idFinca){
-        $finca = finca::find($idFinca);
+        $finca = Finca::find($idFinca);
 
         return $finca != null;
     }

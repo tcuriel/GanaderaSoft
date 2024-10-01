@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\modelfinca;
+namespace App\Models\ModelFinca;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class hierro extends Model
+class Hierro extends Model
 {
     use HasFactory;
 
@@ -23,7 +23,7 @@ class hierro extends Model
 
     public function finca(): BelongsTo
     {
-        return $this->BelongsTo(finca::class, 'id_Finca');
+        return $this->BelongsTo(Finca::class, 'id_Finca');
     }
 
     public function propietario(): BelongsTo

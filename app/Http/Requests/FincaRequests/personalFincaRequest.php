@@ -4,7 +4,7 @@ namespace App\Http\Requests\FincaRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class personalFincaRequest extends FormRequest
+class PersonalFincaRequest extends FormRequest
 {
     const CEDULA_REGEX = '/^.(VEJPG|vejpg){0,1}-(\d{0,8})(?:-(?:\d{1}))?$/';
     /**
@@ -23,7 +23,7 @@ class personalFincaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'personal_finca.Cedula' => ['required', 'unique:Personal_Finca,Cedula', 'regex:' . self::CEDULA_REGEX],
+            'personal_finca.Cedula' => ['required', 'unique:personal_finca,Cedula', 'regex:' . self::CEDULA_REGEX],
             'personal_finca.Nombre' => 'required|string|max:25',
             'personal_finca.Apellido' => 'required|string|max:25',
             'personal_finca.Telefono' => 'required|numeric|digits_between:10,15',

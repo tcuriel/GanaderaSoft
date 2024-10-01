@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('splash3');
-})->name('splash3');
+    return view('splash');
+})->name('splash');
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -43,8 +43,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // ... y así sucesivamente para todas las rutas que deban usar estos middleware
 });
 
-Route::get('/crudusuarios/{opcion}/{archivado}', [App\Http\Controllers\principalcontroller::class, 'crudUsuarios'])->name('crudusuarios.option.list');
-//Route::get('/listado/{opcion}/{archivado}',[principalcontroller::class,'userOptionList'])->name('users.option.list');
+Route::get('/crudusuarios/{opcion}/{archivado}', [App\Http\Controllers\PrincipalController::class, 'crudUsuarios'])->name('crudusuarios.option.list');
+//Route::get('/listado/{opcion}/{archivado}',[PrincipalController::class,'userOptionList'])->name('users.option.list');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -116,3 +116,8 @@ Route::get('/auth/google/callback', function () {
 Route::get('/login/google', [App\Http\Controllers\GoogleLoginController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('/login/google/callback', [App\Http\Controllers\GoogleLoginController::class, 'handleGoogleCallback']);
 //Route::get('/login/google/callback',  'SocialiteAuthController@loginWithGoogle');
+/*
+Route::get('/tablero', function () {
+    return view('layouts.pageFinal');
+});
+*/

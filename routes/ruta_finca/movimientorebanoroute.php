@@ -2,11 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\fincacontroller;
+use App\Http\Controllers\FincaController;
 
 Route::post('/movimiento/{idFincaBase}/{idFincaD}/{rebanoDestino}/{rebanoBase}/{tipoMovimiento}/{cantidad}'
-                            ,[fincacontroller::class,'moverRebano']);
+                            ,[FincaController::class,'moverRebano']);
 
-Route::get('/movimiento-lista/{idFinca}',[fincacontroller::class,'listarMovimientosPendientes']);
+Route::get('/movimiento-lista/{idFinca}',[FincaController::class,'listarMovimientosPendientes']);
 
-Route::put('/actualizar-movimiento/{estado}/{idMovimiento}',[fincacontroller::class,'actualizarEstadoMovimiento']);
+Route::put('/actualizar-movimiento/{estado}/{idMovimiento}',[FincaController::class,'actualizarEstadoMovimiento']);

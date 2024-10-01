@@ -482,6 +482,12 @@ body, html {
 }
 
 /* ... (otros estilos) */
+
+.main-sidebar {
+    width: 220px;
+    z-index: 0;
+}
+
 .aside {
     width: 200px;
     background-color: transparent;

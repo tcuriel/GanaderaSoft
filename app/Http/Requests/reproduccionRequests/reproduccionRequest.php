@@ -4,7 +4,7 @@ namespace App\Http\Requests\reproduccionRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class reproduccionRequest extends FormRequest
+class ReproduccionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

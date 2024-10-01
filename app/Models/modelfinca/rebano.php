@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\modelfinca;
+namespace App\Models\ModelFinca;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class rebano extends Model
+class Rebano extends Model
 {
     use HasFactory;
 
@@ -21,17 +21,17 @@ class rebano extends Model
 
     public function finca(): BelongsTo
     {
-        return $this->BelongsTo(finca::class,'id_Finca');
+        return $this->BelongsTo(inca::class,'id_Finca');
     }
 
     public function moivivmientoRebanos(): HasMany
     {
-        return $this->HasMany(movimiento_rebano::class, 'id_Rebano');
+        return $this->HasMany(MovimientoRebano::class, 'id_Rebano');
     }
 
     public function animales(): HasMany
     {
-        return  $this->HasMany(animal::class, 'id_Rebano');
+        return  $this->HasMany(Animal::class, 'id_Rebano');
     }
 
     protected static function booted()

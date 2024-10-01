@@ -33,7 +33,7 @@ class RouteServiceProvider extends ServiceProvider
             
                     require base_path('routes/api.php');
                     //rutas animal
-                    Route::group(['prefix' => 'Animal', 'namespace' => 'animalcontroller'], function(){
+                    Route::group(['prefix' => 'Animal', 'namespace' => 'AnimalController'], function(){
                         require base_path('routes/ruta_animal/animalroute.php');
                         require base_path('routes/ruta_animal/arbolgenroute.php');
                         require base_path('routes/ruta_animal/cambiosAroute.php');
@@ -44,7 +44,7 @@ class RouteServiceProvider extends ServiceProvider
                     });
                     
                     //rutas finca
-                    Route::group(['prefix' => 'Finca','namespace' => 'fincacontroller'], function(){
+                    Route::group(['prefix' => 'Finca','namespace' => 'FincaController'], function(){
                         require base_path('routes/ruta_finca/fincaroute.php');
                         require base_path('routes/ruta_finca/hierroroute.php');
                         require base_path('routes/ruta_finca/inventariosroute.php');
@@ -55,22 +55,22 @@ class RouteServiceProvider extends ServiceProvider
                     });
                     
                     //ruta produccion
-                    Route::group(['prefix' => 'Produccion','namespace' => 'produccioncontroller'], function(){
+                    Route::group(['prefix' => 'Produccion','namespace' => 'ProduccionController'], function(){
                         require base_path('routes/ruta_produccion/lactanciaroute.php');
                         require base_path('routes/ruta_produccion/lecheroute.php');
                     });
                     
                     //ruta reporte
-                    Route::group(['prefix' => 'Reporte','namespace' => 'reportecontroller'],function(){
+                    Route::group(['prefix' => 'Reporte','namespace' => 'ReporteController'],function(){
                         require base_path('routes/ruta_reporte/reporteroute.php');
                     });
                     //ruta reproduccion
-                    Route::group(['prefix' => 'Reproduccion','namespace' => 'reproduccioncontroller'], function(){
+                    Route::group(['prefix' => 'Reproduccion','namespace' => 'ReproduccionController'], function(){
                         require base_path('routes/ruta_reproduccion/reproduccionroute.php');
                     });
                     
                     //ruta sanidad
-                    Route::group(['prefix'=> 'Sanidad','namespace' => 'sanidadcontroller'], function(){
+                    Route::group(['prefix'=> 'Sanidad','namespace' => 'SanidadController'], function(){
                         require base_path('routes/ruta_sanidad/vacunaroute.php');
                         require base_path('routes/ruta_sanidad/palpacionroute.php');
                         require base_path('routes/ruta_sanidad/diagnosticotratamientoroute.php');

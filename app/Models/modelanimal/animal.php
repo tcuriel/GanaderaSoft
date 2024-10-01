@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Models\modelanimal;
+namespace App\Models\ModelAnimal;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo; 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\modelfinca\movimiento_rebano_animal;
+use App\Models\ModelFinca\MovimientoRebanoAnimal;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 
 
-class animal extends Model
+class Animal extends Model
 {
     use HasFactory;
 
-    protected $table = "Animal";
+    protected $table = "animal";
     protected $primaryKey = "id_Animal";
 
     protected $fillable = [
@@ -33,18 +33,18 @@ class animal extends Model
 
     public function arbolesGeneticos(): HasOne
     {
-        return $this->HasOne(arbol_genetica::class, 'id_Animal');
+        return $this->HasOne(ArbolGenetica::class, 'id_Animal');
     }
 
    public function movimientoRebanosAnimales(): HasMany
    {
-    return $this->HasMany(movimiento_rebano_animal::class, 'id_Movimiento', 'id_Animal',
+    return $this->HasMany(MovimientoRebanoAnimal::class, 'id_Movimiento', 'id_Animal',
                                                            'id_Movimiento', 'id_Animal');
    }
 
    public function rebanos(): BelongsTo
    {
-       return  $this->BelongsTo(rebano::class, 'id_Rebano');
+       return  $this->BelongsTo(Rebano::class, 'id_Rebano');
     }
 
   /*  protected static function booted()

@@ -26,6 +26,24 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style-tabs.css') }}">
     <!--link rel="stylesheet" href="{{ asset('assets/css/Styles.css') }}"-->
 
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #666
+        }
+
+        body {
+            background-image: url('/images/fondo_GS.png');
+            /*opacity: 0.5; /* Adjust opacity as needed */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Adjust height as needed */
+        }
+	</style>
+    
 @stop
 
 @section('auth_body')

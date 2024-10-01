@@ -10,57 +10,57 @@ use Illuminate\Support\Arr;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\FincaRequests\fincaStoreRequest;
-use App\Http\Requests\FincaRequests\fincaRequest;
-use App\Http\Requests\FincaRequests\terrenoRequest;
-use App\Http\Requests\FincaRequests\hierroRequest;
-use App\Http\Requests\FincaRequests\rebanoRequest;
-use App\Http\Requests\FincaRequests\personalFincaRequest;
-use App\Http\Requests\FincaRequests\movimiento_rebanoRequest;
-use App\Http\Requests\FincaRequests\movimiento;
-use App\Http\Requests\csvRequests\csvRequest;
-use App\Models\modelfinca\finca;
-use App\Models\modelfinca\hierro;
-use App\Models\modelfinca\terreno;
-use App\Models\modelfinca\rebano;
-use App\Models\modelfinca\afiliacion;
-use App\Models\modelfinca\personal_finca;
-use App\Models\modelfinca\inventario_general;
-use App\Models\modelfinca\inventario_bufalo;
-use App\Models\modelfinca\inventario_vacuno;
-use App\Models\modelfinca\movimiento_rebano;
-use App\Models\modelfinca\movimiento_rebano_animal;
-use App\Models\modelusuario\propietario;
-use App\Models\modelusuario\transcriptor;
-use App\Models\modelanimal\animal;
-use App\Models\modelsanidad\palpacion;
-use App\Models\modelreproduccion\servicio_animal;
-//use App\Models\modelanimal\registro_pesocor;
+use App\Http\Requests\FincaRequests\FincaStoreRequest;
+use App\Http\Requests\FincaRequests\FincaRequest;
+use App\Http\Requests\FincaRequests\TerrenoRequest;
+use App\Http\Requests\FincaRequests\HierroRequest;
+use App\Http\Requests\FincaRequests\RebanoRequest;
+use App\Http\Requests\FincaRequests\PersonalFincaRequest;
+use App\Http\Requests\FincaRequests\MovimientoRebanoRequest;
+use App\Http\Requests\FincaRequests\Movimiento;
+use App\Http\Requests\CSVRequests\CSVRequest;
+use App\Models\ModelFinca\Finca;
+use App\Models\ModelFinca\Hierro;
+use App\Models\ModelFinca\Terreno;
+use App\Models\ModelFinca\Rebano;
+use App\Models\ModelFinca\Afiliacion;
+use App\Models\ModelFinca\PersonalFinca;
+use App\Models\ModelFinca\InventarioGeneral;
+use App\Models\ModelFinca\InventarioBufalo;
+use App\Models\ModelFinca\InventarioVacuno;
+use App\Models\ModelFinca\MovimientoRebano;
+use App\Models\ModelFinca\MovimientoRebanoAnimal;
+use App\Models\ModelUsuario\Propietario;
+use App\Models\ModelUsuario\Transcriptor;
+use App\Models\ModelAnimal\Animal;
+use App\Models\ModelSanidad\Palpacion;
+use App\Models\ModelReproduccion\ServicioAnimal;
+//use App\Models\Modelanimal\registro_pesocor;
 
 use Illuminate\Support\Facades\Auth;
 
 
-class fincacontroller extends Controller
+class FincaController extends Controller
 {
-    protected finca $finca;
-    protected afiliacion $afiliacion;
-    protected hierro $hierro;
-    protected propietario $propietario;
-    protected transcriptor $transcriptor;
-    protected movimiento_rebano_animal $movRebanoAnimal;
+    protected Finca $finca;
+    protected Afiliacion $afiliacion;
+    protected Hierro $hierro;
+    protected Propietario $propietario;
+    protected Transcriptor $transcriptor;
+    protected MovimientoRebanoAnimal $movRebanoAnimal;
 
     
     public function __construct()
     {
-        $this->finca = new finca;
-        $this->afiliacion = new afiliacion;
-        $this->hierro = new hierro;
-        $this->propietario = new propietario;
-        $this->transcriptor = new transcriptor;
-        $this->movRebanoAnimal = new movimiento_rebano_animal;
+        $this->finca = new Finca;
+        $this->afiliacion = new Afiliacion;
+        $this->hierro = new Hierro;
+        $this->propietario = new Propietario;
+        $this->transcriptor = new Transcriptor;
+        $this->movimiento_rebano_animal = new MovimientoRebanoAnimal;
     }
    
-    public function fincaStore(fincaStoreRequest $request, $idPropietario)
+    public function fincaStore(FincaStoreRequest $request, $idPropietario)
     {
         //metodo que verifica si la informacion esta definida y no es nula
         if(isset($request->validated()['finca'])){
@@ -71,7 +71,7 @@ class fincacontroller extends Controller
                     $fincaData["id_Propietario"] = $idPropietario;
                     $fincaData["Archivado"] = false;
                     
-                    $finca = finca::create($fincaData);
+                    $finca = Finca::create($fincaData);
 
                     //metodo que verifica si la informacion esta definida y no es nula
                     if(isset($request->validated()['hierro']) || isset($request->validated()['terreno'])){
@@ -96,7 +96,7 @@ class fincacontroller extends Controller
                         $imagenHierro = $hierroData['hierro']['Hierro_Imagen'] ?? [];
                         $QRHierro = $hierroData['hierro']['Hierro_QR'] ?? [];
                         //creamos una instancia para usar el metodo del modelo hierro
-                        $hierroImg = new hierro;
+                        $hierroImg = new Hierro;
                         $obtenerImagen = $hierroImg->verificarImagen($request, $imagenHierro);
                         $obtenerQR = $hierroImg->verificarImagen($request, $QRHierro);
 
@@ -105,8 +105,8 @@ class fincacontroller extends Controller
                         $hierroData['Hierro_Imagen'] = $obtenerImagen;
                         $hierroData['Hierro_QR'] = $obtenerQR;
                         
-                        $hierro = hierro::create($hierroData);
-                        $terreno = terreno::create($terrenoData);
+                        $hierro = Hierro::create($hierroData);
+                        $terreno = Terreno::create($terrenoData);
 
                     }else{
                         //se busca el id de la finca para asignarlo hierro y terreno para la relacion con finca
@@ -115,8 +115,8 @@ class fincacontroller extends Controller
                         $hierroData['id_Finca'] = $finca_id;
                         $terrenoData['id_Finca'] = $finca_id;
 
-                        $hierro = hierro::create($hierroData);
-                        $terreno = terreno::create($terrenoData);
+                        $hierro = Hierro::create($hierroData);
+                        $terreno = Terreno::create($terrenoData);
                     }
                 
                     $data=[
@@ -148,7 +148,7 @@ class fincacontroller extends Controller
 
     }
 
-    public function rebanoStore(rebanoRequest $request, $idFinca)
+    public function rebanoStore(RebanoRequest $request, $idFinca)
     {
         //metodo que verifica si la informacion esta definida y no es nula
         if(isset($request->validated()['rebano'])){
@@ -157,7 +157,7 @@ class fincacontroller extends Controller
             $rebanoData['id_Finca'] = $idFinca;
             $rebanoData['Archivado'] = false;
         try{
-            $rebano = rebano::create($rebanoData);
+            $rebano = Rebano::create($rebanoData);
 
             $data=[
                 'rebano'=>$rebano
@@ -185,7 +185,7 @@ class fincacontroller extends Controller
             $personalData['id_Finca'] = $idFinca;
             try{
                 $personalData['Cedula'] = preg_replace('/^([VEJPG|vejpg])\-?(\d+)(?:-\d+)?$/', '$2', $personalData['Cedula']);//QUITAR CORREGIR CEDULA EN BASEDEDATOS
-                $personal = personal_finca::create($personalData);
+                $personal = PersonalFinca::create($personalData);
 
                 $data=[
                     'personal'=>$personal
@@ -210,7 +210,7 @@ class fincacontroller extends Controller
 
     public function inventarioGeneralStore($idFinca){
         //obtiene el numero de trabajadores en la finca
-        $count = DB::table('Personal_Finca')->where('id_Finca',$idFinca)->count();
+        $count = DB::table('personal_finca')->where('id_Finca',$idFinca)->count();
         $fecha = Carbon::now();
         $fecha = $fecha->format('Y-m-d');
 
@@ -218,7 +218,7 @@ class fincacontroller extends Controller
         $inventarioData['Num_Personal'] = $count;
         $inventarioData['Fecha_Inventario'] = $fecha;
         try{
-            $inventario = inventario_general::create($inventarioData);
+            $inventario = InventarioGeneral::create($inventarioData);
 
             $data=[
                 'invventario'=>$inventario
@@ -246,7 +246,7 @@ class fincacontroller extends Controller
         $fecha = Carbon::now();
         $fecha = $fecha->format('Y-m-d');
       try{
-        $inventarioVacuno = inventario_vacuno::create([
+        $inventarioVacuno = InventarioVacuno::create([
                                 'id_Finca' => $idFinca,
                                 'Num_Becerra' => isset($Estado['Becerra']) ? $Estado['Becerra'] : 0,
                                 'Num_Mauta' => isset($Estado['Mauta']) ? $Estado['Mauta'] : 0,
@@ -284,7 +284,7 @@ class fincacontroller extends Controller
         $fecha = Carbon::now();
         $fecha = $fecha->format('Y-m-d');
       try{
-        $inventarioBufalo = inventario_bufalo::create([
+        $inventarioBufalo = InventarioBufalo::create([
                                 'id_Finca' => $idFinca,
                                 'Num_Becerro' => isset($Estado['Becerro']) ? $Estado['Becerro'] : 0,
                                 'Num_Anojo' => isset($Estado['Anojo']) ? $Estado['Anojo'] : 0,
@@ -375,7 +375,7 @@ class fincacontroller extends Controller
     public function fincaPersonal($idfinca)
     {
       try{
-        $finca = finca::find($idfinca);
+        $finca = Finca::find($idfinca);
         $personal = $finca->personalfinca;
 
         if($personal->isEmpty()){
@@ -438,7 +438,7 @@ class fincacontroller extends Controller
     
     public function listarInvGeneral($idFinca)
     {
-        $finca = finca::find($idFinca);
+        $finca = Finca::find($idFinca);
         $invGeneral = $finca->inventarioGenerales;
 
         if(!is_null($invGeneral)){
@@ -471,7 +471,7 @@ class fincacontroller extends Controller
 
     public function listarInvVacuno($idFinca)
     {
-        $finca = finca::find($idFinca);
+        $finca = Finca::find($idFinca);
         $invVacuno = $finca->inventarioVacunos;
 
         if(!is_null($invVacuno)){
@@ -504,7 +504,7 @@ class fincacontroller extends Controller
 
     public function listarInvBufalo($idFinca)
     {
-        $finca = finca::find($idFinca);
+        $finca = Finca::find($idFinca);
         $invBufalo = $finca->inventarioBufalos;
 
         if(!is_null($invBufalo)){
@@ -596,7 +596,7 @@ class fincacontroller extends Controller
      try{
         switch ($categoria){
             case "Nombre":
-                $personal = DB::table('Personal_Finca')->where('id_Finca',$idFinca)->where('Nombre',$filtrado)->get();
+                $personal = DB::table('personal_finca')->where('id_Finca',$idFinca)->where('Nombre',$filtrado)->get();
 
                 if ($personal->isEmpty()) {
                     return response()->json([
@@ -614,7 +614,7 @@ class fincacontroller extends Controller
             break;
 
             case "Correo":
-                $personal = DB::table('Personal_Finca')->where('id_Finca',$idFinca)->where('Correo',$filtrado)->get();
+                $personal = DB::table('personal_finca')->where('id_Finca',$idFinca)->where('Correo',$filtrado)->get();
                 if ($personal->isEmpty()) {
                     return response()->json([
                         'message'=>'No se ha encontrado informacion del personal buscado por correo',
@@ -631,7 +631,7 @@ class fincacontroller extends Controller
             break;
 
             case "Cedula":
-                $personal = DB::table('Personal_Finca')->where('id_Finca',$idFinca)->where('Cedula',$filtrado)->get();
+                $personal = DB::table('personal_finca')->where('id_Finca',$idFinca)->where('Cedula',$filtrado)->get();
                 if ($personal->isEmpty()) {
                     return response()->json([
                         'message'=>'No se ha encontrado informacion del personal buscado por identificacion',
@@ -709,13 +709,13 @@ class fincacontroller extends Controller
 
 //-----------AREA DE ACTUALIZAR/MODIFICAR INFORMACION
  
-    public function fincaUpdate(fincaRequest $request, $id)
+    public function fincaUpdate(FincaRequest $request, $id)
     {
       //metodo que verifica si la informacion esta definida y no es nula
      if(isset($request->validated()['finca'])){
         $fincaData = $request->validated()['finca'];
        try{
-        $finca = finca::findOrFail($id);
+        $finca = Finca::findOrFail($id);
         $finca->update($fincaData);
 
         $data =[
@@ -736,12 +736,12 @@ class fincacontroller extends Controller
      }
     }
 
-    public function rebanoUpdate(rebanoRequest $request, $id_Finca)
+    public function rebanoUpdate(RebanoRequest $request, $id_Finca)
     {
         if(isset($request->validated()['rebano'])){
             $rebanoData = $request->validated()['rebano'];
           try{
-            $rebano = rebano::firstOrNew(['id_Finca'=>$id_Finca],['id_Finca'=>$id_Finca]);
+            $rebano = Rebano::firstOrNew(['id_Finca'=>$id_Finca],['id_Finca'=>$id_Finca]);
             $rebano->fill($rebanoData);
             $rebano->save();
 
@@ -768,7 +768,7 @@ class fincacontroller extends Controller
         if(isset($request->validated()['terreno'])){
             $terrenoData = $request->validated()['terreno'];
           try{
-            $terreno = terreno::firstOrNew(['id_Finca'=>$id] , ['id_Finca'=>$id]);
+            $terreno = Terreno::firstOrNew(['id_Finca'=>$id] , ['id_Finca'=>$id]);
             $terreno->fill($terrenoData);
             $terreno->save();
 
@@ -795,7 +795,7 @@ class fincacontroller extends Controller
         if(isset($request->validated()['hierro'])){
             $hierroData = $request->validated()['hierro'];
           try{
-            $hierro = hierro::firstOrNew(['id_Finca'=>$id, 'id_Propietario'=>$id_P]  //Si el registro no existe
+            $hierro = Hierro::firstOrNew(['id_Finca'=>$id, 'id_Propietario'=>$id_P]  //Si el registro no existe
                                         , ['id_Finca'=>$id, 'id_Propietario'=>$id_P]); //asigna los campos en el nuevo registro
             //---------------------------------------------------
             $hierro->fill($hierroData);
@@ -826,7 +826,7 @@ class fincacontroller extends Controller
           $personalData = $request->validated()['personal_finca'];
           $personalData['Cedula'] = preg_replace('/^([VEJPG|vejpg])\-?(\d+)(?:-\d+)?$/', '$2', $personalData['Cedula']);//QUITAR CORREGIR CEDULA EN BASEDEDATOS
         try{
-          $personal = personal_finca::firstOrNew(['Cedula'=>$cedula, 'id_Finca'=>$idFinca]
+          $personal = PersonalFinca::firstOrNew(['Cedula'=>$cedula, 'id_Finca'=>$idFinca]
                                                 ,['Cedula'=>$cedula, 'id_Finca'=>$idFinca]);
           $personal->fill($personalData);
           $personal->save();
@@ -853,7 +853,7 @@ class fincacontroller extends Controller
     // ------- METODOS DE ELIMINACION DE REGISTROS --------
     public function eliminarFinca(movimiento $request,$id_Finca,$eliminacion){
      try{
-        $fincaData = finca::find($id_Finca);
+        $fincaData = Finca::find($id_Finca);
         if($fincaData){
             if($eliminacion=='Completo'){
                 $fincaData->delete();
@@ -892,7 +892,7 @@ class fincacontroller extends Controller
 
   public function eliminarHierro($idHierro){
     try{
-        $hierroData = hierro::find($idHierro);
+        $hierroData = Hierro::find($idHierro);
         if($hierroData){
          $hierroData->delete();
 
@@ -918,7 +918,7 @@ class fincacontroller extends Controller
 
   public function eliminarTerreno($idTerreno){
     try{
-        $terrenoData = terreno::find($idTerreno);
+        $terrenoData = Terreno::find($idTerreno);
          if($terrenoData){
             $terrenoData->delete();
           
@@ -945,7 +945,7 @@ class fincacontroller extends Controller
 
   public function eliminarRebano(movimiento $request,$idRebano,$eliminacion){
     try{
-        $rebanoData = rebano::find($idRebano);
+        $rebanoData = Rebano::find($idRebano);
         if($rebanoData){
             if($eliminacion=='Completo'){
                 $rebanoData->delete();
@@ -1033,7 +1033,7 @@ class fincacontroller extends Controller
         switch ($tipoInventario){
         
          case "General":
-         $inventarioData = inventario_general::find($idInventario);
+         $inventarioData = InventarioGeneral::find($idInventario);
          if($inventarioData){
              $inventarioData->delete();
 
@@ -1056,7 +1056,7 @@ class fincacontroller extends Controller
         break;
 
         case "bufalo":
-            $inventarioData = inventario_bufalo::find($idInventario);
+            $inventarioData = InventarioBufalo::find($idInventario);
             if($inventarioData){
                 $inventarioData->delete();
             
@@ -1079,7 +1079,7 @@ class fincacontroller extends Controller
         break;
 
         case "vacuno":
-            $inventarioData = inventario_vacuno::find($idInventario);
+            $inventarioData = InventarioVacuno::find($idInventario);
             if($inventarioData){
                 $inventarioData->delete();
                 
@@ -1112,7 +1112,7 @@ class fincacontroller extends Controller
 
 //-----------------AREA DE ARCHIVAR-----------------
 
-public function archivarFinca(movimiento_rebanoRequest $request,$idFinca,$tipoArchivado)
+public function archivarFinca(MovimientoRebanoRequest $request,$idFinca,$tipoArchivado)
 {
   try{
    $fincaArchivo = DB::table('finca')->where('id_Finca',$idFinca)->first();
@@ -1226,7 +1226,7 @@ public function archivarRebano(movimiento $request,$idRebano,$tipArchivado)
 
 // -------------- METODO DE MOVER REBAÑO -----------
 
-public function moverRebano(movimiento_rebanoRequest $request,$idFincaBase,$idFincaD,$rebanoDestino,$rebanoBase,$tipoMovimiento,$cantidadAnimales)
+public function moverRebano(MovimientoRebanoRequest $request,$idFincaBase,$idFincaD,$rebanoDestino,$rebanoBase,$tipoMovimiento,$cantidadAnimales)
 {
 try{
   if($tipoMovimiento=="Local")
@@ -1248,7 +1248,7 @@ try{
 }
 
 //Se realiza cuando el movimiento es dentro de la misma finca
-public function movivimientoLocal(movimiento_rebanoRequest $request,$idFinca,$rebanoDestino,$rebanoBase,$tipoMovimiento)
+public function movivimientoLocal(MovimientoRebanoRequest $request,$idFinca,$rebanoDestino,$rebanoBase,$tipoMovimiento)
 {
   try{
         $idsAnimal = $request->validated()['movimiento'];
@@ -1273,7 +1273,7 @@ public function movivimientoLocal(movimiento_rebanoRequest $request,$idFinca,$re
         $movimientoData['id_Rebano_Destino'] = $rebanoDestino;
         $movimientoData['Rebano_Destino'] = $nombreRebano;
 
-        $movimiento = movimiento_rebano::create($movimientoData);
+        $movimiento = MovimientoRebano::create($movimientoData);
 //---
      //Se mueve todo el listado de animales del rebaño
      if($tipoMovimiento=="Completo"){
@@ -1286,7 +1286,7 @@ public function movivimientoLocal(movimiento_rebanoRequest $request,$idFinca,$re
         $rebanoAnimalData['solicitud_recepetor'] = 1; //Lo recibe el mismo propietario
         $rebanoAnimalData['Motivo'] = $idsAnimal['Motivo'];
 
-        $movimientoAnimal[] = movimiento_rebano_animal::create($rebanoAnimalData);
+        $movimientoAnimal[] = MovimientoRebanoAnimal::create($rebanoAnimalData);
         }
 
     }elseif($tipoMovimiento=="Parcial"){
@@ -1299,7 +1299,7 @@ public function movivimientoLocal(movimiento_rebanoRequest $request,$idFinca,$re
             $rebanoAnimalData['solicitud_recepetor'] = 1; //lo recibe el mismo propietario
             $rebanoAnimalData['Motivo'] = $idsAnimal['Motivo'];
     
-            $movimientoAnimal[] = movimiento_rebano_animal::create($rebanoAnimalData);
+            $movimientoAnimal[] = MovimientoRebanoAnimal::create($rebanoAnimalData);
             DB::table('animal')->where('id_Finca',$idFinca)->where('id_Rebano',$rebanoBase)
                                 ->where('id_Animal',$animal->id_Animal)->update(['id_Rebano' => $rebanoDestino]);
         }
@@ -1315,7 +1315,7 @@ public function movivimientoLocal(movimiento_rebanoRequest $request,$idFinca,$re
 }
 
 //Se realiza cuando el movimiento es a un rebaño de una finca exterior
-public function movimientoForaneo(movimiento_rebanoRequest $request,$idFincaBase,$idFincaD,$rebanoDestino,$rebanoBase,$tipoMovimiento)
+public function movimientoForaneo(MovimientoRebanoRequest $request,$idFincaBase,$idFincaD,$rebanoDestino,$rebanoBase,$tipoMovimiento)
 {
   try{
     $idsAnimal = $request->validated()['movimiento'];
@@ -1338,7 +1338,7 @@ public function movimientoForaneo(movimiento_rebanoRequest $request,$idFincaBase
     $movimientoData['id_Rebano_Destino'] = $rebanoDestino;
     $movimientoData['Rebano_Destino'] = $nombreRebano;
 
-    $movimiento = movimiento_rebano::create($movimientoData);
+    $movimiento = MovimientoRebano::create($movimientoData);
 //---
  //Se mueve todo el listado de animales del rebaño
  if($tipoMovimiento=="Completo"){
@@ -1351,7 +1351,7 @@ public function movimientoForaneo(movimiento_rebanoRequest $request,$idFincaBase
     $rebanoAnimalData['solicitud_recepetor'] = 0; //Lo recibe el propietario que se le envia la peticion
     $rebanoAnimalData['Motivo'] = $idsAnimal['motivo'];
 
-    $movimientoAnimal[] = movimiento_rebano_animal::create($rebanoAnimalData);
+    $movimientoAnimal[] = MovimientoRebanoAnimal::create($rebanoAnimalData);
     }
 
 }elseif($tipoMovimiento=="Parcial"){
@@ -1364,7 +1364,7 @@ public function movimientoForaneo(movimiento_rebanoRequest $request,$idFincaBase
         $rebanoAnimalData['solicitud_recepetor'] = 0; //lo recibe el mismo propietario
         $rebanoAnimalData['Motivo'] = $idsAnimal['motivo'];
 
-        $movimientoAnimal[] = movimiento_rebano_animal::create($rebanoAnimalData);
+        $movimientoAnimal[] = MovimientoRebanoAnimal::create($rebanoAnimalData);
     }
 }
     });
@@ -1502,7 +1502,7 @@ public function escogerAnimales($idFinca,$idRebano,...$ids)
              'receptor_solicitud' => 1 //El 1= Propietario recibe la solicitud
              ];
             }
-            $afiliacion = afiliacion::create($afiliacionData);
+            $afiliacion = Afiliacion::create($afiliacionData);
             $data=[
             'afiliacion'=>$afiliacion
             ];
@@ -1690,7 +1690,7 @@ public function escogerAnimales($idFinca,$idRebano,...$ids)
 
     public function getPersonal($idPersonal) {
 
-        $personalArchivo = DB::table('Personal_Finca')->where('id_Tecnico',$idPersonal)->first();
+        $personalArchivo = DB::table('personal_finca')->where('id_Tecnico',$idPersonal)->first();
         if (is_null($personalArchivo)) {
             return response()->json([
                 'message' => 'Este personal no existe.',

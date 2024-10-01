@@ -9,9 +9,9 @@ use Carbon\Carbon;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Facades\Validator;
 
-use App\Models\modelreproduccion\registro_celo;
-use App\Models\modelreproduccion\reproduccion_animal;
-use App\Models\modelreproduccion\servicio_animal;
+use App\Models\ModelReproduccion\registro_celo;
+use App\Models\ModelReproduccion\reproduccion_animal;
+use App\Models\ModelReproduccion\servicio_animal;
 use App\Http\Requests\reproduccionRequests\reproduccionRequest;
 
 /**
@@ -19,7 +19,7 @@ use App\Http\Requests\reproduccionRequests\reproduccionRequest;
  * @package App\Http\Controllers
  */
 
-class reproduccioncontroller extends Controller
+class ReproduccionController extends Controller
 {
 
     public function postRegistrarServicio(reproduccionRequest $request){

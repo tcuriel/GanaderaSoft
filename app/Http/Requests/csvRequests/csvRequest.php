@@ -4,7 +4,7 @@ namespace App\Http\Requests\csvRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class csvRequest extends FormRequest
+class CSVRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

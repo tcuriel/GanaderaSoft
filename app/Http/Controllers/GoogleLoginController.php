@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\modelusuario\User;
+use App\Models\ModelUsuario\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;

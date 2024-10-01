@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\modelproduccion;
+namespace App\Models\ModelProduccion;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class leche extends Model
+class Leche extends Model
 {
     use HasFactory;
 

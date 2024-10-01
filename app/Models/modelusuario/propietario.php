@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Models\modelusuario;
+namespace App\Models\ModelUsuario;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\modelfinca\finca;
+use App\Models\ModelFinca\Finca;
 
-class propietario extends Model
+class Propietario extends Model
 {
     use HasFactory;
 
-    protected $table = "Propietario";
+    protected $table = "propietario";
     protected $primaryKey = "id";
     public $incrementing = false;
 
@@ -29,17 +29,17 @@ class propietario extends Model
 
     public function hierroPropietario(): HasOne
     {
-        return $this->HasOne(hierro::class, 'id');
+        return $this->HasOne(Hierro::class, 'id');
     }
 
     public function finca(): HasMany
     {
-        return $this->HasMany(finca::class,'id_Propietario','id');
+        return $this->HasMany(Finca::class,'id_Propietario','id');
     }
 
     public function afiliaciones(): HasMany
     {
-    return $this->HasMany(afiliacion::class, "afiliacion", "id_Personal_P", "id");
+    return $this->HasMany(Afiliacion::class, "afiliacion", "id_Personal_P", "id");
     }
 
     public function usuario(): BelongsTo

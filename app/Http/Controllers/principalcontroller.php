@@ -5,20 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Http\Request;
-use App\Models\modelusuario\User;
+use App\ModelsModelUsuario\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Models\modelusuario\propietario;
-use App\Models\modelusuario\transcriptor;
-use App\Models\modelfinca\finca;
-use App\Models\modelfinca\rebano;
-use App\Models\modelanimal\animal;
+use App\Models\ModelUsuario\propietario;
+use App\Models\ModelUsuario\transcriptor;
+use App\Models\ModelFinca\finca;
+use App\Models\ModelFinca\rebano;
+use App\Models\ModelAnimal\animal;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use App\Http\Requests\UserRequests\modificarUser;
 
-class principalcontroller extends Controller
+class PrincipalController extends Controller
 {
     public $auth;
     /**
@@ -54,21 +54,21 @@ class principalcontroller extends Controller
               //return $this->usersList($archivado);
               $jsonData = $this->usersList($archivado);
               return view('usuario.mostrar', ['user' => $user,
-                                              'tipo' => 'xMixto',
+                                              'tipo' => 'Mixto',
                                               'userData' => json_decode($jsonData->getContent(), true)]);
             break;
           case 'propietario':
              //return $this->propietarioList($archivado);
              $jsonData = $this->propietarioList($archivado);
              return view('usuario.mostrar', ['user' => $user,
-                                             'tipo' => 'xPropietario',
+                                             'tipo' => 'Propietario',
                                              'userData' => json_decode($jsonData->getContent(), true)]);
              break;
           case 'transcriptor':
             //return 
             $jsonData = $this->transcriptorList($archivado);
             return view('usuario.mostrar', ['user' => $user,
-                                            'tipo' => 'xTranscriptor',
+                                            'tipo' => 'Transcriptor',
                                             'userData' => json_decode($jsonData->getContent(), true)]);
 
             break;
@@ -462,15 +462,15 @@ class principalcontroller extends Controller
 
           $propietario = propietario::where('id', $id)->update(['archivado' => $archivado]);
             if($propietario>0){
-              $finca =finca::where('id_Propietario', $id)->update(['archivado' => $archivado]);
+              $finca =Finca::where('id_Propietario', $id)->update(['archivado' => $archivado]);
               //obtiene el array de id posibles de finca del propietario
-            $fincaIds = finca::where('id_Propietario', $id)->pluck('id_Finca');
+            $fincaIds = Finca::where('id_Propietario', $id)->pluck('id_Finca');
             //actualiza a partir del whereIn los rebaños enviados por los id
-            $rebano=rebano::whereIn('id_Finca', $fincaIds)->update(['archivado' => $archivado]);
+            $rebano=Rebano::whereIn('id_Finca', $fincaIds)->update(['archivado' => $archivado]);
               //obtiene el array de id posibles de rebaños de la finca
-            $rebanoIds = rebano::whereIn('id_Finca',$fincaIds)->pluck('id_Rebano');
+            $rebanoIds = Rebano::whereIn('id_Finca',$fincaIds)->pluck('id_Rebano');
             //actualiza a partir del whereIn los animales del array de id de rebaño
-            $animal= animal::whereIn('id_Rebano',$rebanoIds)->update(['archivado'=>$archivado]);
+            $animal= Animal::whereIn('id_Rebano',$rebanoIds)->update(['archivado'=>$archivado]);
             }
           
             if($propietario>0 || $finca>0 || $rebano>0 || $animal>0){
@@ -503,15 +503,12 @@ class principalcontroller extends Controller
     //Todos los usuarios del sistema para visualizar por el administrador
     protected function crudUsuarios( $archivado=0) 
     {
-
       $user = Auth::user();
-
       $jsonData = $this->usersListAll($archivado);
       return view('usuario.welcome', ['user' => $user,
                                       'tipo' => '',
                                       'userData' => json_decode($jsonData->getContent(), true)]);
-    
-                                    }
+    }
 
     protected function usersListAll($archivado) 
     {

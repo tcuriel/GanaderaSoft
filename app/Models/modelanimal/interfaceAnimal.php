@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\modelanimal;
+namespace App\Models\ModelAnimal;
 
-interface interfaceAnimal
+interface InterfaceAnimal
 {
     public function verificarRegistro($parametro);
 }

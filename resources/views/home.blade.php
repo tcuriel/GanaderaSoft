@@ -1,6 +1,8 @@
-@extends('adminlte::page')
+@extends('layouts.pageFinal')
 
-@section('adminlte_css')
+@section('title', env('APP_NAME', 'GanaderoSoft'))
+
+@section('content_css')
     @vite(['resources/sass/app.scss'])
     @vite(['resources/sass/app/ganadegasof.scss'])
     @vite(['resources/sass/app/home/homestyle.scss'])
@@ -10,57 +12,15 @@
         @vite(['resources/sass/app/animal/homeanimal.scss'])
     @endif
     <!-- App style -->
-    <link rel="stylesheet" href="{{ asset('assets/fcm/learning-ui-kit.min.css') }}"
-          type="text/css"
-          rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('assets/fcm/learning-ui-kit.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/fcm/src/styles.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/fcm/node_modules/frappe-charts/dist/frappe-charts.min.css') }}" />
+ 
+	@yield('css-content')
 
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            color: #666
-        }
+@endsection
 
-        body {
-            background-image: url('/images/fondo_GS.png');
-            /*opacity: 0.5; /* Adjust opacity as needed */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh; /* Adjust height as needed */
-        }
 
-        aside {
-            background-color: #E6F4E7;
-        }
-
-        .tarjeta {
-            /*background-color: #E6F4E7;*/
-            /*border: 0px;*/
-            background-color: #c4d741; /* Slightly lighter shade */
-            opacity: 0.8; /* Adjust opacity as needed */
-        }
-
-        .bg-transparent{
-            background-color: transparent;
-            border: 0px;
-        }
-
-        .bg-aside{
-            background-color: #61b5d5; /* Slightly lighter shade */
-            opacity: 0.8; /* Adjust opacity as needed */
-        }
-        .main-header {
-            height: 80px; /* Ajusta el valor deseado */
-        }
-    </style>
-
-@stop
-
-@section('title', env('APP_NAME', 'GanaderoSoft'))
 
 @section('content_header')
  	<h1 class="m-0 gren-text-color">Bienvenido a {{$data[0]->Nombre}}</h1>
@@ -82,9 +42,12 @@
     @endif
 @stop
 
-@section('js')
-    <!--script src="{{ asset('assets/fcm/src/grid.js') }}"></script-->
-    <!--script type="module" src="{{ asset('assets/fcm/src/index.js') }}"></script-->
+@section('content_js')
+
+    @if($selectView == "rebano")
+      <!--script src="{{ asset('assets/fcm/src/grid.js') }}"></script-->
+      <script type="module" src="{{ asset('assets/fcm/src/index.js') }}"></script>
+    @endif
     
     <script>
         let navItems = document.querySelectorAll('.nav-pills .nav-link');
@@ -100,5 +63,7 @@
             navItem.setAttribute('href', href + "/{{ $data[0]->id_Finca }}" );
         }
     </script>
+
     @yield('js-content-home')
+
 @stop

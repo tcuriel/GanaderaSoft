@@ -4,8 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\modelusuario\User;
-use App\Http\Controllers\fincacontroller;
+use App\Models\ModelUsuario\User;
+use App\Http\Controllers\FincaController;
 
 class PropietarioController extends TranscriptorController
 {
@@ -14,7 +14,7 @@ class PropietarioController extends TranscriptorController
      */
     private $fincaController;
 
-    public function __construct(fincacontroller $fincaController)
+    public function __construct(FincaController $fincaController)
     {
         $this->fincaController = $fincaController;
     }

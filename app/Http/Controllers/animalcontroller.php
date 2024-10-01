@@ -9,57 +9,57 @@ use Carbon\Carbon;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Facades\Validator;
 //MODELOS
-use App\Models\modelanimal\animal;
-use App\Models\modelanimal\arbol_genetica;
-use App\Models\modelanimal\cambios_animal;
-use App\Models\modelanimal\composicion_raza;
-use App\Models\modelanimal\historico_cambio;
-use App\Models\modelanimal\historico_indicescor;
-use App\Models\modelanimal\historico_medidascor;
-use App\Models\modelanimal\indices_corporales;
-use App\Models\modelanimal\medidas_corporales;
-use App\Models\modelanimal\peso_corporal;
-use App\Models\modelanimal\raza_animal;
-use App\Models\modelanimal\raza_toro;
-use App\Models\modelanimal\registro_pesocor;
-use App\Models\modelanimal\tipo_raza;
-use App\Models\modelanimal\Toro;
-use App\Models\modelanimal\semen_toro;
-use App\Models\modelfinca\finca;
-use App\Models\modelfinca\movimiento_rebano_animal;
+use App\Models\ModelAnimal\Animal;
+use App\Models\ModelAnimal\ArbolGenetica;
+use App\Models\ModelAnimal\CambiosAnimal;
+use App\Models\ModelAnimal\ComposicionRaza;
+use App\Models\ModelAnimal\HistoricoCambio;
+use App\Models\ModelAnimal\HistoricoIndicescor;
+use App\Models\ModelAnimal\HistoricoMedidascor;
+use App\Models\ModelAnimal\IndicesCorporales;
+use App\Models\ModelAnimal\MedidasCorporales;
+use App\Models\ModelAnimal\PesoCorporal;
+use App\Models\ModelAnimal\RazaAnimal;
+use App\Models\ModelAnimal\RazaToro;
+use App\Models\ModelAnimal\RegistroPesocor;
+use App\Models\ModelAnimal\TipoRaza;
+use App\Models\ModelAnimal\Toro;
+use App\Models\ModelAnimal\SemenToro;
+use App\Models\ModelFinca\Finca;
+use App\Models\ModelFinca\MovimientoRebanoAnimal;
 //REQUESTS
-use App\Http\Requests\AnimalRequests\animalRequest;
-use App\Http\Requests\AnimalRequests\modificarAnimalRequest;
-use App\Http\Requests\AnimalRequests\razaRequest;
-use App\Http\Requests\AnimalRequests\cambioRequest;
+use App\Http\Requests\AnimalRequests\AnimalRequest;
+use App\Http\Requests\AnimalRequests\ModificarAnimalRequest;
+use App\Http\Requests\AnimalRequests\RazaRequest;
+use App\Http\Requests\AnimalRequests\CambioRequest;
 use App\Http\Requests\AnimalRequests\MedidasRequest;
-use App\Http\Requests\AnimalRequests\indiceRequest;
-use App\Http\Requests\AnimalRequests\toroRequest;
-use App\Http\Requests\AnimalRequests\semenRequest;
-use App\Http\Requests\AnimalRequests\pesoRequest;
-use App\Http\Requests\AnimalRequests\arbolRequest;
-use App\Http\Requests\csvRequests\csvRequest;
+use App\Http\Requests\AnimalRequests\IndiceRequest;
+use App\Http\Requests\AnimalRequests\ToroRequest;
+use App\Http\Requests\AnimalRequests\SemenRequest;
+use App\Http\Requests\AnimalRequests\PesoRequest;
+use App\Http\Requests\AnimalRequests\ArbolRequest;
+use App\Http\Requests\CSVRequests\CSVRequest;
 use Illuminate\Support\Facades\Storage; 
 
-class animalcontroller extends Controller
+class AnimalController extends Controller
 {
-  protected animal $animal;
-  protected composicion_raza $composicion;
-  protected cambios_animal $cambioA;
-  protected medidas_corporales $medidas;
-  protected indices_corporales $indices;
-  protected peso_corporal $pesos;
-  protected registro_pesocor $registroPeso;
+  protected Animal $animal;
+  protected ComposicionRaza $composicion;
+  protected CambiosAnimal $cambioA;
+  protected MedidasCorporales $medidas;
+  protected IndicesCorporales $indices;
+  protected PesoCorporal $pesos;
+  protected RegistroPesocor $registroPeso;
 
 
   public function __construct()
   {
-    $this->animal = new animal;
-    $this->composicion = new composicion_raza;
-    $this->cambioA = new cambios_animal;
-    $this->medidas = new medidas_corporales;
-    $this->indices = new indices_corporales;
-    $this->pesos = new peso_corporal;
+    $this->animal = new Animal;
+    $this->composicion = new ComposicionRaza;
+    $this->cambioA = new CambiosAnimal;
+    $this->medidas = new MedidasCorporales;
+    $this->indices = new IndicesCorporales;
+    $this->pesos = new PesoCorporal;
  
   }
     //---------------AREA DE ANIMAL------------------
@@ -181,7 +181,7 @@ class animalcontroller extends Controller
 
     public function getFincaID(int $id_animal){
       try{
-        $fincaID = DB::table('animal')->join('Rebano','rebano.id_Rebano','=','animal.id_Rebano')
+        $fincaID = DB::table('Animal')->join('Rebano','rebano.id_Rebano','=','animal.id_Rebano')
                                       ->join('Finca','Finca.id_Finca','=','Rebano.id_Finca')
                                       ->select('Finca.id_Finca')
                                       ->where('id_Animal',$id_animal)->get();
@@ -325,7 +325,7 @@ class animalcontroller extends Controller
       $dataAnimal = $request->validated();
     
         try{
-          $animal = animal::find($id_animal);
+          $animal = Animal::find($id_animal);
 
           if($animal){
             DB::transaction(function() use ($dataAnimal,$id_animal,&$data){
@@ -401,7 +401,7 @@ class animalcontroller extends Controller
 
     public function eliminarAnimal($id_Animal)
     {
-      $animalData = animal::find($id_Animal);
+      $animalData = Animal::find($id_Animal);
       if($animalData){
               $animalData->delete();
 
@@ -511,7 +511,7 @@ class animalcontroller extends Controller
     
         case 'Raza':
           try{
-            $idRaza = composicion_raza::where('Nombre',$texto)->first();
+            $idRaza = ComposicionRaza::where('Nombre',$texto)->first();
     
             if($idRaza === null){
               return $this->enviarRespuesta('No se encontro algun registro',[],'OK',200);
@@ -690,7 +690,7 @@ public function filtrarToro($tipo,$idFinca,$texto){
 
     case 'Raza':
       try{
-        $idRaza = composicion_raza::where('Nombre',$texto)->first();
+        $idRaza = ComposicionRaza::where('Nombre',$texto)->first();
 
         if($idRaza === null){
           return $this->enviarRespuesta('No se encontro algun registro',[],'OK',200);
@@ -761,7 +761,7 @@ public function agregarSemen(semenRequest $request,$idToro)
     $semenData = $request->validated()['semen'];
     $semenData['id_Toro'] = $idToro;
 
-    $semen = semen_toro::create($semenData);
+    $semen = SemenToro::create($semenData);
 
     $data = [
       'semen' => $semen
@@ -807,7 +807,7 @@ public function consultarRegistroSemen($idSemen)
 public function modificarEstadoSemen($idSemen)
 {
   try{
-    $estado = semen_toro::findOrFail($idSemen);
+    $estado = SemenToro::findOrFail($idSemen);
 
     if($estado){
       $estado->update([
@@ -827,7 +827,7 @@ public function modificarEstadoSemen($idSemen)
 public function eliminarSemen($idSemen)
 {
   try{
-    $registro = semen_toro::findOrFail($idSemen);
+    $registro = SemenToro::findOrFail($idSemen);
 
     if($registro){
       $registro->delete();
@@ -861,7 +861,7 @@ public function eliminarSemen($idSemen)
       DB::transaction(function() use ($razaData,$idFinca,&$data){
         try{
         
-          $composicionRaza = composicion_raza::create($razaData);
+          $composicionRaza = ComposicionRaza::create($razaData);
           
           $tipoRazaData = [
                       'id_Composicion' => $composicionRaza->id_Composicion,
@@ -903,7 +903,7 @@ public function eliminarSemen($idSemen)
         }
        
       
-       $raza = composicion_raza::findOrFail($id_Composicion);
+       $raza = ComposicionRaza::findOrFail($id_Composicion);
        $raza->update($razaData);
          
         $data = [
@@ -926,7 +926,7 @@ public function eliminarSemen($idSemen)
                 [],'OK',200);
      }else{
         $tipoRaza->delete();
-        $composicionRaza = composicion_raza::find($id_Composicion);
+        $composicionRaza = ComposicionRaza::find($id_Composicion);
         $composicionRaza->delete();
 
         $data = [
@@ -1076,7 +1076,7 @@ public function establecerArbolGenealogico(arbolRequest $request,$id_Animal)
      $arbolData = $request->validated()['arbol'];
       $arbolData['id_Animal'] = $id_Animal;
 
-      $arbol = arbol_genetica::create($arbolData);
+      $arbol = ArbolGenetica::create($arbolData);
 
       return $this->enviarRespuesta('Arbol genetico creado',
                               $arbol,'OK',201);
@@ -1128,7 +1128,7 @@ public function modificarArbolGenealogico(arbolRequest $request,$id_Gen)
   try{
     if(isset($request->validated()['arbol'])){
       $arbolData = $request->validated()['arbol'];
-      $arbol = arbol_genetica::findOrFail($id_Gen);
+      $arbol = ArbolGenetica::findOrFail($id_Gen);
 
       if($arbol){
 
@@ -1149,7 +1149,7 @@ public function modificarArbolGenealogico(arbolRequest $request,$id_Gen)
 public function eliminarArbolGenealogico($id_Gen)
 {
  try{
-  $arbol = arbol_genetica::where('id_Gen',$id_Gen)->first();
+  $arbol = ArbolGenetica::where('id_Gen',$id_Gen)->first();
   if(!($arbol)){
     return $this->enviarRespuesta('No se encontro ningun registro',
     [],'OK',200);
@@ -1213,9 +1213,9 @@ public function realizarCambio(cambioRequest $request, $id_Animal)
 
       DB::transaction(function() use ($cambioData,$cambioAnimal,$id_Animal,&$data){
         $cambioData['id_Animal'] = $id_Animal;
-        $cambio = cambios_animal::create($cambioData);
+        $cambio = CambiosAnimal::create($cambioData);
 
-        $animal = animal::findOrFail($id_Animal);
+        $animal = Animal::findOrFail($id_Animal);
         $cambioAnimal['Etapa'] = $cambioData['Etapa_Cambio'];
         $animal->update($cambioAnimal);
 
@@ -1271,11 +1271,11 @@ public function modificarCambio(cambioRequest $request,$idCambio)
       if($this->cambioA->verificarCambio($id->id_Animal,$cambioEdad['Edad'])){
 
       DB::transaction(function() use ($cambioData,$idCambio,$cambioEdad,&$data){
-        $cambio = cambios_animal::findOrFail($idCambio);
+        $cambio = CambiosAnimal::findOrFail($idCambio);
         $cambio->update($cambioData);
 
         $id = DB::table('cambios_animal')->select('id_Animal')->where('id_Cambio',$idCambio)->first();
-        $animal = animal::findOrFail($id->id_Animal);
+        $animal = Animal::findOrFail($id->id_Animal);
         $animal->update($cambioEdad);
 
         $historicoData = $cambioData;
@@ -1362,7 +1362,7 @@ public function agregarMedidas(MedidasRequest $request, $id_Animal)
     $medidasData['id_Animal'] = $id_Animal;
    
     DB::transaction(function() use ($medidasData,$historicoData,$id_Animal,&$data){
-    $medidas = medidas_corporales::create($medidasData);
+    $medidas = MedidasCorporales::create($medidasData);
 
     $historicoData['id_Medida'] = $medidas->id_Medida;
     $historicoData['id_Animal'] = $id_Animal;
@@ -1402,7 +1402,7 @@ public function modificarMedidas(MedidasRequest $request, $idMedida)
       $medidaData = $request->validated()['medida'];
 
       DB::transaction(function() use ($medidaData,$idMedida,&$data){
-        $medida = medidas_corporales::findOrFail($idMedida);
+        $medida = MedidasCorporales::findOrFail($idMedida);
         $medida->update($medidaData);
 
         $historicoData = $medidaData;
@@ -1488,7 +1488,7 @@ public function agregarIndiceCorporal(indiceRequest $request,$id_Animal)
     $indiceData['id_Animal'] = $id_Animal;
    
     DB::transaction(function() use ($indiceData,$historicoData,$id_Animal,&$data){
-    $indice = indices_corporales::create($indiceData);
+    $indice = IndicesCorporales::create($indiceData);
 
     $historicoData['id_Indice'] = $indice->id_Indice;
     $historicoData['id_Animal'] = $id_Animal;
@@ -1528,7 +1528,7 @@ public function modificarIndiceCorporal(indiceRequest $request,$idIndice)
       $indiceData = $request->validated()['indice'];
 
       DB::transaction(function() use ($indiceData,$idIndice,&$data){
-        $indice = indices_corporales::findOrFail($idIndice);
+        $indice = IndicesCorporales::findOrFail($idIndice);
         $indice->update($indiceData);
 
         $historicoData = $indiceData;
@@ -1615,7 +1615,7 @@ public function establecerPeso(pesoRequest $request,$tipo,$id_Animal,$id_Tecnico
       $pesoData['id_Tecnico'] = $id_Tecnico;
 
     DB::transaction(function() use ($pesoData,$tipo,$id_Animal,$id_Tecnico,&$data){
-      $peso = peso_corporal::create($pesoData);
+      $peso = PesoCorporal::create($pesoData);
 
       $columna_fecha = 'Fecha_' . $tipo;
       $columna_peso = 'Peso_' . $tipo;
@@ -1658,7 +1658,7 @@ public function actualizarPesoCorporal(pesoRequest $request,$idPeso,$tipo,$id_Te
       $pesoData['id_Tecnico'] = $id_Tecnico;
 
     DB::transaction(function() use ($pesoData,$idPeso,$tipo,&$data){
-      $peso = peso_corporal::findOrFail($idPeso);
+      $peso = PesoCorporal::findOrFail($idPeso);
       $peso->update($pesoData);
 
       $columna_fecha = 'Fecha_' . $tipo;

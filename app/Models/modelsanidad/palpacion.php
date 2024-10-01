@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\modelsanidad;
+namespace App\Models\ModelSanidad;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class palpacion extends Model
+class Palpacion extends Model
 {
     use HasFactory;
 

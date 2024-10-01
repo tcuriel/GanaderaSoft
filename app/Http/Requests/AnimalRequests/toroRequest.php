@@ -4,7 +4,7 @@ namespace App\Http\Requests\AnimalRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class toroRequest extends FormRequest
+class ToroRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -4,7 +4,7 @@ namespace App\Http\Requests\FincaRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class fincaStoreRequest extends FormRequest
+class FincaStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

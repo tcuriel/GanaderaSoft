@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #666
+  }
+
+  body {
+    /*background-image: url('/images/fondo_GS.png');
+    /*opacity: 0.5; /* Adjust opacity as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Adjust height as needed */
+  }
+
+  aside {
+    background-color: #E6F4E7;
+  }
+
+  .tarjeta {
+    /*background-color: #E6F4E7;*/
+    /*border: 0px;*/
+    background-color: #c4d741; /* Slightly lighter shade */
+    opacity: 0.8; /* Adjust opacity as needed */
+  }
+
+  .xbg-transparentx{
+    background-color: transparent;
+    border: 0px;
+  }
+
+  .bg-aside{
+    background-color: #61b5d5; /* Slightly lighter shade */
+    opacity: 0.8; /* Adjust opacity as needed */
+  }
+
+  .main-header {
+    background-color: #218EBC;
+    height: 105px; /* Ajusta el valor deseado */
+  }
+
+  .brand-image {
+      background-color: #fff;
+      width: 100px;
+      height: 100px;
+      max-height: 100px;
+      /*opacity: 0.5; /* Adjust opacity as needed */
+  }
+
+  .brand-link {
+      /*background-color: gray;*/
+      position: fixed;
+      top: 15px;
+      left: 25px;
+      color: #000;
+      text-decoration: none;
+      opacity: 0.7; /* Adjust opacity as needed */
+  }
+
+  .brand-text {
+      background-color: #fff;
+      /*opacity: 0.5; /* Adjust opacity as needed */
+      color: #000;
+  }
+
+  .opciones{
+    position: fixed;
+    top: 150px;
+    left: 5px;
+  }
+
+  .label {
+    width: 462px;
+    height: 77px;
+    /*background-color: gray;*/
+    position: fixed;
+    top: 25px;
+    left: 200px;
+  }
+
+  .label .text-wrapper {
+    width: 462px;
+    -webkit-text-stroke: 1px #148fbe;
+    font-family: "Poppins", Helvetica;
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 60px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .footer {
+    left: 17px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 0px;
+    opacity: 0px;
+    position: fixed; /* Fix the footer to the bottom */
+    bottom: 0; /* Place it at the absolute bottom */
+    width: 100%; /* Span the full width of the viewport */
+    background-color: bg-transparent; /* Set a background color */
+    padding: 20px; /* Add some padding for spacing */
+    left: 250px;
+
+  }
+
+  .footer span{
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 19.5px;
+    text-align: left;
+    color: black;
+  }
+
+  .footer img{
+    margin-right: 5px;
+  }
+
+  .dropdown-menu {
+    top: 4em; /* Desplaza 1 em hacia abajo */
+  }

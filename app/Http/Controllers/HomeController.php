@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Config\Repository;
-use App\Http\Controllers\fincacontroller;
+use App\Http\Controllers\FincaController;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -23,7 +23,7 @@ class HomeController extends Controller
      * @return void
      */
     public function __construct(
-        fincacontroller $fincaController,
+        FincaController $fincaController,
         Repository $config
     ){
         $this->middleware('auth');
@@ -45,7 +45,9 @@ class HomeController extends Controller
         
         if($user->type_user == 'Administrar')
         {
-            $aDonde = 'administrar.welcome2';
+            $aDonde = 'administrar.welcome';
+            //echo $aDonde;
+            //exit;
         }else if($user->type_user == 'Propietario')
         {
             $aDonde = 'finca.welcome';
@@ -87,6 +89,13 @@ class HomeController extends Controller
         $statusFarms = config('app.statusfarm');
         $personalRequests = config('app.solicitudes');
         $inventarioRequests = config('app.inventario');
+        /*
+        echo 'section-'.$section;
+        echo 'selectView-'.$view;
+        echo 'selectorViews-';
+        dd($selectorViews);
+        */
+        //exit;
 
         $listRebano = $this->fincaController->listarRebano("Activo",$data[0]->id_Finca)->getData()->data;
         return view('home', [

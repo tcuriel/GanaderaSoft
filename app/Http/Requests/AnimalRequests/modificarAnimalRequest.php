@@ -4,7 +4,7 @@ namespace App\Http\Requests\AnimalRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class modificarAnimalRequest extends FormRequest
+class ModificarAnimalRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

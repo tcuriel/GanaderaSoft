@@ -38,6 +38,12 @@
                 background-image: url('../../../public/images/icon_cow_b.svg');
             }
         }
+        .ico_reproduction {
+            background-image: url('../../../public/images/icon_production_w.svg');
+            &:hover {
+                background-image: url('../../../public/images/icon_production_b.svg');
+            }
+        }
         .ico_production {
             background-image: url('../../../public/images/icon_reproduction_w.svg');
             &:hover {
@@ -64,6 +70,9 @@
             .ico_cow {
                 background-image: url('../../../public/images/icon_cow_b.svg');
             }
+            .ico_reproduction {
+                background-image: url('../../../public/images/icon_production_b.svg');
+            }
             .ico_production {
                 background-image: url('../../../public/images/icon_reproduction_b.svg');
             }
@@ -79,8 +88,12 @@
         
         color: #FFF;
         height: 105px;
-        font-size: 24px;
-        font-weight: bold;
+        
+        /*font-size: 24px;
+        font-weight: bold;*/
+
+        font-size: 15px;
+        font-family: Inter, Arial, Helvetica, sans-serif;
 
         display: flex;
         flex-direction: row;
@@ -135,6 +148,9 @@
     }
     .ico_cow {
         background-image: url('../../../public/images/icon_cow_b.svg');
+    }
+    .ico_reproduction {
+        background-image: url('../../../public/images/icon_production_b.svg');
     }
     .ico_production {
         background-image: url('../../../public/images/icon_reproduction_b.svg');

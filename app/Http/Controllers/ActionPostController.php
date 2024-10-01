@@ -17,7 +17,7 @@ class ActionPostController extends Controller
 
     public function __construct(
         ValidatorFactory $validatorFactory,
-        fincacontroller $fincaController
+        FincaController $fincaController
     ) {
         $this->middleware('auth');
         $this->validatorFactory = $validatorFactory;

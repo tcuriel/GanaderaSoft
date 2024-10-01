@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models\modelfinca;
+namespace App\Models\ModelFinca;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 
-class afiliacion extends Model
+class Afiliacion extends Model
 {
     use HasFactory;
     protected $table = "afiliacion";
@@ -25,7 +25,7 @@ class afiliacion extends Model
 
     public function fincas(): BelongsTo
     {
-        return $this->BelongsTo(finca::class, "id_Finca", "id_Finca");
+        return $this->BelongsTo(Finca::class, "id_Finca", "id_Finca");
     }
 
     public function transcriptores(): BelongsTo
@@ -52,7 +52,7 @@ class afiliacion extends Model
     public function buscarAfiliacion($id_P,$id_T,$idFinca)
     {
         try{
-            return afiliacion::where('id_Personal_P',$id_P)->where('id_Personal_T',$id_T)
+            return Afiliacion::where('id_Personal_P',$id_P)->where('id_Personal_T',$id_T)
                             ->where('id_Finca',$idFinca)->firstOrFail();
 
         }catch(QueryException $e){
@@ -69,7 +69,7 @@ class afiliacion extends Model
     public function obtenerEstadoAfiliacion($id_P,$id_T,$idFinca)
     {
         try{
-            return afiliacion::where('id_Personal_P',$id_P)->where('id_Personal_T',$id_T)
+            return Afiliacion::where('id_Personal_P',$id_P)->where('id_Personal_T',$id_T)
                             ->where('id_Finca',$idFinca)->value('Estado');
 
         }catch(QueryException $e){

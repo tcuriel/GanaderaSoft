@@ -7,8 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Config\Repository;
-use App\Models\modelusuario\User;
-use App\Http\Controllers\fincacontroller;
+use App\Models\ModelUsuario\User;
+use App\Http\Controllers\FincaController;
 
 class SubirUsuarioController extends Controller
 {
@@ -25,7 +25,7 @@ class SubirUsuarioController extends Controller
      * @return void
      */
     public function __construct(
-        fincacontroller $fincaController,
+        FincaController $fincaController,
         Repository $config
     ){
         $this->middleware('auth');

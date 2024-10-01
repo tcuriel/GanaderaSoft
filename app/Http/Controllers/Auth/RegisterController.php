@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\modelusuario\User;
+use App\Models\ModelUsuario\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
-use App\Models\modelusuario\propietario;
-use App\Models\modelusuario\transcriptor;
+use App\Models\ModelUsuario\Propietario;
+use App\Models\ModelUsuario\Transcriptor;
 use Carbon\Carbon;
-use App\Http\Requests\csvRequests\csvRequest;
+use App\Http\Requests\CSVRequests\CSVRequest;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

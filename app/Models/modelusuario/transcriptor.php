@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\modelusuario;
+namespace App\Models\ModelUsuario;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class transcriptor extends Model
+class Transcriptor extends Model
 {
     use HasFactory;
 
-    protected $table = "Transcriptor";
+    protected $table = "transcriptor";
     protected $primaryKey = "id";
     public $incrementing = false;
 
@@ -27,7 +27,7 @@ class transcriptor extends Model
 
     public function afiliaciones(): HasMany
     {
-        return $this->HasMany(afiliacion::class, "afiliacion", "id_Personal_T", "id");
+        return $this->HasMany(Afiliacion::class, "afiliacion", "id_Personal_T", "id");
     }
 
     public function usuario(): BelongsTo

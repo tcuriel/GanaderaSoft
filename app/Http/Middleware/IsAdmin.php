@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 // Suponiendo que tu modelo de usuario es App\Models\User
 
-use App\Models\modelusuario\User; // Importar el modelo de usuario
+use App\Models\ModelUsuario\User; // Importar el modelo de usuario
 
 class IsAdmin
 {

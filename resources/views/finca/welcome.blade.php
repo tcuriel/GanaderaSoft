@@ -2,6 +2,25 @@
 
 @section('css-content')
     @vite('resources/sass/app/finca/stylewelcomefarm.scss')
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #666
+        }
+
+        body {
+            background-image: url('/images/fondo_GS.png');
+            /*opacity: 0.5; /* Adjust opacity as needed */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Adjust height as needed */
+        }
+	</style>
+    
     <style>
         .box-GS-hf {
             display: flex;
@@ -36,7 +55,7 @@
 
     <div class="box-GS-hf">
         <img src="{{ asset('images/VACA-1 14.svg') }}" class="logo-GS-hf" alt="Logo GS">
-        <span class="titulo-GS-hf"> .:. Bienvenido ({{ $user->name }}) .:. </span>
+        <span class="titulo-GS-hf"> Bienvenido ({{ $user->name }}) </span>
     </div>
     
 

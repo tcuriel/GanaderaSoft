@@ -4,7 +4,7 @@ namespace App\Http\Requests\AnimalRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class pesoRequest extends FormRequest
+class PesoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -6,6 +6,7 @@
 
 @section('body-content')
     @include('animal.formcreateanimal')
+    <!--include('animal.formmodificaranimal')-->
 @stop
 
 @section('js-content')

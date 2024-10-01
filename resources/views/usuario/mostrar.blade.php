@@ -1,4 +1,4 @@
-@extends('layouts.page2')
+@extends('layouts.pageAdministrar')
 
 @php
     $cargar_tabs = false;
@@ -19,9 +19,9 @@
     @vite('resources/sass/app/wellcome/styles.scss')
 
 	<!-- Data Tables style -->
-	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap452.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap4x.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/responsive.bootstrap4x.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/css/responsive.bootstrap.css') }}">
 
 @endsection
 
@@ -86,7 +86,7 @@
 	</div>
 
 	<div id="conteudo_1" class="conteudo visivel">
-		@include('usuario.table4')
+		@include('usuario.tableListarUsuario')
 	</div>
 
 	<div id="conteudo_2" class="conteudo">
@@ -101,12 +101,12 @@
 	
 	<!-- Data Tables js -->
     <!--script src="{{ asset('assets/js/jquery-3.7.1.js') }}"></script-->
-    <script src="{{ asset('assets/js/popper.min4.js') }}"></script>
-    <!--script src="{{ asset('assets/js/bootstrap.min452.js') }}"></script-->
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <!--script src="{{ asset('assets/js/bootstrap.min.js') }}"></script-->
     <script src="{{ asset('assets/js/dataTables215.js') }}"></script>
-    <script src="{{ asset('assets/js/dataTables.bootstrap4x.js') }}"></script>
+    <script src="{{ asset('assets/js/dataTables.bootstrap.js') }}"></script>
     <script src="{{ asset('assets/js/dataTables.responsive303.js') }}"></script>
-    <script src="{{ asset('assets/js/responsive.bootstrap4x.js') }}"></script>
+    <script src="{{ asset('assets/js/responsive.bootstrap.js') }}"></script>
 
 	<script>
 		var table = new DataTable('#usuarios', {

@@ -1,10 +1,10 @@
-@extends('layouts.page2')
+@extends('layouts.pageAdministrar')
 
 @php
     $cargar_tabs = true;
-    $mostrar_instituciones = false;
+    $mostrar_instituciones = true;
     $mostrar_estrella_solitaria = true;
-    $mostrar_lateral = false;
+    $mostrar_lateral = true;
     $mostrar_btn_inicio_sesion = false;
 @endphp
 
@@ -16,81 +16,89 @@
 
 @section('css-content')
 
+  @vite('resources/sass/app/wellcome/styles.scss')
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
   <link rel="stylesheet" href=" {{ asset('assets/css/upload.css') }}">
 
-    <style>
-      .dropZone {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 90%;
-        height: 15vh;
-        border: 1px solid #5AB0D180;
-		    border-radius: 10px;
-      }
+  <style>
+    .center-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
 
-      .p_interno{
-        font-size: 18px;
-        animation: sombraTexto 1s infinite;
-      }
+  <style>
+    .dropZone {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      height: 15vh;
+      border: 1px solid #5AB0D180;
+      border-radius: 10px;
+    }
 
-      .dropZone.is-active {
-        border: 2px dashed #fff;
-        background-color: #02ff0280;
-        animation: contenidoInterno 1.5s infinite;
-        animation-timing-function: linear;
-      }
+    .p_interno{
+      font-size: 18px;
+      animation: sombraTexto 1s infinite;
+    }
 
-    </style>
-    
-    <style type="text/css">
+    .dropZone.is-active {
+      border: 2px dashed #fff;
+      background-color: #02ff0280;
+      animation: contenidoInterno 1.5s infinite;
+      animation-timing-function: linear;
+    }
 
-				/* Curso CSS estilos aprenderaprogramar.com*/
-				body {
-          font-family: Arial, Helvetica, sans-serif;
-        }
+  </style>
 
-				table {     
-          font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-					font-size: 16px;    
-          margin: 45px;     
-          width: 80%; 
-          /*height: 100vh;*/
-          text-align: left;    
-          border-collapse: collapse; 
-        }
+  <style type="text/css">
+    /* Curso CSS estilos aprenderaprogramar.com*/
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-				th {     
-          font-size: 18px;     
-          font-weight: normal;     
-          padding: 8px;     
-          background: #5AB0D1;
-					border-top: 4px solid #aabcfe;    
-          border-bottom: 1px solid #fff; 
-          color: #000; 
-        }
+    table {     
+      font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+      font-size: 16px;    
+      margin: 45px;     
+      width: 80%; 
+      /*height: 100vh;*/
+      text-align: left;    
+      border-collapse: collapse; 
+    }
 
-				td {    
-          padding: 8px;     
-          background: #e8edff;     
-          border-bottom: 1px solid #fff;
-					color: #000;    
-          border-top: 1px solid transparent; 
-        }
+    th {     
+      font-size: 18px;     
+      font-weight: normal;     
+      padding: 8px;     
+      background: #5AB0D1;
+      border-top: 4px solid #aabcfe;    
+      border-bottom: 1px solid #fff; 
+      color: #000; 
+    }
 
-				tr:hover td { 
-          background: #d0dafd; 
-          color: #339; 
-        }
-      </style>
+    td {    
+      padding: 8px;     
+      background: #e8edff;     
+      border-bottom: 1px solid #fff;
+      color: #000;    
+      border-top: 1px solid transparent; 
+    }
+
+    tr:hover td { 
+      background: #d0dafd; 
+      color: #339; 
+    }
+</style>
 
 @endsection
 
 @section('instituciones')
-        <img src="{{ asset('images/ucv 1.svg') }}" alt="">
-        <img src="{{ asset('images/logonuevopng (1) 1.svg') }}" alt="">
-        <img src="{{ asset('images/fagro.svg') }}" alt="">
-        <img src="{{ asset('images/Fonacit 1.svg') }}" alt="">
+
 @endsection
 
 @section('barra2')
@@ -124,111 +132,33 @@
 
 @section('lateral')
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: transparent;">
-    <!-- Sidebar -->
-    <div class="sidebar" style="background-color: transparent;">
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user-alt"></i>
-              <p>
-                Usuarios
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('crearusuario')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modificar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Consultar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Eliminar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Archivar</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-users"></i>
-              <p>
-                Subir usuarios
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('seleccionarSubirUsuarios')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Subir</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-      </div>
-    <!-- /.sidebar -->
-  </aside>
-
 @endsection
 
 @section('contenido')
 
-<div id="conteudos" class="conteudos">
+	<div id="conteudos" class="conteudos">
 
     <div class="conteudos_tabs">
 
-        <ul id="abas" class="teste">
+      <ul id="abas" class="teste">
 
-            @if($cargar_tabs)
-                <li class="selecionada">
-                    <a id="aba_1" href="#aba_1" onclick="event.preventDefault()">
-                    </a>
-                </li>
-                <li>
-                    <a id="aba_2" href="#aba_2" onclick="event.preventDefault()">
-                    </a>
-                </li>
-            @endif
-            
-        </ul>
+          @if($cargar_tabs)
+              <li class="selecionada">
+                  <a id="aba_1" href="#aba_1" onclick="event.preventDefault()">
+                  </a>
+              </li>
+              <li>
+                  <a id="aba_2" href="#aba_2" onclick="event.preventDefault()">
+                  </a>
+              </li>
+          @endif
+          
+      </ul>
 
     </div>
 
-		<!--h2 style="width: 60rem;left: 20px;"><--- Subir Usuarios</h2-->
-
-		<div id="conteudo_1" class="conteudo visivel">
-
+    <div id="conteudo_1" class="conteudo visivel">
+      <!--h2 style="width: 60rem;left: 20px;"><--- Subir Usuarios</h2-->
       <div class="card card-primary">
         <div class="card-header" style="background-color: #5AB0D1;">
           <h3 class="card-title">Subir Usuarios</h3>
@@ -296,19 +226,24 @@
           </div>
         </form>
       </div>
-		</div>
+    </div>
 
-		<div id="conteudo_2" class="conteudo">
-      <p>Subida de fincas (previsualización)</p>
-      <p>Conteúdo da Aba 2</p>
-		</div>
-		
+    <div id="conteudo_2" class="conteudo">
+      <p>
+        <h2>Usuarios a subir (previsualización)</ha>
+      </p>
+    </div>
+
 	</div>
+
 @endsection
 
-@section('js-content')
+@section('adminlte_js')
+	
+    @yield('js-content')
 
 	<script  src="{{ asset('assets/js/script-tabs.js') }}"></script>
+
   <script  src="{{ asset('assets/js/encoding.min.js') }}"></script>
 
   <script type="text/javascript">

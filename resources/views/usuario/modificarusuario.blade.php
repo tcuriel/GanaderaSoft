@@ -1,4 +1,4 @@
-@extends('layouts.page2')
+@extends('layouts.pageAdministrar')
 
 @php
     $cargar_tabs = false;

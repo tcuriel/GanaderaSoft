@@ -4,7 +4,7 @@ namespace App\Http\Requests\UserRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class transcriptorRequest extends FormRequest
+class TranscriptorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

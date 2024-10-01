@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\principalcontroller;
+use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\User\SubirUsuarioController;
 
 /* Route::post('/login',[logincontroller::class,'login']);
@@ -23,12 +23,12 @@ Route::post('/csv-users',[RegisterController::class,'addUserMasivo'])->name('imp
 Route::get('/api/user', [App\Http\Controllers\Api\UserController::class,'getUser'])->name('getUser');
 
 //listar usuario por admin
-Route::get('/listado/{opcion}/{archivado}',[principalcontroller::class,'userOptionList'])->name('users.option.list');
+Route::get('/listado/{opcion}/{archivado}',[PrincipalController::class,'userOptionList'])->name('users.option.list');
 
-Route::get('/consultar/{id}',[principalcontroller::class,'unicoUser'])->name('user.consult');
+Route::get('/consultar/{id}',[PrincipalController::class,'unicoUser'])->name('user.consult');
 
-Route::put('/modificar/{id}',[principalcontroller::class,'modificarUsuario']);
+Route::put('/modificar/{id}',[PrincipalController::class,'modificarUsuario']);
 
-Route::delete('/eliminar/{id}',[principalcontroller::class,'eliminarUsuario']);
+Route::delete('/eliminar/{id}',[PrincipalController::class,'eliminarUsuario']);
 
-Route::put('/archivo/{id}/{tipoUsuario}/{archivado}',[principalcontroller::class,'archivarUsuario']);
+Route::put('/archivo/{id}/{tipoUsuario}/{archivado}',[PrincipalController::class,'archivarUsuario']);
