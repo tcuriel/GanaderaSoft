@@ -19,7 +19,16 @@
             </div>
             <div class="col-lg-6 col-md-12 order-lg-2 order-md-1 order-1 pb-3"> 
                 <!-- "{{ route('createmyfarmI') }}" {{ route('users.option.list', ['opcion' => 'mixto', 'archivado' => 0]) }}-->
-   
+
+                <a href="{{ route('finca.pdf') }}" 
+                    type="button" 
+                    id="listadoPDF" 
+                    name="ListadoPDF" 
+                    class="btn btn btn btn-outline-danger"
+                    target="_blank"> 
+                        Listado
+                </a>
+
                 <a href="{{ route('createmyfarmI') }}" 
                     type="button" 
                     id="createfarm" 

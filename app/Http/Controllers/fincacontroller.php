@@ -36,6 +36,7 @@ use App\Models\ModelAnimal\Animal;
 use App\Models\ModelSanidad\Palpacion;
 use App\Models\ModelReproduccion\ServicioAnimal;
 //use App\Models\Modelanimal\registro_pesocor;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -60,6 +61,22 @@ class FincaController extends Controller
         $this->movimiento_rebano_animal = new MovimientoRebanoAnimal;
     }
    
+    public function pdf()
+    {
+        //return view('finca.pdf');
+        //$fincas = Finca::all();
+
+        $fincas = DB::table('finca')->join('propietario','propietario.id','=','finca.id_Propietario')
+        ->select('finca.id_Finca', 'propietario.Nombre as nombre_propietario', 'finca.Nombre', 'finca.Explotacion_Tipo', 'finca.archivado')
+        ->get();
+
+        //dd($fincas);
+
+        $pdf = Pdf::loadView('finca.pdf', compact('fincas'));
+        return $pdf->stream();
+
+    }
+
     public function fincaStore(FincaStoreRequest $request, $idPropietario)
     {
         //metodo que verifica si la informacion esta definida y no es nula

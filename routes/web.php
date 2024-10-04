@@ -43,6 +43,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // ... y así sucesivamente para todas las rutas que deban usar estos middleware
 });
 
+Route::get('/finca/pdf', [App\Http\Controllers\FincaController::class, 'pdf'])->name('finca.pdf');
+
 Route::get('/crudusuarios/{opcion}/{archivado}', [App\Http\Controllers\PrincipalController::class, 'crudUsuarios'])->name('crudusuarios.option.list');
 //Route::get('/listado/{opcion}/{archivado}',[PrincipalController::class,'userOptionList'])->name('users.option.list');
 
